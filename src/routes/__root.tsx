@@ -6,7 +6,6 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, useMemo } from "react";
-import { Toaster } from "sonner";
 import { IntlProvider } from "use-intl";
 import { CountdownWidget } from "#/components/countdown-widget";
 import { SiteFooter } from "#/components/site-footer";
@@ -306,7 +305,6 @@ function RootLayout() {
             <Outlet />
           </main>
           <SiteFooter />
-          <Toaster richColors position="top-right" />
           <CountdownWidget />
         </TooltipProvider>
       </RootScrollArea>

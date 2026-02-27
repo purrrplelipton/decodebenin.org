@@ -1,4 +1,4 @@
-import { Icon } from "@iconify-icon/react";
+import { Icon as _Icon } from "@iconify-icon/react";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslations } from "use-intl";
@@ -17,6 +17,15 @@ import { getCurrentLocale } from "#/i18n/core/client";
 import { LOCALE_COOKIE } from "#/i18n/core/shared";
 import { navLinks } from "#/lib/data";
 import { cn } from "#/lib/utils";
+
+function ensureComponent<T>(component: T): T {
+  if (typeof component === "object" && component !== null && "default" in component) {
+    return (component as { default: T }).default;
+  }
+  return component;
+}
+
+const Icon = ensureComponent(_Icon);
 
 export function SiteHeader() {
   const { isVisible, isAtTop } = useScrollDirection();

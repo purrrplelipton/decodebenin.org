@@ -43,6 +43,9 @@ const config = defineConfig(({ mode }) => {
       }),
       svgr(),
     ],
+    ssr: {
+      noExternal: ["@iconify-icon/react", "react-country-flag"],
+    },
     esbuild: {
       drop: env.NODE_ENV === "production" ? ["console", "debugger"] : [],
     },
