@@ -1,0 +1,132 @@
+import { useTranslations } from "use-intl";
+import { AnimateInView } from "#/components/animate-in-view";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "#/components/ui/accordion";
+
+const faqItems = [
+  { q: "Q1", a: "A1" },
+  { q: "Q2", a: "A2" },
+  { q: "Q3", a: "A3" },
+  { q: "Q4", a: "A4" },
+] as const;
+
+export function FaqSection() {
+  const t = useTranslations();
+
+  return (
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-background py-20 md:py-28"
+      aria-labelledby="faq-heading"
+    >
+      {/* Dotted paper bg */}
+      <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
+
+      {/* SCATTERED PHOTO CARDS */}
+      <div className="absolute top-20 left-8 hidden -rotate-8 lg:block" aria-hidden="true">
+        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-green rounded-sm bg-card p-2">
+          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground">
+            📸
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute top-2/3 right-12 hidden rotate-6 lg:block" aria-hidden="true">
+        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
+          <div className="flex h-32 w-28 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-red/20 text-muted-foreground">
+            🎞️
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-20 left-1/3 hidden -rotate-4 lg:block" aria-hidden="true">
+        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-red rounded-sm bg-card p-2">
+          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-purple/20 text-muted-foreground">
+            📷
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute right-1/4 bottom-32 hidden rotate-10 lg:block" aria-hidden="true">
+        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
+          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-purple/20 to-decode-green/20 text-muted-foreground">
+            🎬
+          </div>
+        </div>
+      </div>
+
+      {/* Decorative washi */}
+      <div
+        className="washi-green absolute top-16 right-8 h-3 w-20 rotate-6 rounded-sm"
+        aria-hidden="true"
+      />
+      <div
+        className="washi-yellow absolute bottom-20 left-12 h-3 w-14 -rotate-3 rounded-sm"
+        aria-hidden="true"
+      />
+      <div
+        className="washi-red absolute top-1/2 left-1/4 hidden h-3 w-20 rotate-8 rounded-sm lg:block"
+        aria-hidden="true"
+      />
+      <div
+        className="washi-purple absolute right-1/3 bottom-1/3 hidden h-3 w-16 -rotate-6 rounded-sm lg:block"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-1/3 left-6 size-2 rounded-full bg-decode-red/50"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-1/4 right-1/3 hidden size-2.5 rounded-full bg-decode-green/40 lg:block"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-1/4 left-1/2 hidden size-2 rounded-full bg-decode-yellow/50 lg:block"
+        aria-hidden="true"
+      />
+
+      <div className="relative z-10 mx-auto max-w-3xl px-4 md:px-6">
+        <AnimateInView animation="fade-up" className="mb-12 text-center md:mb-16">
+          <h2
+            id="faq-heading"
+            className="text-balance font-bold font-serif text-3xl text-foreground sm:text-4xl md:text-5xl"
+          >
+            {t("faqTitle")}
+          </h2>
+        </AnimateInView>
+
+        <AnimateInView animation="fade-up" delay={100}>
+          <div className="scrapbook-card relative rounded-lg bg-card p-4 md:p-6">
+            {/* Tape at top */}
+            <div
+              className="washi-purple absolute -top-2 left-1/2 h-5 w-20 -translate-x-1/2 rounded-sm"
+              aria-hidden="true"
+            />
+
+            <Accordion className="w-full">
+              {faqItems.map((item, index) => (
+                <AccordionItem key={item.q} value={item.q} className="border-border/50">
+                  <AccordionTrigger className="py-5 text-left font-semibold text-base text-foreground hover:no-underline">
+                    <span className="flex items-center gap-3">
+                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-decode-purple/10 font-bold text-decode-purple-light text-xs">
+                        {index + 1}
+                      </span>
+                      {t(`faq${item.q}`)}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pl-10 text-muted-foreground leading-relaxed">
+                    {t(`faq${item.a}`)}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        </AnimateInView>
+      </div>
+    </section>
+  );
+}

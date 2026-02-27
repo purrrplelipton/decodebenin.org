@@ -1,0 +1,353 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import "@fontsource/space-grotesk";
+@import "@fontsource/space-mono";
+@import "@fontsource/sora";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Decode Benin - Deep Purple + Benin Flag accents */
+  --background: oklch(0.98 0.005 300);
+  --foreground: oklch(0.15 0.03 290);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.03 290);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.03 290);
+  --primary: oklch(0.30 0.15 290);
+  --primary-foreground: oklch(0.98 0.005 300);
+  --secondary: oklch(0.94 0.02 290);
+  --secondary-foreground: oklch(0.25 0.12 290);
+  --muted: oklch(0.95 0.01 290);
+  --muted-foreground: oklch(0.50 0.04 290);
+  --accent: oklch(0.94 0.02 290);
+  --accent-foreground: oklch(0.25 0.12 290);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.55 0.22 25);
+  --border: oklch(0.90 0.02 290);
+  --input: oklch(0.90 0.02 290);
+  --ring: oklch(0.45 0.15 290);
+  --radius: 0.5rem;
+
+  /* Decode Benin Brand Colors */
+  --decode-purple: oklch(0.30 0.15 290);
+  --decode-purple-light: oklch(0.45 0.15 290);
+  --decode-white: oklch(1 0 0);
+  --decode-green: oklch(0.55 0.18 155);
+  --decode-yellow: oklch(0.88 0.18 90);
+  --decode-red: oklch(0.55 0.22 25);
+
+  /* Scrapbook effect vars */
+  --tape-color: oklch(0.92 0.06 90 / 0.7);
+  --paper-shadow: 0 2px 8px oklch(0 0 0 / 0.08), 0 1px 3px oklch(0 0 0 / 0.06);
+  --paper-shadow-hover: 0 8px 24px oklch(0 0 0 / 0.12), 0 4px 8px oklch(0 0 0 / 0.08);
+
+  /* Ambient elevation */
+  --ambient-elevation-0: none;
+  --ambient-elevation-1: 0 1px 3px oklch(0 0 0 / 0.06), 0 1px 2px oklch(0 0 0 / 0.04);
+  --ambient-elevation-2: 0 4px 12px oklch(0 0 0 / 0.08), 0 2px 4px oklch(0 0 0 / 0.04);
+  --ambient-elevation-3: 0 12px 32px oklch(0 0 0 / 0.12), 0 4px 8px oklch(0 0 0 / 0.06);
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.30 0.15 290);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  --chart-1: oklch(0.30 0.15 290);
+  --chart-2: oklch(0.55 0.18 155);
+  --chart-3: oklch(0.88 0.18 90);
+  --chart-4: oklch(0.55 0.22 25);
+  --chart-5: oklch(0.45 0.15 290);
+}
+
+.dark {
+  --background: oklch(0.14 0.03 290);
+  --foreground: oklch(0.95 0.01 290);
+  --card: oklch(0.18 0.03 290);
+  --card-foreground: oklch(0.95 0.01 290);
+  --popover: oklch(0.18 0.03 290);
+  --popover-foreground: oklch(0.95 0.01 290);
+  --primary: oklch(0.70 0.15 290);
+  --primary-foreground: oklch(0.14 0.03 290);
+  --secondary: oklch(0.25 0.04 290);
+  --secondary-foreground: oklch(0.95 0.01 290);
+  --muted: oklch(0.25 0.04 290);
+  --muted-foreground: oklch(0.65 0.04 290);
+  --accent: oklch(0.25 0.04 290);
+  --accent-foreground: oklch(0.95 0.01 290);
+  --destructive: oklch(0.40 0.18 25);
+  --destructive-foreground: oklch(0.60 0.22 25);
+  --border: oklch(0.28 0.04 290);
+  --input: oklch(0.28 0.04 290);
+  --ring: oklch(0.55 0.15 290);
+  --chart-1: oklch(0.55 0.15 290);
+  --chart-2: oklch(0.60 0.18 155);
+  --chart-3: oklch(0.88 0.18 90);
+  --chart-4: oklch(0.55 0.22 25);
+  --chart-5: oklch(0.70 0.15 290);
+  --sidebar: oklch(0.18 0.03 290);
+  --sidebar-foreground: oklch(0.95 0.01 290);
+  --sidebar-primary: oklch(0.55 0.15 290);
+  --sidebar-primary-foreground: oklch(0.95 0.01 290);
+  --sidebar-accent: oklch(0.25 0.04 290);
+  --sidebar-accent-foreground: oklch(0.95 0.01 290);
+  --sidebar-border: oklch(0.28 0.04 290);
+  --sidebar-ring: oklch(0.55 0.15 290);
+}
+
+@theme inline {
+  --font-sans: 'Space Grotesk', 'Space Grotesk Fallback', system-ui, sans-serif;
+  --font-mono: 'Space Mono', 'Space Mono Fallback', monospace;
+  --font-serif: 'Sora', 'Sora Fallback', system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Brand color utilities */
+  --color-decode-purple: var(--decode-purple);
+  --color-decode-purple-light: var(--decode-purple-light);
+  --color-decode-white: var(--decode-white);
+  --color-decode-green: var(--decode-green);
+  --color-decode-yellow: var(--decode-yellow);
+  --color-decode-red: var(--decode-red);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Scrapbook Utilities */
+@utility scrapbook-card {
+  box-shadow: var(--paper-shadow);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    box-shadow: var(--paper-shadow-hover);
+  }
+}
+
+@utility tape-effect {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-2deg);
+    width: 60px;
+    height: 20px;
+    background: var(--tape-color);
+    border-radius: 2px;
+    z-index: 1;
+  }
+}
+
+@utility torn-edge-bottom {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,0 L1200,0 L1200,10 Q1180,20 1160,10 Q1140,0 1120,10 Q1100,20 1080,10 Q1060,0 1040,10 Q1020,20 1000,10 Q980,0 960,10 Q940,20 920,10 Q900,0 880,10 Q860,20 840,10 Q820,0 800,10 Q780,20 760,10 Q740,0 720,10 Q700,20 680,10 Q660,0 640,10 Q620,20 600,10 Q580,0 560,10 Q540,20 520,10 Q500,0 480,10 Q460,20 440,10 Q420,0 400,10 Q380,20 360,10 Q340,0 320,10 Q300,20 280,10 Q260,0 240,10 Q220,20 200,10 Q180,0 160,10 Q140,20 120,10 Q100,0 80,10 Q60,20 40,10 Q20,0 0,10 Z' fill='white'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,0 L1200,0 L1200,10 Q1180,20 1160,10 Q1140,0 1120,10 Q1100,20 1080,10 Q1060,0 1040,10 Q1020,20 1000,10 Q980,0 960,10 Q940,20 920,10 Q900,0 880,10 Q860,20 840,10 Q820,0 800,10 Q780,20 760,10 Q740,0 720,10 Q700,20 680,10 Q660,0 640,10 Q620,20 600,10 Q580,0 560,10 Q540,20 520,10 Q500,0 480,10 Q460,20 440,10 Q420,0 400,10 Q380,20 360,10 Q340,0 320,10 Q300,20 280,10 Q260,0 240,10 Q220,20 200,10 Q180,0 160,10 Q140,20 120,10 Q100,0 80,10 Q60,20 40,10 Q20,0 0,10 Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% auto;
+  mask-size: 100% auto;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: bottom;
+  mask-position: bottom;
+  padding-bottom: 20px;
+}
+
+@utility ambient-elevation-1 {
+  box-shadow: var(--ambient-elevation-1);
+}
+
+@utility ambient-elevation-2 {
+  box-shadow: var(--ambient-elevation-2);
+}
+
+@utility ambient-elevation-3 {
+  box-shadow: var(--ambient-elevation-3);
+}
+
+@utility pin-effect {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--decode-red);
+    box-shadow: 0 2px 4px oklch(0 0 0 / 0.2);
+    z-index: 2;
+  }
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+
+  100% {
+    transform: translateX(-50%) translateZ(0);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%) translateZ(0);
+  }
+
+  100% {
+    transform: translateX(0) translateZ(0);
+  }
+}
+
+/* Grid paper background */
+@utility grid-paper {
+  background-image:
+    linear-gradient(oklch(0.30 0.15 290 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.30 0.15 290 / 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Dotted paper background */
+@utility dotted-paper {
+  background-image: radial-gradient(oklch(0.30 0.15 290 / 0.10) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Washi tape colors */
+@utility washi-green {
+  background: oklch(0.55 0.18 155 / 0.3);
+}
+
+@utility washi-yellow {
+  background: oklch(0.88 0.18 90 / 0.4);
+}
+
+@utility washi-red {
+  background: oklch(0.55 0.22 25 / 0.3);
+}
+
+@utility washi-purple {
+  background: oklch(0.45 0.15 290 / 0.2);
+}
+
+/* Torn Edge Variations */
+@utility torn-edge-top {
+  position: relative;
+  border-top: 2px solid;
+  border-top-color: oklch(0 0 0 / 0.08);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(90deg,
+        oklch(0 0 0 / 0.1) 0px,
+        oklch(0 0 0 / 0.1) 2px,
+        oklch(0 0 0 / 0.05) 2px,
+        oklch(0 0 0 / 0.05) 4px,
+        oklch(0 0 0 / 0.15) 4px,
+        oklch(0 0 0 / 0.15) 6px,
+        oklch(0 0 0 / 0.05) 6px,
+        oklch(0 0 0 / 0.05) 8px);
+    z-index: 10;
+  }
+}
+
+@utility torn-edge-all {
+  box-shadow: inset 0 0 8px oklch(0 0 0 / 0.1),
+    inset 1px 1px 3px oklch(0 0 0 / 0.06);
+}
+
+/* Paint stain effects - using box-shadow instead */
+@utility paint-stain-green {
+  box-shadow: inset -8px -8px 12px oklch(0.55 0.18 155 / 0.08);
+}
+
+@utility paint-stain-yellow {
+  box-shadow: inset 8px -8px 12px oklch(0.88 0.18 90 / 0.06);
+}
+
+@utility paint-stain-red {
+  box-shadow: inset -8px 8px 12px oklch(0.55 0.22 25 / 0.07);
+}
+
+@utility paint-stain-purple {
+  box-shadow: inset 8px 8px 12px oklch(0.45 0.15 290 / 0.05);
+}
+
+/* Paper crease - using box-shadow layering */
+@utility paper-crease {
+  box-shadow:
+    inset 0 2px 4px oklch(0 0 0 / 0.12),
+    inset 0 -1px 2px oklch(1 0 0 / 0.1),
+    0 2px 4px oklch(0 0 0 / 0.06);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent,
+        oklch(0 0 0 / 0.08) 20%,
+        oklch(0 0 0 / 0.12) 50%,
+        oklch(0 0 0 / 0.08) 80%,
+        transparent);
+    pointer-events: none;
+  }
+}
