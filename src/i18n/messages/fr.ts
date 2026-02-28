@@ -208,6 +208,27 @@ const fr: typeof en = {
   teamRoleProgramManager: "Responsable Programmes/Projets",
   teamRoleAdminIntern: "Stagiaire Admin",
   teamRoleWebDeveloper: "Développeur Web",
+
+  /* Speakers Section */
+  speakersSubtitle: "Les Voix de l'Événement",
+  speakersTitle: "Nos Intervenants",
+  speakersFilterAll: "Tous",
+  speakersFilterKeynote: "Keynote",
+  speakersFilterMasterclass: "Masterclass",
+  speakersFilterPanel: "Panel",
+  speakersFilterStandard: "Standard",
+  speakersFilterSortName: "A\u2192Z",
+  speakersBio: "Bio",
+  speakersTopic: "Sujet",
+  speakersSession: "Session",
+  speakersSocials: "Suivre",
+  speakersAriaLabel: "Carrousel des intervenants",
+  speakersPrevious: "Intervenant précédent",
+  speakersNext: "Intervenant suivant",
+  speakersViewProfile: "Voir le profil de {name}",
+  speakersRoleSpeaker: "Intervenant",
+  speakersRolePanelist: "Panéliste",
+  speakersRoleConvener: "Organisateur",
 };
 
 export default fr;

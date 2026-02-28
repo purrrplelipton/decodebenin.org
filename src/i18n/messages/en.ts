@@ -204,6 +204,27 @@ const en = {
   teamRoleProgramManager: "Program/Project Manager",
   teamRoleAdminIntern: "Admin Intern",
   teamRoleWebDeveloper: "Web Developer",
+
+  /* Speakers Section */
+  speakersSubtitle: "Meet The Voices",
+  speakersTitle: "Our Speakers",
+  speakersFilterAll: "All",
+  speakersFilterKeynote: "Keynote",
+  speakersFilterMasterclass: "Masterclass",
+  speakersFilterPanel: "Panel",
+  speakersFilterStandard: "Standard",
+  speakersFilterSortName: "A\u2192Z",
+  speakersBio: "Bio",
+  speakersTopic: "Topic",
+  speakersSession: "Session",
+  speakersSocials: "Connect",
+  speakersAriaLabel: "Speakers carousel",
+  speakersPrevious: "Previous speaker",
+  speakersNext: "Next speaker",
+  speakersViewProfile: "View {name}'s profile",
+  speakersRoleSpeaker: "Speaker",
+  speakersRolePanelist: "Panelist",
+  speakersRoleConvener: "Convener",
 };
 
 export default en;

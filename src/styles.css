@@ -248,6 +248,16 @@
   }
 }
 
+/* Speakers marquee - continuous scroll */
+@keyframes speakers-marquee {
+  0% {
+    transform: translateX(0) translateZ(0);
+  }
+  100% {
+    transform: translateX(-33.333%) translateZ(0);
+  }
+}
+
 /* Grid paper background */
 @utility grid-paper {
   background-image:
