@@ -21,47 +21,47 @@ export function MissionVisionSection() {
       <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div
-        className="absolute top-16 right-8 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow absolute top-16 right-8 rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <img
-            src={MissionInActionRoadmapClarity}
-            alt="Young professional studying visible career roadmap document at desk with thoughtful expression"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={MissionInActionRoadmapClarity}
+          alt="Young professional studying visible career roadmap document at desk with thoughtful expression"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-2/3 left-10 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-red absolute top-2/3 left-10 -rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <img
-            src={VisionFutureTechLeaders}
-            alt="Diverse young people standing confidently in modern tech environment with growth indicators visible"
-            loading="lazy"
-            className="h-32 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={VisionFutureTechLeaders}
+          alt="Diverse young people standing confidently in modern tech environment with growth indicators visible"
+          loading="lazy"
+          className="h-32 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-1/4 bottom-20 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green absolute right-1/4 bottom-20 rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <img
-            src={ValuesInPracticeCollaboration}
-            alt="Diverse hands coming together on desk with laptops and notebooks photographed from above"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={ValuesInPracticeCollaboration}
+          alt="Diverse hands coming together on desk with laptops and notebooks photographed from above"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Decorative elements */}
       <div

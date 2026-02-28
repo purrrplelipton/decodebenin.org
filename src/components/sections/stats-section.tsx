@@ -46,7 +46,7 @@ function StatCard({
       <div
         ref={ref}
         className={cn(
-          "scrapbook-card relative rounded-lg border p-6 text-center backdrop-blur-sm transition-transform duration-300 hover:rotate-0 md:p-8",
+          "scrapbook-card relative rounded-lg border p-6 text-center backdrop-blur-lg transition-transform duration-300 hover:rotate-0 md:p-8",
           accentClasses[accent],
           rotation,
         )}
@@ -85,61 +85,61 @@ export function StatsSection() {
       <div className="grid-paper absolute inset-0 opacity-15" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div
-        className="absolute top-20 left-8 -rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green absolute top-20 left-8 -rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <img
-            src={GrowingCommunityGroupPhoto}
-            alt="Large diverse group of Decode Benin community members smiling together in community space"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={GrowingCommunityGroupPhoto}
+          alt="Large diverse group of Decode Benin community members smiling together in community space"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-1/2 right-12 rotate-5 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow absolute top-1/2 right-12 rotate-5 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <img
-            src={ImpactMomentStudentAchievementDisplay}
-            alt="Young person reviewing bulletin board displaying multiple achievement certificates and project showcases"
-            loading="lazy"
-            className="h-32 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={ImpactMomentStudentAchievementDisplay}
+          alt="Young person reviewing bulletin board displaying multiple achievement certificates and project showcases"
+          loading="lazy"
+          className="h-32 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-24 left-1/4 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red absolute bottom-24 left-1/4 -rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <img
-            src={NetworkExpansionConnectionPoints}
-            alt="Young people gathered around map of Benin showing community's reach with visual indicators"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={NetworkExpansionConnectionPoints}
+          alt="Young people gathered around map of Benin showing community's reach with visual indicators"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-1/3 bottom-12 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-purple absolute right-1/3 bottom-12 rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <img
-            src={MentorshipMultiplierEffect}
-            alt="Three-generation chain of mentor, mid-level developer, and student engaged with each other"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={MentorshipMultiplierEffect}
+          alt="Three-generation chain of mentor, mid-level developer, and student engaged with each other"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Decorative elements */}
       <div

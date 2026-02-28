@@ -33,176 +33,176 @@ export function HeroSection() {
       {/* SCATTERED PHOTO CARDS - Layer 1 (Various sizes and rotations) */}
 
       {/* Top left cluster */}
-      <div
-        className="absolute top-12 left-4 -rotate-12 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect absolute top-12 left-4 -rotate-12 rounded-sm bg-card p-2 opacity-10 shadow-lg sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect rounded-sm bg-card p-2 shadow-lg">
-          <img
-            src={YoungDeveloperMentoringSession}
-            alt="Black developer explaining code on laptop to student in bright tech workspace with African-inspired decor"
-            loading="lazy"
-            className="h-32 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={YoungDeveloperMentoringSession}
+          alt="Black developer explaining code on laptop to student in bright tech workspace with African-inspired decor"
+          loading="lazy"
+          className="h-32 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-32 left-20 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card absolute top-32 left-20 rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={DiverseTechCommunityGathering}
-            alt="Group of 4-5 young West African professionals laughing while collaborating around laptops in creative co-working space"
-            loading="lazy"
-            className="h-40 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={DiverseTechCommunityGathering}
+          alt="Group of 4-5 young West African professionals laughing while collaborating around laptops in creative co-working space"
+          loading="lazy"
+          className="h-40 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-48 left-2 -rotate-3 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card absolute top-48 left-2 -rotate-3 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={HandsOnCodingWorkshop}
-            alt="Close-up of diverse hands typing on RGB-lit keyboard with code visible on monitor"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={HandsOnCodingWorkshop}
+          alt="Close-up of diverse hands typing on RGB-lit keyboard with code visible on monitor"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Top right cluster */}
-      <div
-        className="absolute top-16 right-6 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect absolute top-16 right-6 rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect rounded-sm bg-card p-2">
-          <img
-            src={StudentsWithCertificatesOfAchievement}
-            alt="Three young Black students smiling while holding achievement certificates in learning space with tech setup"
-            loading="lazy"
-            className="h-36 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={StudentsWithCertificatesOfAchievement}
+          alt="Three young Black students smiling while holding achievement certificates in learning space with tech setup"
+          loading="lazy"
+          className="h-36 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-40 right-32 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card absolute top-40 right-32 -rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={TechWorkshopInSession}
-            alt="Busy workshop room with students concentrating at computers while mentor guides nearby"
-            loading="lazy"
-            className="h-28 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={TechWorkshopInSession}
+          alt="Busy workshop room with students concentrating at computers while mentor guides nearby"
+          loading="lazy"
+          className="h-28 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-28 right-72 rotate-12 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card absolute top-28 right-72 rotate-12 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={StartupPitchMoment}
-            alt="Young entrepreneur confidently presenting to investors showing prototype on screen in modern startup office"
-            loading="lazy"
-            className="h-32 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={StartupPitchMoment}
+          alt="Young entrepreneur confidently presenting to investors showing prototype on screen in modern startup office"
+          loading="lazy"
+          className="h-32 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Bottom left cluster */}
-      <div
-        className="absolute bottom-20 left-8 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect absolute bottom-20 left-8 -rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect rounded-sm bg-card p-2">
-          <img
-            src={NetworkingCoffeeChat}
-            alt="Two young professionals engaged in conversation over coffee at bright café table with laptops"
-            loading="lazy"
-            className="h-28 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={NetworkingCoffeeChat}
+          alt="Two young professionals engaged in conversation over coffee at bright café table with laptops"
+          loading="lazy"
+          className="h-28 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-40 left-24 rotate-5 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card absolute bottom-40 left-24 rotate-5 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={LateNightCodingSprint}
-            alt="Developer silhouetted against glowing laptop screen surrounded by coffee cups in modern workspace"
-            loading="lazy"
-            className="h-28 w-36 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={LateNightCodingSprint}
+          alt="Developer silhouetted against glowing laptop screen surrounded by coffee cups in modern workspace"
+          loading="lazy"
+          className="h-28 w-36 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-10 left-40 -rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card absolute bottom-10 left-40 -rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={FemaleDevInFocus}
-            alt="Young African woman with glasses problem-solving at dual-monitor desk with Benin flag visible"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={FemaleDevInFocus}
+          alt="Young African woman with glasses problem-solving at dual-monitor desk with Benin flag visible"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Bottom right cluster */}
-      <div
-        className="absolute right-8 bottom-12 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect absolute right-8 bottom-12 rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect rounded-sm bg-card p-2">
-          <img
-            src={SuccessfulTeamCelebration}
-            alt="Diverse young developers celebrating completed project arms-raised around monitor in tech office"
-            loading="lazy"
-            className="h-32 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={SuccessfulTeamCelebration}
+          alt="Diverse young developers celebrating completed project arms-raised around monitor in tech office"
+          loading="lazy"
+          className="h-32 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-40 bottom-32 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card absolute right-40 bottom-32 -rotate-4 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={LearningInSessionCloseUp}
-            alt="Hands taking notes on notepad while laptop displays code on desk with tech books"
-            loading="lazy"
-            className="h-40 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={LearningInSessionCloseUp}
+          alt="Hands taking notes on notepad while laptop displays code on desk with tech books"
+          loading="lazy"
+          className="h-40 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-16 bottom-48 rotate-7 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card absolute right-16 bottom-48 rotate-7 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card rounded-sm bg-card p-2">
-          <img
-            src={ProjectShowcaseMoment}
-            alt="Developer proudly showing completed project on laptop to another person in personal workspace"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={ProjectShowcaseMoment}
+          alt="Developer proudly showing completed project on laptop to another person in personal workspace"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Decorative scrapbook frame borders */}
       <div

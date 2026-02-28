@@ -60,61 +60,61 @@ export function OfferingsSection() {
       <div className="grid-paper absolute inset-0 opacity-20" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div
-        className="absolute top-12 right-8 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow absolute top-12 right-8 rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <img
-            src={Pillar1EducationAndLearningResources}
-            alt="Modern learning setup with laptop showing tutorials surrounded by tech books and notepads"
-            loading="lazy"
-            className="h-32 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={Pillar1EducationAndLearningResources}
+          alt="Modern learning setup with laptop showing tutorials surrounded by tech books and notepads"
+          loading="lazy"
+          className="h-32 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-2/3 left-12 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-red absolute top-2/3 left-12 -rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <img
-            src={Pillar2IndustryMentorship}
-            alt="Senior developer explaining code to junior developer at monitor in professional office setting"
-            loading="lazy"
-            className="h-28 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={Pillar2IndustryMentorship}
+          alt="Senior developer explaining code to junior developer at monitor in professional office setting"
+          loading="lazy"
+          className="h-28 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-1/4 bottom-16 rotate-12 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green absolute right-1/4 bottom-16 rotate-12 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <img
-            src={Pillar3CommunityConnection}
-            alt="Diverse young people sitting together in casual community space engaged in discussion"
-            loading="lazy"
-            className="h-24 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={Pillar3CommunityConnection}
+          alt="Diverse young people sitting together in casual community space engaged in discussion"
+          loading="lazy"
+          className="h-24 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-40 left-8 -rotate-3 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-purple absolute bottom-40 left-8 -rotate-3 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <img
-            src={Pillar4EventsAndNetworking}
-            alt="Active community event with people mingling, chatting, and speaker demo happening in background"
-            loading="lazy"
-            className="h-32 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={Pillar4EventsAndNetworking}
+          alt="Active community event with people mingling, chatting, and speaker demo happening in background"
+          loading="lazy"
+          className="h-32 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Decorative washi tapes */}
       <div

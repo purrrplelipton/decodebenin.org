@@ -367,3 +367,87 @@
     z-index: 1;
   }
 }
+
+/* Sonner Toast Styling - Decode Benin Theme */
+@layer components {
+  :where(.sonner-toaster) {
+    --toast-background: var(--card);
+    --toast-color: var(--foreground);
+  }
+
+  :where([data-sonner-toast]) {
+    @apply rounded-lg border border-border/50 bg-card shadow-lg backdrop-blur-sm transition-all;
+    font-family: inherit;
+  }
+
+  /* Success Toast */
+  :where([data-sonner-toast][data-type='success']) {
+    @apply bg-decode-green/10 border-decode-green/30 text-decode-green;
+
+    & [data-icon] {
+      @apply text-decode-green;
+    }
+
+    & [data-close-button] {
+      @apply text-decode-green/50 hover:text-decode-green;
+    }
+  }
+
+  /* Error Toast */
+  :where([data-sonner-toast][data-type='error']) {
+    @apply bg-decode-red/10 border-decode-red/30 text-decode-red;
+
+    & [data-icon] {
+      @apply text-decode-red;
+    }
+
+    & [data-close-button] {
+      @apply text-decode-red/50 hover:text-decode-red;
+    }
+  }
+
+  /* Info Toast */
+  :where([data-sonner-toast][data-type='info']) {
+    @apply bg-decode-purple/10 border-decode-purple/30 text-decode-purple;
+
+    & [data-icon] {
+      @apply text-decode-purple;
+    }
+
+    & [data-close-button] {
+      @apply text-decode-purple/50 hover:text-decode-purple;
+    }
+  }
+
+  /* Warning Toast */
+  :where([data-sonner-toast][data-type='warning']) {
+    @apply bg-decode-yellow/10 border-decode-yellow/40 text-decode-yellow;
+
+    & [data-icon] {
+      @apply text-decode-yellow;
+    }
+
+    & [data-close-button] {
+      @apply text-decode-yellow/70 hover:text-decode-yellow;
+    }
+  }
+
+  /* Toast content typography */
+  :where([data-sonner-toast] [data-content]) {
+    @apply text-sm font-medium;
+  }
+
+  :where([data-sonner-toast] [data-description]) {
+    @apply text-xs opacity-75;
+  }
+
+  /* Close button styling */
+  :where([data-sonner-toast] [data-close-button]) {
+    @apply inline-flex items-center justify-center;
+  }
+
+  /* Toast container */
+  :where(.sonner-toaster) {
+    @apply z-50;
+  }
+}

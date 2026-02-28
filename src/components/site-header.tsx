@@ -80,13 +80,19 @@ export function SiteHeader() {
         <a
           href="#hero"
           className="relative z-10 flex items-center gap-2"
-          aria-label="Decode Benin - Home"
+          aria-label={t("siteHeaderHome")}
         >
-          <img src={LogoWhite} alt="Decode Benin" width={120} height={28} className="h-12 w-auto" />
+          <img
+            src={LogoWhite}
+            alt={t("siteHeaderLogoAlt")}
+            width={120}
+            height={28}
+            className="h-12 w-auto"
+          />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
+        <nav className="hidden items-center gap-1 md:flex" aria-label={t("siteHeaderNavigation")}>
           {navLinks.map((link) => (
             <a
               key={link.key}
@@ -106,7 +112,7 @@ export function SiteHeader() {
             size="sm"
             onClick={() => handleLocaleChange(currentLocale === "en" ? "fr" : "en")}
             className="gap-1.5 text-primary-foreground/80 hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            aria-label={`Switch to ${currentLocale === "en" ? "French" : "English"}`}
+            aria-label={t("siteHeaderSwitchLanguage")}
           >
             {
               <ReactCountryFlag
@@ -140,7 +146,7 @@ export function SiteHeader() {
             size="icon-sm"
             onClick={() => handleLocaleChange(currentLocale === "en" ? "fr" : "en")}
             className="text-primary-foreground/80 hover:bg-primary-foreground/10"
-            aria-label={`Switch to ${currentLocale === "en" ? "French" : "English"}`}
+            aria-label={t("siteHeaderSwitchLanguage")}
           >
             {
               <ReactCountryFlag
@@ -159,7 +165,7 @@ export function SiteHeader() {
                   variant="ghost"
                   size="icon-sm"
                   className="text-primary-foreground hover:bg-primary-foreground/10"
-                  aria-label="Open navigation menu"
+                  aria-label={t("siteHeaderOpenMenu")}
                 >
                   <Icon icon="hugeicons:menu-01" className="text-xl" aria-hidden="true" />
                 </Button>

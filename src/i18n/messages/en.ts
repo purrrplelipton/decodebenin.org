@@ -155,6 +155,55 @@ const en = {
   countdownHours: "Hours",
   countdownMinutes: "Mins",
   countdownSeconds: "Secs",
+
+  /* Contact Form */
+  contactTitle: "Get in Touch",
+  contactSubtitle:
+    "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+  contactEmailLabel: "Send To",
+  contactEmailHint:
+    "Send your message directly to our team. Click the copy button to copy the email address.",
+  contactEmailCopyButton: "Copy email address",
+  contactEmailCopied: "Email copied!",
+  contactMessageLabel: "Your Message",
+  contactMessagePlaceholder: "Tell us what's on your mind...",
+  contactMessageHint: "Be as detailed as you'd like. We appreciate thoughtful messages!",
+  contactSendMessage: "Send Message",
+  contactSending: "Sending...",
+  contactInfoBox:
+    "Messages are sent via your default email client. You can also copy the email address and send a message however you prefer.",
+  contactSubmitSuccess: "Message Ready!",
+  contactSubmitDesc:
+    "Your email client is opening with your message prepared. Send it whenever you're ready!",
+  contactSubmitError: "Oops! Something went wrong",
+  contactSubmitErrorDesc: "Please try again or check your email client configuration.",
+
+  /* Contact Form - Validation Errors */
+  contactEmailValidationError: "Invalid email address",
+  contactMessageMinError: "Message must be at least 10 characters",
+  contactMessageMaxError: "Message cannot exceed 1000 characters",
+  contactEmail: "decodebenin@gmail.com",
+  contactMailSubject: "Contact Decode Benin",
+
+  /* Countdown Widget */
+  countdownPull: "PULL",
+
+  /* Navigation & Accessibility */
+  siteHeaderHome: "Decode Benin - Home",
+  siteHeaderLogoAlt: "Decode Benin",
+  siteHeaderNavigation: "Main navigation",
+  siteHeaderOpenMenu: "Open navigation menu",
+  siteHeaderSwitchLanguage: "Switch language",
+
+  /* Gallery */
+  galleryAriaLabel: "Community photo gallery",
+
+  /* Team Member Roles */
+  teamRoleSocialMediaManager: "Social Media Manager",
+  teamRoleCommunityManager: "Community Manager/Bilingual Translator",
+  teamRoleProgramManager: "Program/Project Manager",
+  teamRoleAdminIntern: "Admin Intern",
+  teamRoleWebDeveloper: "Web Developer",
 };
 
 export default en;

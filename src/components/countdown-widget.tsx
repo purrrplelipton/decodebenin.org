@@ -78,60 +78,134 @@ export function CountdownWidget() {
     <div
       className={cn(
         "fixed right-0 bottom-6 z-40 transition-transform duration-500 ease-in-out lg:bottom-12",
-        isExpanded
-          ? "translate-x-0"
-          : "translate-x-[calc(100%-24px)] lg:translate-x-[calc(100%-32px)]",
+        { "translate-x-[calc(100%-32px)] lg:translate-x-[calc(100%-44px)]": !isExpanded },
       )}
     >
+      <style>{`
+        @keyframes ribbon-flap {
+          0%, 100% {
+            transform: skewY(-1deg) perspective(800px) rotateX(0deg);
+          }
+          25% {
+            transform: skewY(2deg) perspective(800px) rotateX(-2deg) translateY(-2px);
+          }
+          50% {
+            transform: skewY(-2deg) perspective(800px) rotateX(2deg) translateY(1px);
+          }
+          75% {
+            transform: skewY(1deg) perspective(800px) rotateX(-1deg) translateY(-1px);
+          }
+        }
+        
+        @keyframes ribbon-curl {
+          0%, 100% {
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+          }
+          50% {
+            text-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.1);
+          }
+        }
+
+        .ribbon-tab {
+          animation: ribbon-flap 2.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+          transform-style: preserve-3d;
+          perspective: 1000px;
+        }
+
+        .ribbon-tab::before {
+          content: '';
+          position: absolute;
+          inset: -2px -1px -2px 0;
+          background: linear-gradient(
+            to right,
+            rgba(34, 197, 94, 0.5) 0%,
+            rgba(34, 197, 94, 0.8) 15%,
+            rgba(34, 197, 94, 0.95) 40%,
+            rgba(34, 197, 94, 0.85) 60%,
+            rgba(34, 197, 94, 0.6) 85%,
+            rgba(34, 197, 94, 0.3) 100%
+          );
+          border-radius: inherit;
+          filter: blur(0.5px);
+          z-index: -1;
+        }
+
+        .ribbon-tab::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.25) 0%,
+            rgba(255, 255, 255, 0.08) 25%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.12) 75%,
+            rgba(0, 0, 0, 0.35) 100%
+          );
+          border-radius: inherit;
+          pointer-events: none;
+        }
+
+        .ribbon-tab:hover::before {
+          filter: blur(0.5px) brightness(1.15);
+        }
+
+        .ribbon-tab:active {
+          animation: none;
+          transform: skewY(-1deg) perspective(800px) rotateX(-3deg) translateY(-3px);
+        }
+      `}</style>
       <div className="flex items-center">
         {/* Pull Tab Trigger */}
         <button
           type="button"
           onClick={toggleExpanded}
-          className={cn(
-            "scrapbook-card relative -mr-1 flex h-24 w-8 items-center justify-center rounded-l-md border-decode-green/30 border-y border-l bg-decode-green/20 text-decode-green transition-colors hover:bg-decode-green/30 focus:outline-none focus:ring-2 focus:ring-decode-green lg:h-32 lg:w-10",
-            !isExpanded && "animate-pulse",
-          )}
+          className="ribbon-tab relative -mr-1 flex flex-col items-center justify-center gap-1.5 rounded-l-lg border-decode-green border-y-2 border-r-0 border-l-2 px-2.5 py-3 text-center text-decode-green transition-all focus:outline-none focus:ring-2 focus:ring-decode-green/60 focus:ring-offset-1 lg:gap-2 lg:px-3 lg:py-4"
+          style={{
+            background: `linear-gradient(
+              to bottom,
+              rgba(34, 197, 94, 0.45) 0%,
+              rgba(34, 197, 94, 0.35) 50%,
+              rgba(34, 197, 94, 0.25) 100%
+            )`,
+            boxShadow: `
+              0 1px 3px rgba(0, 0, 0, 0.4),
+              0 4px 12px rgba(0, 0, 0, 0.25),
+              inset 0 1px 2px rgba(255, 255, 255, 0.15),
+              inset 0 -1px 3px rgba(0, 0, 0, 0.2)
+            `,
+          }}
           aria-label={isExpanded ? t("uiClose") : t("countdownTitle")}
         >
-          <div className="pointer-events-none absolute -top-4 left-1/2 -translate-x-1/2 rotate-12">
-            <div className="h-6 w-3 rounded-sm bg-decode-yellow/40 opacity-60 shadow-sm" />
-          </div>
-
           <Icon
             icon={isExpanded ? "hugeicons:arrow-right-01" : "hugeicons:clock-01"}
-            className={cn(
-              "text-xl transition-transform lg:text-2xl",
-              !isExpanded && "animate-bounce",
-            )}
+            className="relative z-10 text-xl drop-shadow-lg transition-transform lg:text-2xl"
+            style={{
+              filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3))",
+              textShadow: "0 1px 2px rgba(255, 255, 255, 0.5)",
+            }}
           />
 
-          <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-180 font-bold text-[10px] uppercase tracking-tighter opacity-70 [writing-mode:vertical-lr] lg:text-xs">
-            {isExpanded ? t("uiClose") : t("countdownTitle")}
+          <span
+            className="relative z-10 font-bold text-[10px] uppercase leading-tight tracking-tighter lg:text-[11px]"
+            style={{
+              animation: "ribbon-curl 2.5s ease-in-out infinite",
+            }}
+          >
+            {isExpanded ? t("uiClose") : t("countdownPull")}
           </span>
         </button>
 
         {/* Content Area */}
-        <div className="scrapbook-card pin-effect rounded-l-lg border border-decode-green/30 bg-background/95 p-4 shadow-2xl backdrop-blur-md lg:p-6">
-          <div className="text-center">
-            <div className="mb-4 font-bold text-decode-green text-xs uppercase tracking-widest opacity-80 lg:text-sm">
-              {t("countdownTitle")}
-            </div>
-            <div className="grid grid-cols-4 gap-3 lg:gap-4">
-              <CountdownItem value={timeLeft.days} label={t("countdownDays")} />
-              <CountdownItem value={timeLeft.hours} label={t("countdownHours")} />
-              <CountdownItem value={timeLeft.minutes} label={t("countdownMinutes")} />
-              <CountdownItem value={timeLeft.seconds} label={t("countdownSeconds")} />
-            </div>
-
-            {/* Close Button Inside (Optional but helpful) */}
-            <button
-              type="button"
-              onClick={toggleExpanded}
-              className="mt-4 text-[10px] text-muted-foreground underline transition-colors hover:text-decode-green lg:text-xs"
-            >
-              {t("uiClose")}
-            </button>
+        <div className="scrapbook-card pin-effect rounded-l-lg border border-decode-green/30 bg-background/95 p-4 text-center shadow-2xl backdrop-blur-md lg:p-6">
+          <div className="mb-4 font-bold text-decode-green text-xs uppercase tracking-widest opacity-80 lg:text-sm">
+            {t("countdownTitle")}
+          </div>
+          <div className="grid grid-cols-4 gap-3 lg:gap-4">
+            <CountdownItem value={timeLeft.days} label={t("countdownDays")} />
+            <CountdownItem value={timeLeft.hours} label={t("countdownHours")} />
+            <CountdownItem value={timeLeft.minutes} label={t("countdownMinutes")} />
+            <CountdownItem value={timeLeft.seconds} label={t("countdownSeconds")} />
           </div>
         </div>
       </div>

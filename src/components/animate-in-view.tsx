@@ -4,7 +4,15 @@ import { cn } from "#/lib/utils";
 
 interface AnimateInViewProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  animation?: "fade-up" | "fade-down" | "fade-left" | "fade-right" | "scale" | "fade";
+  animation?:
+    | "fade-up"
+    | "fade-down"
+    | "fade-left"
+    | "fade-right"
+    | "scale"
+    | "fade"
+    | "throw-out-right"
+    | "throw-out-left";
   delay?: number;
   duration?: number;
   threshold?: number;
@@ -17,6 +25,8 @@ const animationClasses = {
   "fade-right": "translate-x-8 opacity-0",
   scale: "scale-95 opacity-0",
   fade: "opacity-0",
+  "throw-out-right": "translate-x-96 rotate-12 opacity-0",
+  "throw-out-left": "-translate-x-96 -rotate-12 opacity-0",
 };
 
 export function AnimateInView({

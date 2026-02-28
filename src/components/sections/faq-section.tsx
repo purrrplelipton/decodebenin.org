@@ -33,61 +33,61 @@ export function FaqSection() {
       <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div
-        className="absolute top-20 left-8 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green absolute top-20 left-8 -rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <img
-            src={StayingConnectedAlumniAndGrowth}
-            alt="Program alumni now mentors and leaders giving back and helping new community members"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={StayingConnectedAlumniAndGrowth}
+          alt="Program alumni now mentors and leaders giving back and helping new community members"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-2/3 right-12 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow absolute top-2/3 right-12 rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <img
-            src={GettingStartedBeginnersSupport}
-            alt="Experienced person encouragingly helping and supporting beginner with new concept"
-            loading="lazy"
-            className="h-32 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={GettingStartedBeginnersSupport}
+          alt="Experienced person encouragingly helping and supporting beginner with new concept"
+          loading="lazy"
+          className="h-32 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-20 left-1/3 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red absolute bottom-20 left-1/3 -rotate-4 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <img
-            src={CareerGrowthTrajectory}
-            alt="Young person looking satisfied with visible resume, portfolio pieces, and achievement timeline"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={CareerGrowthTrajectory}
+          alt="Young person looking satisfied with visible resume, portfolio pieces, and achievement timeline"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-1/4 bottom-32 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-purple absolute right-1/4 bottom-32 rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <img
-            src={CommunityForEveryone}
-            alt="People of different ages, backgrounds, and experience levels gathered together at inclusive community event"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={CommunityForEveryone}
+          alt="People of different ages, backgrounds, and experience levels gathered together at inclusive community event"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Decorative washi */}
       <div

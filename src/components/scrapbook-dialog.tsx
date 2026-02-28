@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { useTranslations } from "use-intl";
+import { ContactDialog } from "#/components/contact-dialog";
 import {
   Dialog,
   DialogContent,
@@ -15,8 +16,14 @@ export function ScrapbookDialog() {
   const { page_action } = Route.useSearch();
   const navigate = Route.useNavigate();
   const isOpen = useMemo(() => {
-    return page_action === "show_terms_of_service" || page_action === "show_privacy_policy";
+    return (
+      page_action === "show_terms_of_service" ||
+      page_action === "show_privacy_policy" ||
+      page_action === "show_contact_form"
+    );
   }, [page_action]);
+
+  const isContactForm = page_action === "show_contact_form";
 
   const sections =
     page_action === "show_terms_of_service"
@@ -32,7 +39,12 @@ export function ScrapbookDialog() {
   const lastUpdated =
     page_action === "show_terms_of_service" ? t("termsLastUpdated") : t("privacyLastUpdated");
 
-  const title = page_action === "show_terms_of_service" ? t("termsTitle") : t("privacyTitle");
+  const title =
+    page_action === "show_terms_of_service"
+      ? t("termsTitle")
+      : page_action === "show_privacy_policy"
+        ? t("privacyTitle")
+        : t("contactTitle");
 
   return (
     <Dialog
@@ -48,30 +60,51 @@ export function ScrapbookDialog() {
           <div className="grid-paper absolute inset-4 -rotate-1 rounded-sm opacity-30" />
 
           {/* Decorative Tape */}
-          <div className="washi-yellow absolute -top-2 left-1/2 h-6 w-24 -translate-x-1/2 rotate-2 rounded-sm opacity-80" />
-          <div className="washi-green absolute right-12 -bottom-2 h-5 w-20 rotate-6 rounded-sm opacity-70" />
+          {!isContactForm && (
+            <>
+              <div className="washi-yellow absolute -top-2 left-1/2 h-6 w-24 -translate-x-1/2 rotate-2 rounded-sm opacity-80" />
+              <div className="washi-green absolute right-12 -bottom-2 h-5 w-20 rotate-6 rounded-sm opacity-70" />
+            </>
+          )}
 
-          {/* Main Content Card */}
-          <ScrollArea className="scrapbook-card relative z-10 flex h-[70vh] flex-col rounded-sm bg-card p-6 md:p-8">
-            <DialogHeader className="sticky top-0 mb-4 bg-linear-to-b from-66% from-card to-transparent">
-              <DialogTitle className="font-bold font-serif text-3xl text-decode-purple md:text-4xl">
-                {title}
-              </DialogTitle>
-              <DialogDescription className="font-medium text-muted-foreground/60 text-xs italic">
-                {lastUpdated}
-              </DialogDescription>
-            </DialogHeader>
-            <div className="space-y-8 py-4">
-              {sections.map((section) => (
-                <div key={section.title} className="space-y-2">
-                  <h3 className="font-bold font-serif text-decode-purple/80 text-lg">
-                    {section.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">{section.content}</p>
-                </div>
-              ))}
+          {isContactForm ? (
+            /* Contact Form Content */
+            <div className="scrapbook-card relative z-10 flex min-h-[60vh] flex-col rounded-sm bg-card p-6 md:p-8">
+              <DialogHeader className="mb-6">
+                <DialogTitle className="font-bold font-serif text-3xl text-decode-purple md:text-4xl">
+                  {title}
+                </DialogTitle>
+                <DialogDescription className="mt-2 text-muted-foreground/70">
+                  {t("contactSubtitle")}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="flex-1">
+                <ContactDialog />
+              </div>
             </div>
-          </ScrollArea>
+          ) : (
+            /* Terms/Privacy Content */
+            <ScrollArea className="scrapbook-card relative z-10 flex h-[70vh] flex-col rounded-sm bg-card p-6 md:p-8">
+              <DialogHeader className="sticky top-0 mb-4 bg-linear-to-b from-66% from-card to-transparent">
+                <DialogTitle className="font-bold font-serif text-3xl text-decode-purple md:text-4xl">
+                  {title}
+                </DialogTitle>
+                <DialogDescription className="font-medium text-muted-foreground/60 text-xs italic">
+                  {lastUpdated}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-8 py-4">
+                {sections.map((section) => (
+                  <div key={section.title} className="space-y-2">
+                    <h3 className="font-bold font-serif text-decode-purple/80 text-lg">
+                      {section.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">{section.content}</p>
+                  </div>
+                ))}
+              </div>
+            </ScrollArea>
+          )}
 
           <div className="mt-6 flex justify-end">
             <div className="washi-purple -rotate-2 rounded-sm px-4 py-1 font-mono text-decode-purple/60 text-xs">

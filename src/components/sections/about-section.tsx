@@ -25,61 +25,61 @@ export function AboutSection() {
       <div className="grid-paper absolute inset-0 opacity-15" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div
-        className="absolute top-24 left-6 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green absolute top-24 left-6 -rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <img
-            src={FounderInActionAuthenticLeadership}
-            alt="Founder teaching or mentoring students demonstrating passion for community mission"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={FounderInActionAuthenticLeadership}
+          alt="Founder teaching or mentoring students demonstrating passion for community mission"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-1/3 right-12 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow absolute top-1/3 right-12 rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <img
-            src={BehindTheScenesCommunityBuilding}
-            alt="Team members collaborating on organizing events and managing community resources"
-            loading="lazy"
-            className="h-32 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={BehindTheScenesCommunityBuilding}
+          alt="Team members collaborating on organizing events and managing community resources"
+          loading="lazy"
+          className="h-32 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-8 bottom-32 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red absolute right-8 bottom-32 -rotate-4 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <img
-            src={CommunityManagerEngagement}
-            alt="Community team member actively listening and connecting with members at networking event"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={CommunityManagerEngagement}
+          alt="Community team member actively listening and connecting with members at networking event"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-20 left-24 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-purple absolute bottom-20 left-24 rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <img
-            src={AdminAndOperationsMakingItHappen}
-            alt="Team members managing operations with organized planning documents and project boards visible"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={AdminAndOperationsMakingItHappen}
+          alt="Team members managing operations with organized planning documents and project boards visible"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* WASHI TAPE ACCENTS */}
       <div
@@ -191,7 +191,7 @@ export function AboutSection() {
               const washis = ["washi-green", "washi-yellow", "washi-red", "washi-purple"];
               return (
                 <AnimateInView
-                  key={member.role}
+                  key={member.roleKey}
                   animation="scale"
                   delay={index * 100}
                   duration={600}
@@ -217,7 +217,7 @@ export function AboutSection() {
                       className="mx-auto mb-3 flex size-20 rounded-full object-cover"
                     />
                     <p className="font-bold text-foreground text-sm">{member.name}</p>
-                    <p className="text-muted-foreground text-xs">{member.role}</p>
+                    <p className="text-muted-foreground text-xs">{t(member.roleKey)}</p>
                   </div>
                 </AnimateInView>
               );

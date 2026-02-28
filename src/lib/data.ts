@@ -50,12 +50,16 @@ export const navLinks = [
 
 // Team member placeholders (easily extendable)
 export const teamMembers = [
-  { name: "Emmanuella Ahidjo", role: "Social Media Manager", image: EmmanuellaAhidjo },
-  { name: "Adora Okolue", role: "Community Manager/Bilingual Translator", image: AdoraOkolue },
-  { name: "Glory Olaifa", role: "Program/Project Manager", image: GloryOlaifa },
-  { name: "Victoria Oloyede", role: "Admin Intern", image: VictoriaOloyede },
-  // { name: "", role: "Graphics Designer", image: "" },
-  { name: "Emmanuel Adeyeye", role: "Web Developer", image: EmmanuelAdeyeye },
+  {
+    name: "Emmanuella Ahidjo",
+    roleKey: "teamRoleSocialMediaManager" as const,
+    image: EmmanuellaAhidjo,
+  },
+  { name: "Adora Okolue", roleKey: "teamRoleCommunityManager" as const, image: AdoraOkolue },
+  { name: "Glory Olaifa", roleKey: "teamRoleProgramManager" as const, image: GloryOlaifa },
+  { name: "Victoria Oloyede", roleKey: "teamRoleAdminIntern" as const, image: VictoriaOloyede },
+  // { name: "", roleKey: "teamRoleGraphicsDesigner" as const, image: "" },
+  { name: "Emmanuel Adeyeye", roleKey: "teamRoleWebDeveloper" as const, image: EmmanuelAdeyeye },
 ] as const;
 
 // Gallery placeholders

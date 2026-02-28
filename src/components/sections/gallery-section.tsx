@@ -29,61 +29,61 @@ export function GallerySection() {
       <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div
-        className="absolute top-24 right-8 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow absolute top-24 right-8 rotate-8 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <img
-            src={WorkshopLearningEnvironment}
-            alt="Active workshop with attendees taking notes while presenter demonstrates content"
-            loading="lazy"
-            className="h-32 w-28 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={WorkshopLearningEnvironment}
+          alt="Active workshop with attendees taking notes while presenter demonstrates content"
+          loading="lazy"
+          className="h-32 w-28 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute top-1/2 left-12 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-red absolute top-1/2 left-12 -rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <img
-            src={HandsOnProjectWork}
-            alt="Workshop participants coding, building, and designing with projects visible on screens"
-            loading="lazy"
-            className="h-28 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={HandsOnProjectWork}
+          alt="Workshop participants coding, building, and designing with projects visible on screens"
+          loading="lazy"
+          className="h-28 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute right-1/4 bottom-28 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-right"
+        duration={700}
+        className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green absolute right-1/4 bottom-28 rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <img
-            src={KnowledgeSharingPresentation}
-            alt="Confident presenter demonstrating expertise to engaged audience with tech demo visible"
-            loading="lazy"
-            className="h-24 w-32 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={KnowledgeSharingPresentation}
+          alt="Confident presenter demonstrating expertise to engaged audience with tech demo visible"
+          loading="lazy"
+          className="h-24 w-32 rounded object-cover"
+        />
+      </AnimateInView>
 
-      <div
-        className="absolute bottom-12 left-1/3 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+      <AnimateInView
+        animation="throw-out-left"
+        duration={700}
+        className="scrapbook-card torn-edge-all paper-crease paint-stain-purple absolute bottom-12 left-1/3 -rotate-4 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
-        <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <img
-            src={NetworkingAtCommunityEvents}
-            alt="People naturally networking in small groups at vibrant modern venue with Benin-inspired décor"
-            loading="lazy"
-            className="h-28 w-24 rounded object-cover"
-          />
-        </div>
-      </div>
+        <img
+          src={NetworkingAtCommunityEvents}
+          alt="People naturally networking in small groups at vibrant modern venue with Benin-inspired décor"
+          loading="lazy"
+          className="h-28 w-24 rounded object-cover"
+        />
+      </AnimateInView>
 
       {/* Decorative */}
       <div
@@ -131,7 +131,7 @@ export function GallerySection() {
             <Carousel
               opts={{ align: "start", loop: true }}
               className="w-full"
-              aria-label="Community photo gallery"
+              aria-label={t("galleryAriaLabel")}
             >
               <CarouselContent className="-ml-4">
                 {galleryImages.map((image, index) => {

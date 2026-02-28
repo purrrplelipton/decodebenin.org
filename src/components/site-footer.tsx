@@ -114,6 +114,12 @@ export function SiteFooter() {
                   variant="ghost"
                   size="xs"
                   className="h-auto p-0 text-primary-foreground/70 transition-colors hover:bg-transparent hover:text-primary-foreground"
+                  onClick={() =>
+                    navigate({
+                      to: "/",
+                      search: (s) => ({ ...s, page_action: "show_contact_form" }),
+                    })
+                  }
                 >
                   {t("footerContact")}
                 </Button>

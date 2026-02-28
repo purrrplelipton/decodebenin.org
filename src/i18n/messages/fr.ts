@@ -158,6 +158,56 @@ const fr: typeof en = {
   countdownHours: "Heures",
   countdownMinutes: "Min",
   countdownSeconds: "Sec",
+
+  /* Contact Form */
+  contactTitle: "Nous Contacter",
+  contactSubtitle:
+    "Vous avez des questions ? Nous serions ravis de vous entendre. Envoyez-nous un message et nous vous répondrons dès que possible.",
+  contactEmailLabel: "Envoyer À",
+  contactEmailHint:
+    "Envoyez votre message directement à notre équipe. Cliquez sur le bouton de copie pour copier l'adresse e-mail.",
+  contactEmailCopyButton: "Copier l'adresse e-mail",
+  contactEmailCopied: "E-mail copié!",
+  contactMessageLabel: "Votre Message",
+  contactMessagePlaceholder: "Dites-nous ce que vous pensez...",
+  contactMessageHint:
+    "Soyez aussi détaillé que vous le souhaitez. Nous apprécions les messages réfléchis !",
+  contactSendMessage: "Envoyer le Message",
+  contactSending: "Envoi en cours...",
+  contactInfoBox:
+    "Les messages sont envoyés via votre client e-mail par défaut. Vous pouvez également copier l'adresse e-mail et envoyer un message comme vous le préférez.",
+  contactSubmitSuccess: "Message Préparé !",
+  contactSubmitDesc:
+    "Votre client e-mail s'ouvre avec votre message préparé. Envoyez-le quand vous êtes prêt !",
+  contactSubmitError: "Oups ! Quelque chose s'est mal passé",
+  contactSubmitErrorDesc: "Veuillez réessayer ou vérifier la configuration de votre client e-mail.",
+
+  /* Contact Form - Validation Errors */
+  contactEmailValidationError: "Adresse e-mail invalide",
+  contactMessageMinError: "Le message doit contenir au moins 10 caractères",
+  contactMessageMaxError: "Le message ne peut pas dépasser 1000 caractères",
+  contactEmail: "decodebenin@gmail.com",
+  contactMailSubject: "Contact Decode Benin",
+
+  /* Countdown Widget */
+  countdownPull: "PULL",
+
+  /* Navigation & Accessibility */
+  siteHeaderHome: "Decode Benin - Accueil",
+  siteHeaderLogoAlt: "Decode Benin",
+  siteHeaderNavigation: "Navigation principale",
+  siteHeaderOpenMenu: "Ouvrir le menu de navigation",
+  siteHeaderSwitchLanguage: "Changer de langue",
+
+  /* Gallery */
+  galleryAriaLabel: "Galerie de photos de la communauté",
+
+  /* Team Member Roles */
+  teamRoleSocialMediaManager: "Responsable des Réseaux Sociaux",
+  teamRoleCommunityManager: "Responsable Communautaire/Traductrice Bilingue",
+  teamRoleProgramManager: "Responsable Programmes/Projets",
+  teamRoleAdminIntern: "Stagiaire Admin",
+  teamRoleWebDeveloper: "Développeur Web",
 };
 
 export default fr;
