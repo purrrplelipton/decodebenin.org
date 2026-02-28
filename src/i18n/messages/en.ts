@@ -210,7 +210,7 @@ const en = {
   speakersTitle: "Our Speakers",
   speakersFilterAll: "All",
   speakersFilterKeynote: "Keynote",
-  speakersFilterMasterclass: "Masterclass",
+  speakersFilterSpeak: "Speak",
   speakersFilterPanel: "Panel",
   speakersFilterStandard: "Standard",
   speakersFilterSortName: "A\u2192Z",

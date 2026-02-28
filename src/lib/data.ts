@@ -1,3 +1,4 @@
+import { createId } from "@paralleldrive/cuid2";
 import {
   AdoraOkolue,
   EmmanuelAdeyeye,
@@ -37,7 +38,7 @@ export const partners = [
   { name: "Africa Agility", slug: "africa-agility", logo: LogoAfricaAgility },
   { name: "TS Academy", slug: "ts-academy", logo: LogoTSAcademy },
   { name: "Altschool", slug: "altschool", logo: LogoAltschool },
-] as const;
+].map((i) => ({ id: createId(), ...i }));
 
 // Navigation links
 export const navLinks = [
@@ -46,21 +47,41 @@ export const navLinks = [
   { key: "Events", href: "#events" },
   { key: "Resources", href: "#offerings" },
   { key: "Faq", href: "#faq" },
-] as const;
+].map((i) => ({ id: createId(), ...i }));
 
 // Team member placeholders (easily extendable)
 export const teamMembers = [
   {
     name: "Emmanuella Ahidjo",
-    roleKey: "teamRoleSocialMediaManager" as const,
+    roleKey: "teamRoleSocialMediaManager",
     image: EmmanuellaAhidjo,
+    linkedIn: "meena-emmanuella-ahidjo-551a32351",
   },
-  { name: "Adora Okolue", roleKey: "teamRoleCommunityManager" as const, image: AdoraOkolue },
-  { name: "Glory Olaifa", roleKey: "teamRoleProgramManager" as const, image: GloryOlaifa },
-  { name: "Victoria Oloyede", roleKey: "teamRoleAdminIntern" as const, image: VictoriaOloyede },
-  // { name: "", roleKey: "teamRoleGraphicsDesigner" as const, image: "" },
-  { name: "Emmanuel Adeyeye", roleKey: "teamRoleWebDeveloper" as const, image: EmmanuelAdeyeye },
-] as const;
+  {
+    name: "Adora Okolue",
+    roleKey: "teamRoleCommunityManager",
+    image: AdoraOkolue,
+    linkedIn: "adora-okolue",
+  },
+  {
+    name: "Glory Olaifa",
+    roleKey: "teamRoleProgramManager",
+    image: GloryOlaifa,
+    linkedIn: "glory-olaifa",
+  },
+  {
+    name: "Victoria Oloyede",
+    roleKey: "teamRoleAdminIntern",
+    image: VictoriaOloyede,
+    linkedIn: "oluwatimilehin-oloyede-2495833b0",
+  },
+  {
+    name: "Emmanuel Adeyeye",
+    roleKey: "teamRoleWebDeveloper",
+    image: EmmanuelAdeyeye,
+    linkedIn: "adeyeye-emmanuel",
+  },
+].map((i) => ({ id: createId(), ...i }));
 
 // Gallery placeholders
 export const galleryImages = [
@@ -70,7 +91,7 @@ export const galleryImages = [
   { alt: "June 6th event photo 2" },
   { alt: "Workshop session photo" },
   { alt: "Networking event photo" },
-] as const;
+].map((i) => ({ id: createId(), ...i }));
 
 // Social links
 export const socialLinks = [
@@ -81,157 +102,104 @@ export const socialLinks = [
     icon: "linkedin",
   },
   { name: "Instagram", href: env.VITE_INSTAGRAM_URL, icon: "instagram" },
-] as const;
+].map((i) => ({ id: createId(), ...i }));
 
 // Values
-export const values = ["Value1", "Value2", "Value3", "Value4"] as const;
+export const values = ["Value1", "Value2", "Value3", "Value4"].map((value) => ({
+  id: createId(),
+  value,
+}));
 
 // Speakers
-export interface Speaker {
-  id: string;
-  name: string;
-  title: string;
-  role: "speaker" | "panelist" | "convener";
-  sessionFormat: "Keynote" | "Masterclass" | "Panel" | "Standard";
-  topic: string;
-  bio: string;
-  image?: string;
-  socials?: {
-    twitter?: string;
-    linkedin?: string;
-    instagram?: string;
-    website?: string;
-  };
-}
-
-export const speakers: Speaker[] = [
+export const speakers = [
   {
-    id: "adedoyinsolami-adeyeye",
-    name: "Adedoyinsolami Adeyeye",
-    title: "Product Manager, Moniepoint / Founder, Decode Benin",
-    role: "convener",
+    image: "",
+    name: "Oluchukwu Chiadika",
+    title: "Marketing & Growth Lead",
+    sessionFormat: "Speak",
+    topic: "Scaling Your Wealth as Fast as Your Career",
+    bio: "A results-driven marketing and growth professional with a track record of scaling brands across Africa's tech landscape.",
+    linkedin: "oluchukwu-chiadika",
+  },
+  {
+    image: "",
+    name: "Oluwadamilola Daniel",
+    title: "Programs/Partnership Lead (Africa Agility)",
+    sessionFormat: "Panel",
+    topic: "The EdTech Blueprint: Choosing Your Path and Mastering the Ecosystem",
+    bio: "Programs and Partnership Lead at Africa Agility, passionate about building bridges between education and technology across the continent.",
+    linkedin: "oluwadamilola-daniel",
+  },
+  {
+    image: "",
+    name: "Adedoyinsola Adeyeye",
+    title: "Product Manager (Moniepoint) | Founder (Decode Benin)",
     sessionFormat: "Keynote",
-    topic: "Beyond the Degree: Building Career Bridges in the African Tech Ecosystem",
-    bio: "A driven Software Product Manager at Moniepoint with a deep passion for community building and product growth. Having studied Software Engineering in Benin Republic, Doyin founded Decode Benin to create the exact bridge she wished she had as a student -- connecting bright minds to the real-world tech industry.",
-    socials: {
-      linkedin: "https://linkedin.com/in/adedoyinsolami",
-      twitter: "https://twitter.com/decodebenin",
-    },
+    topic: "Beyond the Degree: Engineering your future in the tech ecosystem",
+    bio: "A driven Software Product Manager at Moniepoint with a deep passion for community building and product growth. Founded Decode Benin to create the exact bridge she wished she had as a student.",
+    linkedin: "adedoyinsolami",
   },
   {
-    id: "adedeji-olowe",
-    name: "Adedeji Olowe",
-    title: "Fintech Thought Leader & Entrepreneur",
-    role: "speaker",
+    image: "",
+    name: "Daniel Esuola",
+    title: "Founder (Provolo)",
+    sessionFormat: "Panel",
+    topic: "",
+    bio: "Entrepreneur and founder of Provolo, building innovative solutions for the African market.",
+    linkedin: "daniel-esuola",
+  },
+  {
+    image: "",
+    name: "Imam Bashir",
+    title: "Cybersecurity Engineer | Programs/Community Lead",
+    sessionFormat: "Panel",
+    topic: "",
+    bio: "Cybersecurity engineer and community builder working to make digital spaces safer across Africa.",
+    linkedin: "imam-bashir",
+  },
+  {
+    image: "",
+    name: "Glory Olaifa",
+    title: "Android Engineer (Bglow)",
+    sessionFormat: "Panel",
+    topic: "",
+    bio: "Android engineer at Bglow, building mobile experiences that serve millions of users across Africa.",
+    linkedin: "glory-olaifa",
+  },
+  {
+    image: "",
+    name: "Akintunde Opawole",
+    title: "Program & Partnership (Product Dive)",
     sessionFormat: "Keynote",
-    topic: "The Future of Fintech in West Africa",
-    bio: "One of Africa's most respected fintech voices, Adedeji Olowe has been instrumental in shaping the conversation around digital payments and financial inclusion across the continent. A serial entrepreneur and thought leader, he brings decades of experience building and scaling fintech companies.",
-    socials: {
-      twitter: "https://twitter.com/aborodedeji",
-      linkedin: "https://linkedin.com/in/aborodedeji",
-    },
+    topic: "",
+    bio: "Program and Partnership lead at Product Dive, fostering product management education and community growth.",
+    linkedin: "akintunde-opawole",
   },
   {
-    id: "prosper-otemuyiwa",
-    name: "Prosper Otemuyiwa",
-    title: "Developer Advocate & Community Builder",
-    role: "speaker",
-    sessionFormat: "Masterclass",
-    topic: "Open Source as a Career Accelerator for African Developers",
-    bio: "Prosper Otemuyiwa is a globally recognized developer advocate and passionate open-source contributor. He has spent years helping African developers leverage open-source contributions to build international careers and establish credibility in the global tech scene.",
-    socials: {
-      twitter: "https://twitter.com/unicodeveloper",
-      linkedin: "https://linkedin.com/in/unicodeveloper",
-    },
+    image: "",
+    name: "Dami Opaniyan",
+    title: "Partnership (TS Academy)",
+    sessionFormat: "Panel",
+    topic: "The EdTech Blueprint: Choosing Your Path and Mastering the Ecosystem",
+    bio: "Partnership lead at TS Academy, connecting educational programs with industry opportunities across West Africa.",
+    linkedin: "dami-opaniyan",
   },
   {
-    id: "khadijat-abdulkadir",
-    name: "Khadijat Abdulkadir",
-    title: "Marketing & Growth Lead (Fintech)",
-    role: "speaker",
-    sessionFormat: "Standard",
-    topic: "Growth Marketing Strategies for Tech Startups in Emerging Markets",
-    bio: "A dynamic marketing and growth professional with extensive experience in the fintech space. Khadijat has led growth campaigns that reached millions of users across Africa, combining data-driven strategies with deep market understanding.",
-    socials: {
-      linkedin: "https://linkedin.com/in/khadijatabdulkadir",
-    },
-  },
-  {
-    id: "samuel-afolabi",
+    image: "",
     name: "Samuel Afolabi",
-    title: "Software Engineer & Tech Educator",
-    role: "speaker",
-    sessionFormat: "Masterclass",
-    topic: "From Student to Senior Engineer: A Practical Roadmap",
-    bio: "Samuel Afolabi is a seasoned software engineer who has worked across multiple tech stacks and companies. He is passionate about tech education and regularly mentors aspiring developers, helping them navigate the transition from academic learning to professional software engineering.",
-    socials: {
-      twitter: "https://twitter.com/samuelafolabi",
-      linkedin: "https://linkedin.com/in/samuelafolabi",
-    },
-  },
-  {
-    id: "fatima-zahra",
-    name: "Fatima Zahra",
-    title: "UX Researcher & Design Lead",
-    role: "panelist",
-    sessionFormat: "Panel",
-    topic: "Designing for Africa: UX Research in Emerging Markets",
-    bio: "Fatima Zahra is a UX researcher and design lead with a focus on creating digital products that truly serve African users. Her research-first approach has shaped products used by millions, and she advocates for inclusive design practices that bridge cultural and linguistic divides.",
-    socials: {
-      linkedin: "https://linkedin.com/in/fatimazahra",
-      website: "https://fatimazahra.design",
-    },
-  },
-  {
-    id: "chukwuemeka-nwosu",
-    name: "Chukwuemeka Nwosu",
-    title: "Venture Capital Partner",
-    role: "panelist",
-    sessionFormat: "Panel",
-    topic: "What Investors Actually Look For in African Tech Startups",
-    bio: "A venture capital partner with a keen eye for Africa's next big tech opportunities. Chukwuemeka has evaluated and funded numerous startups across the continent and brings candid insight into what it takes to attract investment in the African tech ecosystem.",
-    socials: {
-      linkedin: "https://linkedin.com/in/chukwuemekanwosu",
-      twitter: "https://twitter.com/cnwosu",
-    },
-  },
-  {
-    id: "aminata-diallo",
-    name: "Aminata Diallo",
-    title: "Data Scientist & AI Researcher",
-    role: "speaker",
-    sessionFormat: "Masterclass",
-    topic: "AI & Machine Learning: Real-World Applications for African Problems",
-    bio: "Aminata Diallo is a data scientist and AI researcher focused on applying machine learning to solve uniquely African challenges -- from agriculture optimization to healthcare access. She bridges the gap between cutting-edge AI research and practical, impactful deployment.",
-    socials: {
-      linkedin: "https://linkedin.com/in/aminatadiallo",
-      twitter: "https://twitter.com/aminata_ai",
-    },
-  },
-  {
-    id: "tunde-bakare",
-    name: "Tunde Bakare",
-    title: "Cybersecurity Consultant",
-    role: "speaker",
+    title: "Cybersecurity Engineer",
     sessionFormat: "Standard",
-    topic: "Cybersecurity Careers: An Untapped Goldmine for Young Africans",
-    bio: "Tunde Bakare is a cybersecurity consultant who has helped organizations across Africa strengthen their digital defenses. He is a vocal advocate for young Africans entering the cybersecurity field, which remains one of the most in-demand and underserved areas in the continent's tech landscape.",
-    socials: {
-      linkedin: "https://linkedin.com/in/tundebakare",
-    },
+    topic: "",
+    bio: "Seasoned cybersecurity engineer passionate about securing Africa's growing digital infrastructure.",
+    linkedin: "samuel-afolabi",
   },
   {
-    id: "ngozi-okonkwo",
-    name: "Ngozi Okonkwo",
-    title: "Product Design Lead",
-    role: "panelist",
-    sessionFormat: "Panel",
-    topic: "Building Products Users Actually Love: A West African Perspective",
-    bio: "Ngozi Okonkwo is a product design lead who has shipped products across fintech, edtech, and healthtech verticals. She brings a user-centered design philosophy rooted in deep empathy for African users, and she mentors the next generation of product designers.",
-    socials: {
-      twitter: "https://twitter.com/ngoziokonkwo",
-      linkedin: "https://linkedin.com/in/ngoziokonkwo",
-      website: "https://ngozi.design",
-    },
+    image: "",
+    name: "Chukwuemeka Chukwurah",
+    title: "Senior Software Engineer (Rocksteady Technology)",
+    sessionFormat: "Standard",
+    topic: "The path from code to scalable systems: Journey of building for efficiency",
+    bio: "Senior Software Engineer at Rocksteady Technology with deep expertise in building scalable, efficient systems from the ground up.",
+    linkedin: "chukwuemeka-chukwurah",
   },
-];
+].map((i) => ({ id: createId(), ...i }));

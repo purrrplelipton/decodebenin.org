@@ -214,7 +214,7 @@ const fr: typeof en = {
   speakersTitle: "Nos Intervenants",
   speakersFilterAll: "Tous",
   speakersFilterKeynote: "Keynote",
-  speakersFilterMasterclass: "Masterclass",
+  speakersFilterSpeak: "Conférence",
   speakersFilterPanel: "Panel",
   speakersFilterStandard: "Standard",
   speakersFilterSortName: "A\u2192Z",

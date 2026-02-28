@@ -18,7 +18,7 @@ export function MissionVisionSection() {
       aria-labelledby="mission-heading"
     >
       {/* Dotted paper bg */}
-      <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
+      <div className="dotted-paper absolute inset-0" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
       <AnimateInView
@@ -178,7 +178,7 @@ export function MissionVisionSection() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-3">
-              {values.map((val, i) => {
+              {values.map(({ value, id }, i) => {
                 const colors = [
                   "bg-decode-green/10 text-decode-green border-decode-green/20",
                   "bg-decode-yellow/10 text-decode-yellow border-decode-yellow/20",
@@ -187,13 +187,13 @@ export function MissionVisionSection() {
                 ];
                 return (
                   <span
-                    key={val}
+                    key={id}
                     className={cn(
                       "inline-flex items-center rounded-full border px-5 py-2 font-bold text-sm",
                       colors[i % colors.length],
                     )}
                   >
-                    {t(`mission${val}`)}
+                    {t(`mission${value}`)}
                   </span>
                 );
               })}

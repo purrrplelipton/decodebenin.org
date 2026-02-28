@@ -11,7 +11,7 @@ import { SpeakersCarousel } from "#/components/speakers-carousel";
 import { speakers } from "#/lib/data";
 import { cn } from "#/lib/utils";
 
-type FilterKey = "all" | "Keynote" | "Masterclass" | "Panel" | "Standard" | "sort-az";
+type FilterKey = "all" | "Keynote" | "Speak" | "Panel" | "Standard" | "sort-az";
 
 interface FilterOption {
   key: FilterKey;
@@ -23,7 +23,7 @@ interface FilterOption {
 const filterOptions: FilterOption[] = [
   { key: "all", labelKey: "speakersFilterAll", color: "bg-decode-purple/8 border-decode-purple/30 text-decode-purple", rotation: "rotate-1" },
   { key: "Keynote", labelKey: "speakersFilterKeynote", color: "bg-decode-red/8 border-decode-red/30 text-decode-red", rotation: "-rotate-1.5" },
-  { key: "Masterclass", labelKey: "speakersFilterMasterclass", color: "bg-decode-green/8 border-decode-green/30 text-decode-green", rotation: "rotate-2" },
+  { key: "Speak", labelKey: "speakersFilterSpeak", color: "bg-decode-green/8 border-decode-green/30 text-decode-green", rotation: "rotate-2" },
   { key: "Panel", labelKey: "speakersFilterPanel", color: "bg-decode-yellow/8 border-decode-yellow/30 text-decode-yellow", rotation: "-rotate-1" },
   { key: "Standard", labelKey: "speakersFilterStandard", color: "bg-muted border-border text-muted-foreground", rotation: "rotate-1.5" },
   { key: "sort-az", labelKey: "speakersFilterSortName", color: "bg-decode-purple-light/8 border-decode-purple-light/30 text-decode-purple-light", rotation: "-rotate-2" },
