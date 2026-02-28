@@ -1,4 +1,8 @@
 import {
+  AdoraOkolue,
+  EmmanuelAdeyeye,
+  EmmanuellaAhidjo,
+  GloryOlaifa,
   LogoAfricaAgility,
   LogoAltschool,
   LogoComtel,
@@ -13,7 +17,9 @@ import {
   LogoRightcom,
   LogoSobebra,
   LogoTSAcademy,
+  VictoriaOloyede,
 } from "#/assets/images";
+import { env } from "#/env";
 
 // Static data for partners/sponsors marquee
 export const partners = [
@@ -44,27 +50,33 @@ export const navLinks = [
 
 // Team member placeholders (easily extendable)
 export const teamMembers = [
-  { name: "Operations Lead", role: "Operations", placeholder: true },
-  { name: "Community Lead", role: "Community", placeholder: true },
-  { name: "Marketing Lead", role: "Marketing", placeholder: true },
-  { name: "Partnership Lead", role: "Partnership", placeholder: true },
+  { name: "Emmanuella Ahidjo", role: "Social Media Manager", image: EmmanuellaAhidjo },
+  { name: "Adora Okolue", role: "Community Manager/Bilingual Translator", image: AdoraOkolue },
+  { name: "Glory Olaifa", role: "Program/Project Manager", image: GloryOlaifa },
+  { name: "Victoria Oloyede", role: "Admin Intern", image: VictoriaOloyede },
+  // { name: "", role: "Graphics Designer", image: "" },
+  { name: "Emmanuel Adeyeye", role: "Web Developer", image: EmmanuelAdeyeye },
 ] as const;
 
 // Gallery placeholders
 export const galleryImages = [
-  { alt: "Community meetup photo 1", placeholder: true },
-  { alt: "Community meetup photo 2", placeholder: true },
-  { alt: "June 6th event photo 1", placeholder: true },
-  { alt: "June 6th event photo 2", placeholder: true },
-  { alt: "Workshop session photo", placeholder: true },
-  { alt: "Networking event photo", placeholder: true },
+  { alt: "Community meetup photo 1" },
+  { alt: "Community meetup photo 2" },
+  { alt: "June 6th event photo 1" },
+  { alt: "June 6th event photo 2" },
+  { alt: "Workshop session photo" },
+  { alt: "Networking event photo" },
 ] as const;
 
 // Social links
 export const socialLinks = [
-  { name: "Twitter", href: "https://twitter.com/decodebenin", icon: "twitter" },
-  { name: "LinkedIn", href: "https://linkedin.com/company/decodebenin", icon: "linkedin" },
-  { name: "Instagram", href: "https://instagram.com/decodebenin", icon: "instagram" },
+  { name: "Twitter", href: env.VITE_TWITTER_URL, icon: "twitter" },
+  {
+    name: "LinkedIn",
+    href: env.VITE_LINKEDIN_URL,
+    icon: "linkedin",
+  },
+  { name: "Instagram", href: env.VITE_INSTAGRAM_URL, icon: "instagram" },
 ] as const;
 
 // Values

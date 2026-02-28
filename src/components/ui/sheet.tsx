@@ -68,7 +68,7 @@ function SheetContent({
                 className="absolute top-3 right-3"
                 size="icon-sm"
               >
-                <Icon icon="ph:x" />
+                <Icon icon="hugeicons:multiplication-sign" />
                 <span className="sr-only">{t("uiClose")}</span>
               </Button>
             }

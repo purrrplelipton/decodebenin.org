@@ -2,7 +2,9 @@ import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
 import { LogoWhite } from "#/assets/images";
 import { Button } from "#/components/ui/button";
+import { env } from "#/env";
 import { socialLinks } from "#/lib/data";
+import { Route } from "#/routes";
 
 const iconMap: Record<string, string> = {
   twitter: "hugeicons:twitter",
@@ -12,6 +14,7 @@ const iconMap: Record<string, string> = {
 
 export function SiteFooter() {
   const t = useTranslations();
+  const navigate = Route.useNavigate();
 
   return (
     <footer className="bg-decode-purple text-primary-foreground">
@@ -31,7 +34,7 @@ export function SiteFooter() {
             className="rounded-full bg-decode-yellow px-8 font-bold text-foreground hover:bg-decode-yellow/90"
             nativeButton={false}
             render={
-              <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+              <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
                 {t("footerJoinSlack")}
               </a>
             }
@@ -81,6 +84,12 @@ export function SiteFooter() {
                   variant="ghost"
                   size="xs"
                   className="h-auto p-0 text-primary-foreground/70 transition-colors hover:bg-transparent hover:text-primary-foreground"
+                  onClick={() =>
+                    navigate({
+                      to: "/",
+                      search: (s) => ({ ...s, page_action: "show_terms_of_service" }),
+                    })
+                  }
                 >
                   {t("footerTerms")}
                 </Button>
@@ -90,6 +99,12 @@ export function SiteFooter() {
                   variant="ghost"
                   size="xs"
                   className="h-auto p-0 text-primary-foreground/70 transition-colors hover:bg-transparent hover:text-primary-foreground"
+                  onClick={() =>
+                    navigate({
+                      to: "/",
+                      search: (s) => ({ ...s, page_action: "show_privacy_policy" }),
+                    })
+                  }
                 >
                   {t("footerPrivacy")}
                 </Button>
@@ -116,7 +131,7 @@ export function SiteFooter() {
               className="rounded-full border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10"
               nativeButton={false}
               render={
-                <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+                <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
                   {t("footerJoinSlack")}
                 </a>
               }

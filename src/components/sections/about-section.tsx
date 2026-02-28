@@ -1,8 +1,16 @@
 import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
+import {
+  AdedoyinsolamiAdeyeye,
+  AdminAndOperationsMakingItHappen,
+  BehindTheScenesCommunityBuilding,
+  CommunityManagerEngagement,
+  FounderInActionAuthenticLeadership,
+} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import { Button } from "#/components/ui/button";
 import { teamMembers } from "#/lib/data";
+import { cn } from "#/lib/utils";
 
 export function AboutSection() {
   const t = useTranslations();
@@ -17,35 +25,59 @@ export function AboutSection() {
       <div className="grid-paper absolute inset-0 opacity-15" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div className="absolute top-24 left-6 hidden -rotate-8 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground">
-            📸
-          </div>
+      <div
+        className="absolute top-24 left-6 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
+          <img
+            src={FounderInActionAuthenticLeadership}
+            alt="Founder teaching or mentoring students demonstrating passion for community mission"
+            loading="lazy"
+            className="h-28 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-1/3 right-12 hidden rotate-6 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-1/3 right-12 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <div className="flex h-32 w-28 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-red/20 text-muted-foreground">
-            🎞️
-          </div>
+          <img
+            src={BehindTheScenesCommunityBuilding}
+            alt="Team members collaborating on organizing events and managing community resources"
+            loading="lazy"
+            className="h-32 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute right-8 bottom-32 hidden -rotate-4 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-purple/20 text-muted-foreground">
-            📷
-          </div>
+      <div
+        className="absolute right-8 bottom-32 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
+          <img
+            src={CommunityManagerEngagement}
+            alt="Community team member actively listening and connecting with members at networking event"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute bottom-20 left-24 hidden rotate-10 lg:block" aria-hidden="true">
+      <div
+        className="absolute bottom-20 left-24 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-purple/20 to-decode-green/20 text-muted-foreground">
-            🎬
-          </div>
+          <img
+            src={AdminAndOperationsMakingItHappen}
+            alt="Team members managing operations with organized planning documents and project boards visible"
+            loading="lazy"
+            className="h-28 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
@@ -59,11 +91,11 @@ export function AboutSection() {
         aria-hidden="true"
       />
       <div
-        className="washi-red absolute top-1/2 left-8 hidden h-3 w-24 -rotate-10 rounded-sm lg:block"
+        className="washi-red absolute top-1/2 left-8 h-3 w-24 -rotate-10 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-purple absolute right-1/4 bottom-1/3 hidden h-3 w-20 rotate-8 rounded-sm lg:block"
+        className="washi-purple absolute right-1/4 bottom-1/3 h-3 w-20 rotate-8 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -73,21 +105,21 @@ export function AboutSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/4 left-1/3 hidden size-2 rounded-full bg-decode-green/50 lg:block"
+        className="absolute top-1/4 left-1/3 size-2 rounded-full bg-decode-green/50 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute right-1/3 bottom-1/4 hidden size-2.5 rounded-full bg-decode-yellow/40 lg:block"
+        className="absolute right-1/3 bottom-1/4 size-2.5 rounded-full bg-decode-yellow/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
       {/* PAINT STAINS */}
       <div
-        className="absolute top-1/3 right-1/3 hidden h-24 w-28 rounded-full bg-decode-yellow/8 blur-2xl lg:block"
+        className="absolute top-1/3 right-1/3 h-24 w-28 rounded-full bg-decode-yellow/8 opacity-10 blur-2xl sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/3 left-1/4 hidden h-20 w-24 rounded-full bg-decode-green/10 blur-2xl lg:block"
+        className="absolute bottom-1/3 left-1/4 h-20 w-24 rounded-full bg-decode-green/10 opacity-10 blur-2xl sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -121,10 +153,10 @@ export function AboutSection() {
               {/* Founder photo placeholder */}
               <div className="scrapbook-card shrink-0 rounded-lg bg-muted p-2">
                 <div className="flex size-28 items-center justify-center rounded-md bg-background sm:size-36">
-                  <Icon
-                    icon="hugeicons:user"
-                    className="text-5xl text-muted-foreground/40"
-                    aria-hidden="true"
+                  <img
+                    src={AdedoyinsolamiAdeyeye}
+                    alt="Adedoyinsolami Adeyeye"
+                    // className="size-full object-cover"
                   />
                 </div>
               </div>
@@ -153,7 +185,7 @@ export function AboutSection() {
             </h3>
           </AnimateInView>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap justify-center gap-6">
             {teamMembers.map((member, index) => {
               const rotations = ["rotate-2", "-rotate-1", "rotate-1", "-rotate-2"];
               const washis = ["washi-green", "washi-yellow", "washi-red", "washi-purple"];
@@ -163,22 +195,27 @@ export function AboutSection() {
                   animation="scale"
                   delay={index * 100}
                   duration={600}
+                  className="w-full sm:w-[calc(((1/2)*100%)-var(--spacing)*6)] lg:w-[calc(((1/3)*100%)-var(--spacing)*6)]"
                 >
                   <div
-                    className={`scrapbook-card relative rounded-lg bg-card p-4 text-center ${rotations[index % rotations.length]} transition-transform duration-300 hover:rotate-0`}
+                    className={cn(
+                      "scrapbook-card relative rounded-lg bg-card p-4 text-center",
+                      rotations[index % rotations.length],
+                      "transition-transform duration-300 hover:rotate-0",
+                    )}
                   >
                     <div
-                      className={`absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 rounded-sm ${washis[index % washis.length]}`}
+                      className={cn(
+                        "absolute -top-2 left-1/2 h-4 w-12 -translate-x-1/2 rounded-sm",
+                        washis[index % washis.length],
+                      )}
                       aria-hidden="true"
                     />
-                    {/* Photo placeholder */}
-                    <div className="mx-auto mb-3 flex size-20 items-center justify-center rounded-full bg-muted">
-                      <Icon
-                        icon="hugeicons:user"
-                        className="text-4xl text-muted-foreground/40"
-                        aria-hidden="true"
-                      />
-                    </div>
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="mx-auto mb-3 flex size-20 rounded-full object-cover"
+                    />
                     <p className="font-bold text-foreground text-sm">{member.name}</p>
                     <p className="text-muted-foreground text-xs">{member.role}</p>
                   </div>
@@ -204,7 +241,7 @@ export function AboutSection() {
 
                 <div className="flex items-center gap-4">
                   <div className="flex size-14 items-center justify-center rounded-full bg-decode-red/10 text-decode-red">
-                    <Icon icon="hugeicons:calendar-01" className="text-3xl" aria-hidden="true" />
+                    <Icon icon="hugeicons:calendar-03" className="text-3xl" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="font-bold text-muted-foreground text-xs uppercase tracking-widest">
@@ -292,7 +329,11 @@ export function AboutSection() {
                 className="rounded-full border-border px-8"
                 nativeButton={false}
                 render={
-                  <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="http://join.slack.com/t/thedecodebeni-l1t3433/shared_invite/zt-3oqv3m5jk-3lmxJEAu4SfPodwh66xMKA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {t("heroCtaPrimary")}
                   </a>
                 }

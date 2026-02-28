@@ -1,7 +1,14 @@
 import { useTranslations } from "use-intl";
+import {
+  GrowingCommunityGroupPhoto,
+  ImpactMomentStudentAchievementDisplay,
+  MentorshipMultiplierEffect,
+  NetworkExpansionConnectionPoints,
+} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import { useCountUp } from "#/hooks/use-count-up";
 import { useInView } from "#/hooks/use-in-view";
+import { cn } from "#/lib/utils";
 
 function StatCard({
   end,
@@ -38,14 +45,24 @@ function StatCard({
     <AnimateInView animation="scale" delay={delay} duration={700}>
       <div
         ref={ref}
-        className={`scrapbook-card relative rounded-lg border ${accentClasses[accent]} p-6 text-center ${rotation} transition-transform duration-300 hover:rotate-0 md:p-8`}
+        className={cn(
+          "scrapbook-card relative rounded-lg border p-6 text-center backdrop-blur-sm transition-transform duration-300 hover:rotate-0 md:p-8",
+          accentClasses[accent],
+          rotation,
+        )}
       >
         <div
-          className={`absolute -top-2 left-1/2 h-5 w-16 -translate-x-1/2 rounded-sm ${accent === "green" ? "washi-green" : accent === "yellow" ? "washi-yellow" : "washi-red"}`}
+          className={cn(
+            "absolute -top-2 left-1/2 h-5 w-16 -translate-x-1/2 rounded-sm",
+            accent === "green" ? "washi-green" : accent === "yellow" ? "washi-yellow" : "washi-red",
+          )}
           aria-hidden="true"
         />
         <p
-          className={`font-bold font-serif text-4xl ${numberClasses[accent]} md:text-5xl lg:text-6xl`}
+          className={cn(
+            "font-bold font-serif text-4xl md:text-5xl lg:text-6xl",
+            numberClasses[accent],
+          )}
           aria-live="polite"
         >
           {display}
@@ -68,35 +85,59 @@ export function StatsSection() {
       <div className="grid-paper absolute inset-0 opacity-15" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div className="absolute top-20 left-8 hidden -rotate-10 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground">
-            📸
-          </div>
+      <div
+        className="absolute top-20 left-8 -rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
+          <img
+            src={GrowingCommunityGroupPhoto}
+            alt="Large diverse group of Decode Benin community members smiling together in community space"
+            loading="lazy"
+            className="h-28 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-1/2 right-12 hidden rotate-5 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-1/2 right-12 rotate-5 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <div className="flex h-32 w-28 items-center justify-center rounded bg-linear-to-br from-decode-yellow/25 to-decode-red/25 text-muted-foreground">
-            🎞️
-          </div>
+          <img
+            src={ImpactMomentStudentAchievementDisplay}
+            alt="Young person reviewing bulletin board displaying multiple achievement certificates and project showcases"
+            loading="lazy"
+            className="h-32 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute bottom-24 left-1/4 hidden -rotate-6 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-purple/20 text-muted-foreground">
-            📷
-          </div>
+      <div
+        className="absolute bottom-24 left-1/4 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
+          <img
+            src={NetworkExpansionConnectionPoints}
+            alt="Young people gathered around map of Benin showing community's reach with visual indicators"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute right-1/3 bottom-12 hidden rotate-8 lg:block" aria-hidden="true">
+      <div
+        className="absolute right-1/3 bottom-12 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-purple/20 to-decode-green/20 text-muted-foreground">
-            🎬
-          </div>
+          <img
+            src={MentorshipMultiplierEffect}
+            alt="Three-generation chain of mentor, mid-level developer, and student engaged with each other"
+            loading="lazy"
+            className="h-28 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
@@ -110,11 +151,11 @@ export function StatsSection() {
         aria-hidden="true"
       />
       <div
-        className="washi-red absolute top-1/3 left-1/3 hidden h-3 w-20 rotate-12 rounded-sm lg:block"
+        className="washi-red absolute top-1/3 left-1/3 h-3 w-20 rotate-12 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-purple absolute right-1/4 bottom-1/2 hidden h-3 w-16 -rotate-8 rounded-sm lg:block"
+        className="washi-purple absolute right-1/4 bottom-1/2 h-3 w-16 -rotate-8 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
@@ -126,21 +167,21 @@ export function StatsSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 right-1/2 hidden size-2 rounded-full bg-decode-red/40 lg:block"
+        className="absolute top-1/2 right-1/2 size-2 rounded-full bg-decode-red/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/4 left-1/2 hidden size-2.5 rounded-full bg-decode-purple/40 lg:block"
+        className="absolute bottom-1/4 left-1/2 size-2.5 rounded-full bg-decode-purple/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
       {/* PAINT STAINS */}
       <div
-        className="absolute top-1/4 left-1/3 hidden h-32 w-36 rounded-full bg-decode-yellow/8 blur-3xl lg:block"
+        className="absolute top-1/4 left-1/3 h-32 w-36 rounded-full bg-decode-yellow/8 opacity-10 blur-3xl sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute right-1/3 bottom-1/3 hidden h-28 w-24 rounded-full bg-decode-green/8 blur-2xl lg:block"
+        className="absolute right-1/3 bottom-1/3 h-28 w-24 rounded-full bg-decode-green/8 opacity-10 blur-2xl sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 

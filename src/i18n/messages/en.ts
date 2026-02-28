@@ -100,6 +100,39 @@ const en = {
   footerContact: "Contact Us",
   footerCopyright: "© 2026 Decode Benin Initiative. All rights reserved.",
 
+  termsTitle: "Terms of Service",
+  termsLastUpdated: "Last updated: February 2026",
+  termsSection1Title: "1. Acceptance of Terms",
+  termsSection1Content:
+    "By accessing or using the Decode Benin platform and community, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.",
+  termsSection2Title: "2. Purpose and Membership",
+  termsSection2Content:
+    "Decode Benin is a knowledge-driven community designed to bridge the gap between academic education and the tech ecosystem. Membership is open to students and young professionals committed to learning and mutual growth.",
+  termsSection3Title: "3. Community Guidelines",
+  termsSection3Content:
+    "Members must act with respect and professionalism. Harassment, hate speech, or spamming is strictly prohibited within our community channels.",
+  termsSection4Title: "4. Intellectual Property",
+  termsSection4Content:
+    "Content shared by Decode Benin remains our property or that of our partners. You may use resources for personal growth but cannot redistribute them for commercial purposes without consent.",
+  termsSection5Title: "5. Disclaimer",
+  termsSection5Content:
+    "Our services are provided 'as is'. Decode Benin does not guarantee specific career outcomes, though we strive to provide the best possible support and opportunities.",
+
+  privacyTitle: "Privacy Policy",
+  privacyLastUpdated: "Last updated: February 2026",
+  privacySection1Title: "1. Information Collection",
+  privacySection1Content:
+    "We collect information you provide directly, such as your name and email when joining our Slack community or registering for events.",
+  privacySection2Title: "2. Use of Information",
+  privacySection2Content:
+    "Your data is used solely to manage community interactions, send updates about events, and improve our offerings.",
+  privacySection3Title: "3. Data Sharing",
+  privacySection3Content:
+    "Decode Benin does not sell your personal data. We only share information with partners when necessary for event sponsorship or career placements, always with your implied or explicit consent.",
+  privacySection4Title: "4. Your Rights",
+  privacySection4Content:
+    "You have the right to access, update, or request the deletion of your personal data at any time by contacting us.",
+
   uiClose: "Close",
 
   root_meta_title: "Beyond the Degree - Engineering your future into the tech ecosystem",

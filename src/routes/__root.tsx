@@ -8,10 +8,10 @@ import {
 import { useEffect, useMemo } from "react";
 import { IntlProvider } from "use-intl";
 import { CountdownWidget } from "#/components/countdown-widget";
+import { ScrapbookDialog } from "#/components/scrapbook-dialog";
 import { SiteFooter } from "#/components/site-footer";
 import { SiteHeader } from "#/components/site-header";
 import { ScrollArea } from "#/components/ui/scroll-area";
-import { TooltipProvider } from "#/components/ui/tooltip";
 import { ScrollContainerProvider, useScrollContainerRef } from "#/context/scroll-container";
 import { getCurrentLocale } from "#/i18n/core/client";
 import type { Locale } from "#/i18n/core/shared";
@@ -293,20 +293,19 @@ function RootLayout() {
   return (
     <ScrollContainerProvider>
       <RootScrollArea>
-        <TooltipProvider>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-decode-yellow focus:px-4 focus:py-2 focus:font-bold focus:text-foreground focus:outline-none"
-          >
-            Skip to main content
-          </a>
-          <SiteHeader />
-          <main id="main-content" className="min-h-dvh">
-            <Outlet />
-          </main>
-          <SiteFooter />
-          <CountdownWidget />
-        </TooltipProvider>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-decode-yellow focus:px-4 focus:py-2 focus:font-bold focus:text-foreground focus:outline-none"
+        >
+          Skip to main content
+        </a>
+        <SiteHeader />
+        <main id="main-content" className="min-h-dvh">
+          <Outlet />
+        </main>
+        <SiteFooter />
+        <CountdownWidget />
+        <ScrapbookDialog />
       </RootScrollArea>
     </ScrollContainerProvider>
   );

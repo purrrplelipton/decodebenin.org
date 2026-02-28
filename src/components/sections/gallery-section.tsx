@@ -1,5 +1,11 @@
 import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
+import {
+  HandsOnProjectWork,
+  KnowledgeSharingPresentation,
+  NetworkingAtCommunityEvents,
+  WorkshopLearningEnvironment,
+} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import {
   Carousel,
@@ -9,6 +15,7 @@ import {
   CarouselPrevious,
 } from "#/components/ui/carousel";
 import { galleryImages } from "#/lib/data";
+import { cn } from "#/lib/utils";
 
 export function GallerySection() {
   const t = useTranslations();
@@ -22,35 +29,59 @@ export function GallerySection() {
       <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div className="absolute top-24 right-8 hidden rotate-8 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <div className="flex h-32 w-28 items-center justify-center rounded bg-linear-to-br from-decode-yellow/25 to-decode-green/25 text-muted-foreground">
-            📸
-          </div>
+      <div
+        className="absolute top-24 right-8 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
+          <img
+            src={WorkshopLearningEnvironment}
+            alt="Active workshop with attendees taking notes while presenter demonstrates content"
+            loading="lazy"
+            className="h-32 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-1/2 left-12 hidden -rotate-6 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-1/2 left-12 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <div className="flex h-28 w-32 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-purple/20 text-muted-foreground">
-            🎞️
-          </div>
+          <img
+            src={HandsOnProjectWork}
+            alt="Workshop participants coding, building, and designing with projects visible on screens"
+            loading="lazy"
+            className="h-28 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute right-1/4 bottom-28 hidden rotate-10 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground">
-            📷
-          </div>
+      <div
+        className="absolute right-1/4 bottom-28 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
+          <img
+            src={KnowledgeSharingPresentation}
+            alt="Confident presenter demonstrating expertise to engaged audience with tech demo visible"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-1/3 hidden -rotate-4 lg:block" aria-hidden="true">
+      <div
+        className="absolute bottom-12 left-1/3 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-purple rounded-sm bg-card p-2">
-          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-red/20 text-muted-foreground">
-            🎬
-          </div>
+          <img
+            src={NetworkingAtCommunityEvents}
+            alt="People naturally networking in small groups at vibrant modern venue with Benin-inspired décor"
+            loading="lazy"
+            className="h-28 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
@@ -64,23 +95,23 @@ export function GallerySection() {
         aria-hidden="true"
       />
       <div
-        className="washi-green absolute top-1/3 left-1/4 hidden h-3 w-20 rotate-8 rounded-sm lg:block"
+        className="washi-green absolute top-1/3 left-1/4 h-3 w-20 rotate-8 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-purple absolute right-1/3 bottom-1/3 hidden h-3 w-20 -rotate-8 rounded-sm lg:block"
+        className="washi-purple absolute right-1/3 bottom-1/3 h-3 w-20 -rotate-8 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/4 right-1/3 hidden size-2 rounded-full bg-decode-yellow lg:block"
+        className="absolute top-1/4 right-1/3 size-2 rounded-full bg-decode-yellow opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute top-2/3 left-1/2 hidden size-2.5 rounded-full bg-decode-green/50 lg:block"
+        className="absolute top-2/3 left-1/2 size-2.5 rounded-full bg-decode-green/50 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute right-1/2 bottom-1/4 hidden size-2 rounded-full bg-decode-red/40 lg:block"
+        className="absolute right-1/2 bottom-1/4 size-2 rounded-full bg-decode-red/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -126,11 +157,17 @@ export function GallerySection() {
                       className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
                     >
                       <div
-                        className={`scrapbook-card relative rounded-lg bg-card p-3 ${rotations[index % rotations.length]} transition-transform duration-300 hover:rotate-0`}
+                        className={cn(
+                          "scrapbook-card relative rounded-lg bg-card p-3 transition-transform duration-300 hover:rotate-0",
+                          rotations[index % rotations.length],
+                        )}
                       >
                         {/* Tape */}
                         <div
-                          className={`absolute -top-2 left-1/2 h-5 w-14 -translate-x-1/2 rounded-sm ${washis[index % washis.length]}`}
+                          className={cn(
+                            "absolute -top-2 left-1/2 h-5 w-14 -translate-x-1/2 rounded-sm",
+                            washis[index % washis.length],
+                          )}
                           aria-hidden="true"
                         />
                         {/* Photo placeholder */}

@@ -16,19 +16,19 @@ export function PartnersMarquee() {
     >
       {/* Subtle scrapbook decorations */}
       <div
-        className="washi-green absolute top-4 left-8 hidden h-2 w-16 rotate-6 rounded-sm lg:block"
+        className="washi-green absolute top-4 left-8 h-2 w-16 rotate-6 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-yellow absolute right-8 bottom-4 hidden h-2 w-12 -rotate-3 rounded-sm lg:block"
+        className="washi-yellow absolute right-8 bottom-4 h-2 w-12 -rotate-3 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 left-1/4 hidden size-1.5 rounded-full bg-decode-red/30 lg:block"
+        className="absolute top-1/2 left-1/4 size-1.5 rounded-full bg-decode-red/30 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/3 right-1/3 hidden size-1 rounded-full bg-decode-green/30 lg:block"
+        className="absolute top-1/3 right-1/3 size-1 rounded-full bg-decode-green/30 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -39,20 +39,18 @@ export function PartnersMarquee() {
       </AnimateInView>
 
       {/* Marquee row 1 */}
-      <div className="relative">
-        {/* Gradient faders */}
-        <div
-          className="pointer-events-none absolute top-0 left-0 z-10 h-full w-24 bg-linear-to-r from-card to-transparent"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-linear-to-l from-card to-transparent"
-          aria-hidden="true"
-        />
-
+      <div
+        className="relative overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, #0000, #000 66%, #000 66%, #0000)",
+        }}
+      >
         <div
           className="flex gap-4"
-          style={{ animation: "marquee 30s linear infinite", willChange: "transform" }}
+          style={{
+            animation: "marquee 30s linear infinite",
+            willChange: "transform",
+          }}
           aria-hidden="true"
         >
           {[...partners, ...partners].map((partner, i) => (
@@ -62,19 +60,18 @@ export function PartnersMarquee() {
       </div>
 
       {/* Marquee row 2 (reverse) */}
-      <div className="relative mt-4">
-        <div
-          className="pointer-events-none absolute top-0 left-0 z-10 h-full w-24 bg-linear-to-r from-card to-transparent"
-          aria-hidden="true"
-        />
-        <div
-          className="pointer-events-none absolute top-0 right-0 z-10 h-full w-24 bg-linear-to-l from-card to-transparent"
-          aria-hidden="true"
-        />
-
+      <div
+        className="relative mt-4 overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, #0000, #000 66%, #000 66%, #0000)",
+        }}
+      >
         <div
           className="flex gap-4"
-          style={{ animation: "marquee-reverse 35s linear infinite", willChange: "transform" }}
+          style={{
+            animation: "marquee-reverse 35s linear infinite",
+            willChange: "transform",
+          }}
           aria-hidden="true"
         >
           {[...partners.slice().reverse(), ...partners.slice().reverse()].map((partner, i) => (

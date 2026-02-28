@@ -35,7 +35,7 @@ function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.
       >
         {children}
         <Icon
-          icon="ph:caret-down"
+          icon="hugeicons:arrow-down-01"
           data-slot="accordion-trigger-icon"
           className="pointer-events-none shrink-0 transition-transform duration-200 group-aria-expanded/accordion-trigger:rotate-180"
         />

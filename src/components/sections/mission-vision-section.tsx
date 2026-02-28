@@ -1,7 +1,13 @@
 import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
+import {
+  MissionInActionRoadmapClarity,
+  ValuesInPracticeCollaboration,
+  VisionFutureTechLeaders,
+} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import { values } from "#/lib/data";
+import { cn } from "#/lib/utils";
 
 export function MissionVisionSection() {
   const t = useTranslations();
@@ -15,27 +21,45 @@ export function MissionVisionSection() {
       <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
-      <div className="absolute top-16 right-8 hidden rotate-6 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-yellow rounded-sm bg-card p-2">
-          <div className="flex h-28 w-24 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-green/20 text-muted-foreground">
-            📸
-          </div>
+      <div
+        className="absolute top-16 right-8 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-yellow rounded-sm bg-card p-2">
+          <img
+            src={MissionInActionRoadmapClarity}
+            alt="Young professional studying visible career roadmap document at desk with thoughtful expression"
+            loading="lazy"
+            className="h-28 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-2/3 left-10 hidden -rotate-8 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-2/3 left-10 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card torn-edge-all paper-crease paint-stain-red rounded-sm bg-card p-2">
-          <div className="flex h-32 w-28 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-purple/20 text-muted-foreground">
-            🎞️
-          </div>
+          <img
+            src={VisionFutureTechLeaders}
+            alt="Diverse young people standing confidently in modern tech environment with growth indicators visible"
+            loading="lazy"
+            className="h-32 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute right-1/4 bottom-20 hidden rotate-10 lg:block" aria-hidden="true">
-        <div className="scrapbook-card pin-effect torn-edge-top torn-edge-bottom paper-crease paint-stain-green rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground">
-            📷
-          </div>
+      <div
+        className="absolute right-1/4 bottom-20 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
+        <div className="scrapbook-card pin-effect torn-edge-all paper-crease paint-stain-green rounded-sm bg-card p-2">
+          <img
+            src={ValuesInPracticeCollaboration}
+            alt="Diverse hands coming together on desk with laptops and notebooks photographed from above"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
@@ -49,11 +73,11 @@ export function MissionVisionSection() {
         aria-hidden="true"
       />
       <div
-        className="washi-red absolute top-1/3 right-1/3 hidden h-3 w-24 rotate-12 rounded-sm lg:block"
+        className="washi-red absolute top-1/3 right-1/3 h-3 w-24 rotate-12 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-purple absolute bottom-1/3 left-1/4 hidden h-3 w-20 -rotate-6 rounded-sm lg:block"
+        className="washi-purple absolute bottom-1/3 left-1/4 h-3 w-20 -rotate-6 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
@@ -61,11 +85,11 @@ export function MissionVisionSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/4 left-1/3 hidden size-2.5 rounded-full bg-decode-green/40 lg:block"
+        className="absolute top-1/4 left-1/3 size-2.5 rounded-full bg-decode-green/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute right-1/2 bottom-1/4 hidden size-2 rounded-full bg-decode-yellow/50 lg:block"
+        className="absolute right-1/2 bottom-1/4 size-2 rounded-full bg-decode-yellow/50 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -164,7 +188,10 @@ export function MissionVisionSection() {
                 return (
                   <span
                     key={val}
-                    className={`inline-flex items-center rounded-full border px-5 py-2 font-bold text-sm ${colors[i % colors.length]}`}
+                    className={cn(
+                      "inline-flex items-center rounded-full border px-5 py-2 font-bold text-sm",
+                      colors[i % colors.length],
+                    )}
                   >
                     {t(`mission${val}`)}
                   </span>

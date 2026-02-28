@@ -103,6 +103,39 @@ const fr: typeof en = {
   footerContact: "Nous Contacter",
   footerCopyright: "© 2026 Initiative Decode Benin. Tous droits réservés.",
 
+  termsTitle: "Conditions d'Utilisation",
+  termsLastUpdated: "Dernière mise à jour : Février 2026",
+  termsSection1Title: "1. Acceptation des Conditions",
+  termsSection1Content:
+    "En accédant à ou en utilisant la plateforme et la communauté Decode Benin, vous acceptez d'être lié par ces Conditions d'Utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser nos services.",
+  termsSection2Title: "2. Objectif et Adhésion",
+  termsSection2Content:
+    "Decode Benin est une communauté axée sur la connaissance conçue pour combler le fossé entre l'éducation académique et l'écosystème technologique. L'adhésion est ouverte aux étudiants et aux jeunes professionnels engagés dans l'apprentissage et la croissance mutuelle.",
+  termsSection3Title: "3. Directives de la Communauté",
+  termsSection3Content:
+    "Les membres doivent agir avec respect et professionnalisme. Le harcèlement, les discours de haine ou le spam sont strictement interdits au sein de nos canaux communautaires.",
+  termsSection4Title: "4. Propriété Intellectuelle",
+  termsSection4Content:
+    "Le contenu partagé par Decode Benin reste notre propriété ou celle de nos partenaires. Vous pouvez utiliser les ressources pour votre croissance personnelle mais ne pouvez pas les redistribuer à des fins commerciales sans consentement.",
+  termsSection5Title: "5. Clause de Non-responsabilité",
+  termsSection5Content:
+    "Nos services sont fournis 'en l'état'. Decode Benin ne garantit pas de résultats de carrière spécifiques, bien que nous nous efforcions de fournir le meilleur soutien et les meilleures opportunités possibles.",
+
+  privacyTitle: "Politique de Confidentialité",
+  privacyLastUpdated: "Dernière mise à jour : Février 2026",
+  privacySection1Title: "1. Collecte d'Informations",
+  privacySection1Content:
+    "Nous collectons les informations que vous fournissez directement, telles que votre nom et votre adresse e-mail lors de votre adhésion à notre communauté Slack ou de votre inscription à des événements.",
+  privacySection2Title: "2. Utilisation des Informations",
+  privacySection2Content:
+    "Vos données sont utilisées exclusivement pour gérer les interactions communautaires, envoyer des mises à jour sur les événements et améliorer nos offres.",
+  privacySection3Title: "3. Partage de Données",
+  privacySection3Content:
+    "Decode Benin ne vend pas vos données personnelles. Nous ne partageons des informations avec des partenaires que lorsque cela est nécessaire pour le parrainage d'événements ou les placements de carrière, toujours avec votre consentement implicite ou explicite.",
+  privacySection4Title: "4. Vos Droits",
+  privacySection4Content:
+    "Vous avez le droit d'accéder à, de mettre à jour ou de demander la suppression de vos données personnelles à tout moment en nous contactant.",
+
   uiClose: "Fermer",
 
   root_meta_title: "Au-delà du diplôme - Façonner votre avenir dans l'écosystème tech",

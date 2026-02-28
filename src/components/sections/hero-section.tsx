@@ -1,7 +1,22 @@
 import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
+import {
+  DiverseTechCommunityGathering,
+  FemaleDevInFocus,
+  HandsOnCodingWorkshop,
+  LateNightCodingSprint,
+  LearningInSessionCloseUp,
+  NetworkingCoffeeChat,
+  ProjectShowcaseMoment,
+  StartupPitchMoment,
+  StudentsWithCertificatesOfAchievement,
+  SuccessfulTeamCelebration,
+  TechWorkshopInSession,
+  YoungDeveloperMentoringSession,
+} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import { Button } from "#/components/ui/button";
+import { env } from "#/env";
 
 export function HeroSection() {
   const t = useTranslations();
@@ -18,102 +33,174 @@ export function HeroSection() {
       {/* SCATTERED PHOTO CARDS - Layer 1 (Various sizes and rotations) */}
 
       {/* Top left cluster */}
-      <div className="absolute top-12 left-4 hidden -rotate-12 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-12 left-4 -rotate-12 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card pin-effect rounded-sm bg-card p-2 shadow-lg">
-          <div className="flex h-32 w-24 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-green/20 text-muted-foreground text-xs">
-            📸
-          </div>
+          <img
+            src={YoungDeveloperMentoringSession}
+            alt="Black developer explaining code on laptop to student in bright tech workspace with African-inspired decor"
+            loading="lazy"
+            className="h-32 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-32 left-20 hidden rotate-6 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-32 left-20 rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-40 w-32 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-yellow/20 text-muted-foreground text-xs">
-            📷
-          </div>
+          <img
+            src={DiverseTechCommunityGathering}
+            alt="Group of 4-5 young West African professionals laughing while collaborating around laptops in creative co-working space"
+            loading="lazy"
+            className="h-40 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-48 left-2 hidden -rotate-3 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-48 left-2 -rotate-3 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-purple/20 text-muted-foreground text-xs">
-            🎞️
-          </div>
+          <img
+            src={HandsOnCodingWorkshop}
+            alt="Close-up of diverse hands typing on RGB-lit keyboard with code visible on monitor"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
       {/* Top right cluster */}
-      <div className="absolute top-16 right-6 hidden rotate-8 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-16 right-6 rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card pin-effect rounded-sm bg-card p-2">
-          <div className="flex h-36 w-28 items-center justify-center rounded bg-linear-to-br from-decode-yellow/30 to-decode-red/30 text-2xl text-muted-foreground">
-            📷
-          </div>
+          <img
+            src={StudentsWithCertificatesOfAchievement}
+            alt="Three young Black students smiling while holding achievement certificates in learning space with tech setup"
+            loading="lazy"
+            className="h-36 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-40 right-32 hidden -rotate-6 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-40 right-32 -rotate-6 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-28 w-28 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground text-xl">
-            🎬
-          </div>
+          <img
+            src={TechWorkshopInSession}
+            alt="Busy workshop room with students concentrating at computers while mentor guides nearby"
+            loading="lazy"
+            className="h-28 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute top-28 right-72 hidden rotate-12 lg:block" aria-hidden="true">
+      <div
+        className="absolute top-28 right-72 rotate-12 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-32 w-24 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-purple/20 text-lg text-muted-foreground">
-            📸
-          </div>
+          <img
+            src={StartupPitchMoment}
+            alt="Young entrepreneur confidently presenting to investors showing prototype on screen in modern startup office"
+            loading="lazy"
+            className="h-32 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
       {/* Bottom left cluster */}
-      <div className="absolute bottom-20 left-8 hidden -rotate-8 lg:block" aria-hidden="true">
+      <div
+        className="absolute bottom-20 left-8 -rotate-8 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card pin-effect rounded-sm bg-card p-2">
-          <div className="flex h-28 w-28 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-yellow/20 text-muted-foreground text-xl">
-            🎞️
-          </div>
+          <img
+            src={NetworkingCoffeeChat}
+            alt="Two young professionals engaged in conversation over coffee at bright café table with laptops"
+            loading="lazy"
+            className="h-28 w-28 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute bottom-40 left-24 hidden rotate-5 lg:block" aria-hidden="true">
+      <div
+        className="absolute bottom-40 left-24 rotate-5 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-28 w-36 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-green/20 text-lg text-muted-foreground">
-            📷
-          </div>
+          <img
+            src={LateNightCodingSprint}
+            alt="Developer silhouetted against glowing laptop screen surrounded by coffee cups in modern workspace"
+            loading="lazy"
+            className="h-28 w-36 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-40 hidden -rotate-10 lg:block" aria-hidden="true">
+      <div
+        className="absolute bottom-10 left-40 -rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-purple/20 text-muted-foreground text-xl">
-            🎬
-          </div>
+          <img
+            src={FemaleDevInFocus}
+            alt="Young African woman with glasses problem-solving at dual-monitor desk with Benin flag visible"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
       {/* Bottom right cluster */}
-      <div className="absolute right-8 bottom-12 hidden rotate-10 lg:block" aria-hidden="true">
+      <div
+        className="absolute right-8 bottom-12 rotate-10 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card pin-effect rounded-sm bg-card p-2">
-          <div className="flex h-32 w-24 items-center justify-center rounded bg-linear-to-br from-decode-yellow/20 to-decode-green/20 text-muted-foreground text-xs">
-            📸
-          </div>
+          <img
+            src={SuccessfulTeamCelebration}
+            alt="Diverse young developers celebrating completed project arms-raised around monitor in tech office"
+            loading="lazy"
+            className="h-32 w-24 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute right-40 bottom-32 hidden -rotate-4 lg:block" aria-hidden="true">
+      <div
+        className="absolute right-40 bottom-32 -rotate-4 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-40 w-32 items-center justify-center rounded bg-linear-to-br from-decode-red/20 to-decode-yellow/20 text-muted-foreground text-xs">
-            🎞️
-          </div>
+          <img
+            src={LearningInSessionCloseUp}
+            alt="Hands taking notes on notepad while laptop displays code on desk with tech books"
+            loading="lazy"
+            className="h-40 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
-      <div className="absolute right-16 bottom-48 hidden rotate-7 lg:block" aria-hidden="true">
+      <div
+        className="absolute right-16 bottom-48 rotate-7 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        aria-hidden="true"
+      >
         <div className="scrapbook-card rounded-sm bg-card p-2">
-          <div className="flex h-24 w-32 items-center justify-center rounded bg-linear-to-br from-decode-green/20 to-decode-purple/20 text-muted-foreground text-xs">
-            📷
-          </div>
+          <img
+            src={ProjectShowcaseMoment}
+            alt="Developer proudly showing completed project on laptop to another person in personal workspace"
+            loading="lazy"
+            className="h-24 w-32 rounded object-cover"
+          />
         </div>
       </div>
 
@@ -129,7 +216,7 @@ export function HeroSection() {
 
       {/* Additional decorative frame */}
       <div
-        className="absolute top-1/2 right-1/4 hidden h-28 w-40 rotate-12 rounded-sm border-2 border-primary-foreground/10 border-dashed lg:block"
+        className="absolute top-1/2 right-1/4 h-28 w-40 rotate-12 rounded-sm border-2 border-primary-foreground/10 border-dashed opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -139,7 +226,7 @@ export function HeroSection() {
         aria-hidden="true"
       />
       <div
-        className="washi-yellow absolute top-1/3 right-1/3 hidden h-3 w-24 -rotate-8 rounded-sm lg:block"
+        className="washi-yellow absolute top-1/3 right-1/3 h-3 w-24 -rotate-8 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
@@ -147,7 +234,7 @@ export function HeroSection() {
         aria-hidden="true"
       />
       <div
-        className="washi-green absolute bottom-1/3 left-1/4 hidden h-3 w-32 rotate-12 rounded-sm lg:block"
+        className="washi-green absolute bottom-1/3 left-1/4 h-3 w-32 rotate-12 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
@@ -155,15 +242,15 @@ export function HeroSection() {
         aria-hidden="true"
       />
       <div
-        className="washi-red absolute top-2/3 right-12 hidden h-3 w-20 -rotate-10 rounded-sm lg:block"
+        className="washi-red absolute top-2/3 right-12 h-3 w-20 -rotate-10 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-purple absolute right-1/3 bottom-1/4 hidden h-4 w-28 rotate-6 rounded-sm lg:block"
+        className="washi-purple absolute right-1/3 bottom-1/4 h-4 w-28 rotate-6 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="washi-purple absolute top-1/2 left-1/3 hidden h-3 w-16 rotate-12 rounded-sm lg:block"
+        className="washi-purple absolute top-1/2 left-1/3 h-3 w-16 rotate-12 rounded-sm opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -193,11 +280,11 @@ export function HeroSection() {
         aria-hidden="true"
       />
       <div
-        className="absolute bottom-1/2 left-1/2 hidden size-3 rounded-full bg-decode-green/40 lg:block"
+        className="absolute bottom-1/2 left-1/2 size-3 rounded-full bg-decode-green/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
       <div
-        className="absolute top-1/2 left-1/4 hidden size-2.5 rounded-full bg-decode-red/40 lg:block"
+        className="absolute top-1/2 left-1/4 size-2.5 rounded-full bg-decode-red/40 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       />
 
@@ -235,7 +322,7 @@ export function HeroSection() {
               className="rounded-full bg-decode-yellow px-8 font-bold text-base text-foreground hover:bg-decode-yellow/90"
               nativeButton={false}
               render={
-                <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+                <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
                   <Icon icon="hugeicons:users" aria-hidden="true" />
                   {t("heroCtaPrimary")}
                 </a>
@@ -246,11 +333,7 @@ export function HeroSection() {
               className="rounded-full border-primary-foreground/20 px-8 text-base text-primary-foreground hover:bg-primary-foreground/10"
               nativeButton={false}
               render={
-                <a
-                  href="https://nestuge.com/decodebenin1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={env.VITE_NESTUGE_URL} target="_blank" rel="noopener noreferrer">
                   {t("heroCtaSecondary")}
                   <Icon icon="hugeicons:arrow-right-02" aria-hidden="true" />
                 </a>

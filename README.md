@@ -56,7 +56,7 @@ The platform supports both English and French. Content is managed via message bu
 ## 🤝 Community
 
 Join the conversation and stay updated:
-- [Slack Community](https://decodebenin.slack.com)
+- [Slack Community](http://join.slack.com/t/thedecodebeni-l1t3433/shared_invite/zt-3oqv3m5jk-3lmxJEAu4SfPodwh66xMKA)
 - [Official Website](https://decodebenin.org)
 
 ---

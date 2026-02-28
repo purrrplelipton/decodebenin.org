@@ -12,6 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "#/components/ui/sheet";
+import { env } from "#/env";
 import { useScrollDirection } from "#/hooks/use-scroll-direction";
 import { getCurrentLocale } from "#/i18n/core/client";
 import { LOCALE_COOKIE } from "#/i18n/core/shared";
@@ -124,7 +125,7 @@ export function SiteHeader() {
             className="rounded-full bg-decode-yellow px-5 font-bold text-foreground hover:bg-decode-yellow/90"
             nativeButton={false}
             render={
-              <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+              <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
                 {t("navJoinCommunity")}
               </a>
             }
@@ -184,6 +185,7 @@ export function SiteHeader() {
                 {navLinks.map((link) => (
                   <SheetClose
                     key={link.key}
+                    nativeButton={false}
                     render={
                       <a
                         href={link.href}
@@ -196,11 +198,16 @@ export function SiteHeader() {
                   />
                 ))}
               </nav>
-              <div className="mt-auto border-primary-foreground/10 border-t pt-4">
+              <div className="mt-auto border-primary-foreground/10 border-t p-4">
                 <Button
                   className="w-full rounded-full bg-decode-yellow font-bold text-foreground hover:bg-decode-yellow/90"
+                  nativeButton={false}
                   render={
-                    <a href="https://slack.com" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="http://join.slack.com/t/thedecodebeni-l1t3433/shared_invite/zt-3oqv3m5jk-3lmxJEAu4SfPodwh66xMKA"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       {t("navJoinCommunity")}
                     </a>
                   }

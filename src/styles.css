@@ -216,7 +216,7 @@
   &::after {
     content: '';
     position: absolute;
-    top: -6px;
+    top: 6px;
     right: 12px;
     width: 12px;
     height: 12px;
@@ -282,6 +282,7 @@
 /* Torn Edge Variations */
 @utility torn-edge-top {
   position: relative;
+  /* Keep subtle border-top if desired, or move to mask */
   border-top: 2px solid;
   border-top-color: oklch(0 0 0 / 0.08);
 
@@ -306,34 +307,48 @@
 }
 
 @utility torn-edge-all {
-  box-shadow: inset 0 0 8px oklch(0 0 0 / 0.1),
-    inset 1px 1px 3px oklch(0 0 0 / 0.06);
+  /* Using roughened mask instead of box-shadow to avoid conflict with elevation */
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='5'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='3'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='white' filter='url(%23f)'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='5'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='3'/%3E%3C/filter%3E%3Crect width='100' height='100' fill='white' filter='url(%23f)'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 }
 
-/* Paint stain effects - using box-shadow instead */
+/* Paint stain effects - using radial gradients instead of box-shadow */
 @utility paint-stain-green {
-  box-shadow: inset -8px -8px 12px oklch(0.55 0.18 155 / 0.08);
+  background-image: radial-gradient(circle at 100% 100%, oklch(0.55 0.18 155 / 0.12) 0%, transparent 60%);
 }
 
 @utility paint-stain-yellow {
-  box-shadow: inset 8px -8px 12px oklch(0.88 0.18 90 / 0.06);
+  background-image: radial-gradient(circle at 0% 100%, oklch(0.88 0.18 90 / 0.1) 0%, transparent 60%);
 }
 
 @utility paint-stain-red {
-  box-shadow: inset -8px 8px 12px oklch(0.55 0.22 25 / 0.07);
+  background-image: radial-gradient(circle at 100% 0%, oklch(0.55 0.22 25 / 0.12) 0%, transparent 60%);
 }
 
 @utility paint-stain-purple {
-  box-shadow: inset 8px 8px 12px oklch(0.45 0.15 290 / 0.05);
+  background-image: radial-gradient(circle at 0% 0%, oklch(0.45 0.15 290 / 0.1) 0%, transparent 60%);
 }
 
-/* Paper crease - using box-shadow layering */
+/* Paper crease - using background linear gradient layering */
 @utility paper-crease {
-  box-shadow:
-    inset 0 2px 4px oklch(0 0 0 / 0.12),
-    inset 0 -1px 2px oklch(1 0 0 / 0.1),
-    0 2px 4px oklch(0 0 0 / 0.06);
   position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Subtle linear highlight/shadow for crease */
+    background: linear-gradient(115deg,
+        transparent 45%,
+        oklch(0 0 0 / 0.04) 48%,
+        oklch(1 0 0 / 0.06) 50%,
+        oklch(0 0 0 / 0.04) 52%,
+        transparent 55%);
+    pointer-events: none;
+    z-index: 1;
+  }
 
   &::before {
     content: '';
@@ -349,5 +364,6 @@
         oklch(0 0 0 / 0.08) 80%,
         transparent);
     pointer-events: none;
+    z-index: 1;
   }
 }
