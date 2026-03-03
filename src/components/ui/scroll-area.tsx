@@ -158,7 +158,7 @@ function ScrollBar({
       <ScrollAreaPrimitive.Thumb
         data-slot="scroll-area-thumb"
         className={cn(
-          "relative grow rounded-full transition-colors",
+          "relative z-99 grow rounded-full",
           backgroundTheme === "light"
             ? "bg-black/50 hover:bg-black/70"
             : "bg-white/50 hover:bg-white/70",

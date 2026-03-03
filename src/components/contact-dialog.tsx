@@ -1,5 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Icon } from "@iconify-icon/react";
+import { useNavigate } from "@tanstack/react-router";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useTranslations } from "use-intl";
@@ -20,7 +21,6 @@ import {
 } from "#/components/ui/input-group";
 import { Textarea } from "#/components/ui/textarea";
 import { Tooltip, TooltipContent, TooltipTrigger } from "#/components/ui/tooltip";
-import { Route } from "#/routes";
 
 type ContactFormData = {
   email: string;
@@ -29,7 +29,7 @@ type ContactFormData = {
 
 export function ContactDialog() {
   const t = useTranslations();
-  const navigate = Route.useNavigate();
+  const navigate = useNavigate();
 
   // Validation schema with translated error messages
   const contactFormSchema = z.object({
@@ -223,7 +223,7 @@ export function ContactDialog() {
         <Button
           type="submit"
           disabled={isSubmitting || !messageValue}
-          className="flex-1 gap-2 rounded-md bg-linear-to-r from-decode-purple to-decode-purple-light px-4 py-3 font-semibold text-primary-foreground transition-all hover:from-decode-purple/90 hover:to-decode-purple-light/90 hover:shadow-lg active:scale-95 disabled:pointer-events-none disabled:opacity-50"
+          className="grow gap-2 rounded-md bg-linear-to-r from-decode-purple to-decode-purple-light px-4 py-3 font-semibold text-primary-foreground transition-all hover:from-decode-purple/90 hover:to-decode-purple-light/90 hover:shadow-lg active:scale-95 disabled:pointer-events-none disabled:opacity-50"
         >
           {isSubmitting ? (
             <>
@@ -257,7 +257,7 @@ export function ContactDialog() {
       </div>
 
       {/* Info Box */}
-      <div className="rounded-md border-2 border-decode-yellow/30 bg-decode-yellow/8 p-4 backdrop-blur-sm">
+      {/* <div className="rounded-md border-2 border-decode-yellow/30 bg-decode-yellow/8 p-4 backdrop-blur-sm">
         <p className="flex items-start gap-3 text-decode-yellow/80 text-sm leading-relaxed">
           <Icon
             icon="hugeicons:info-circle"
@@ -266,7 +266,7 @@ export function ContactDialog() {
           />
           <span>{t("contactInfoBox")}</span>
         </p>
-      </div>
+      </div> */}
     </form>
   );
 }

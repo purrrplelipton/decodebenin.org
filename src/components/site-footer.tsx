@@ -1,10 +1,9 @@
 import { Icon } from "@iconify-icon/react";
+import { useNavigate } from "@tanstack/react-router";
 import { useTranslations } from "use-intl";
-import { LogoWhite } from "#/assets/images";
 import { Button } from "#/components/ui/button";
 import { env } from "#/env";
 import { socialLinks } from "#/lib/data";
-import { Route } from "#/routes";
 
 const iconMap: Record<string, string> = {
   twitter: "hugeicons:twitter",
@@ -14,7 +13,7 @@ const iconMap: Record<string, string> = {
 
 export function SiteFooter() {
   const t = useTranslations();
-  const navigate = Route.useNavigate();
+  const navigate = useNavigate();
 
   return (
     <footer className="bg-decode-purple text-primary-foreground">
@@ -48,7 +47,7 @@ export function SiteFooter() {
           {/* Logo & socials */}
           <div className="space-y-4">
             <img
-              src={LogoWhite}
+              src="/images/decode-benin-logo-white.png"
               alt="Decode Benin"
               width={140}
               height={32}

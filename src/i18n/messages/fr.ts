@@ -20,6 +20,8 @@ const fr: typeof en = {
   eventTime: "SAMEDI 06 JUIN 2026",
 
   partnersTitle: "La Confiance des Leaders de l'Industrie",
+  speakersSubtitle: "Découvrez les Pionniers",
+  speakersTitle: "Intervenants d'Élite & Leaders de l'Industrie",
 
   problemTitle: "Le Problème",
   problemText:

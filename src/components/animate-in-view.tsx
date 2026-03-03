@@ -1,24 +1,18 @@
-import type { ReactNode } from "react";
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from "react";
 import { useInView } from "#/hooks/use-in-view";
 import { cn } from "#/lib/utils";
 
-interface AnimateInViewProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
-  animation?:
-    | "fade-up"
-    | "fade-down"
-    | "fade-left"
-    | "fade-right"
-    | "scale"
-    | "fade"
-    | "throw-out-right"
-    | "throw-out-left";
-  delay?: number;
-  duration?: number;
-  threshold?: number;
-}
+type Animation =
+  | "fade-up"
+  | "fade-down"
+  | "fade-left"
+  | "fade-right"
+  | "scale"
+  | "fade"
+  | "throw-out-right"
+  | "throw-out-left";
 
-const animationClasses = {
+const animationClasses: Record<Animation, string> = {
   "fade-up": "translate-y-8 opacity-0",
   "fade-down": "-translate-y-8 opacity-0",
   "fade-left": "-translate-x-8 opacity-0",
@@ -29,36 +23,57 @@ const animationClasses = {
   "throw-out-left": "-translate-x-96 -rotate-12 opacity-0",
 };
 
-export function AnimateInView({
+type AnimateInViewOwnProps = {
+  children?: ReactNode | ((inView: boolean) => ReactNode);
+  animation?: Animation;
+  delay?: number;
+  duration?: number;
+  threshold?: number;
+  triggerOnce?: boolean;
+  onInViewChange?: (inView: boolean) => void;
+};
+
+type AnimateInViewProps<T extends ElementType = "div"> = {
+  as?: T;
+} & AnimateInViewOwnProps &
+  Omit<ComponentPropsWithoutRef<T>, keyof AnimateInViewOwnProps | "as" | "children">;
+
+export function AnimateInView<T extends ElementType = "div">({
+  as,
   children,
   className,
   animation = "fade-up",
   delay = 0,
   duration = 600,
   threshold = 0.1,
+  triggerOnce = true,
+  onInViewChange,
+  style,
   ...props
-}: AnimateInViewProps) {
-  const { ref, isInView } = useInView<HTMLDivElement>({ threshold, triggerOnce: false });
-  const animationClass = animationClasses[animation];
+}: AnimateInViewProps<T>) {
+  const Component = (as ?? "div") as ElementType;
+  const { ref, isInView } = useInView<HTMLElement>({
+    threshold,
+    triggerOnce,
+    onChange: onInViewChange,
+  });
 
   return (
-    <div
-      ref={ref}
+    <Component
+      ref={ref as React.Ref<never>}
       className={cn(
-        "transition-all ease-out",
-        {
-          [animationClass]: !isInView,
-        },
+        "transition-all ease-out will-change-[translate,opacity]",
+        { [animationClasses[animation]]: !isInView },
         className,
       )}
       style={{
         transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,
-        ...props.style,
+        ...style,
       }}
       {...props}
     >
-      {children}
-    </div>
+      {typeof children === "function" ? children(isInView) : children}
+    </Component>
   );
 }

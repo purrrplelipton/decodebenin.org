@@ -1,13 +1,62 @@
+import AutoScroll from "embla-carousel-auto-scroll";
+import { useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
 import { AnimateInView } from "#/components/animate-in-view";
+import {
+  Carousel,
+  type CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from "#/components/ui/carousel";
 import { partners } from "#/lib/data";
 
 function PartnerLogo({ name, logo }: { name: string; logo: string }) {
-  return <img src={logo} alt={name} className="h-8 w-auto shrink-0" />;
+  return (
+    <div className="flex shrink-0 items-center justify-center px-4">
+      <img
+        src={logo}
+        alt={name}
+        className="h-8 w-auto grayscale transition-all hover:grayscale-0"
+      />
+    </div>
+  );
 }
 
 export function PartnersMarquee() {
   const t = useTranslations();
+  const [api1, setApi1] = useState<CarouselApi>();
+  const [api2, setApi2] = useState<CarouselApi>();
+  const [isInView, setIsInView] = useState(false);
+
+  // -- Play/pause carousel 1 --
+  useEffect(() => {
+    const autoScroll = api1?.plugins().autoScroll;
+    if (!autoScroll) return;
+
+    if (isInView) {
+      const timer = setTimeout(() => {
+        if (!autoScroll.isPlaying()) autoScroll.play();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+
+    if (autoScroll.isPlaying()) autoScroll.stop();
+  }, [api1, isInView]);
+
+  // -- Play/pause carousel 2 --
+  useEffect(() => {
+    const autoScroll = api2?.plugins().autoScroll;
+    if (!autoScroll) return;
+
+    if (isInView) {
+      const timer = setTimeout(() => {
+        if (!autoScroll.isPlaying()) autoScroll.play();
+      }, 150); // Staggered delay
+      return () => clearTimeout(timer);
+    }
+
+    if (autoScroll.isPlaying()) autoScroll.stop();
+  }, [api2, isInView]);
 
   return (
     <section
@@ -32,52 +81,72 @@ export function PartnersMarquee() {
         aria-hidden="true"
       />
 
-      <AnimateInView animation="fade" className="mb-8 text-center">
-        <span className="inline-block rounded-full bg-decode-green/10 px-4 py-1 font-bold text-decode-green text-xs uppercase tracking-widest">
-          {t("partnersTitle")}
-        </span>
+      <AnimateInView
+        as="div"
+        animation="fade"
+        onInViewChange={setIsInView}
+        triggerOnce={false}
+        className="mx-auto mb-8 block w-fit rounded-full bg-decode-green/10 px-4 py-1 text-center font-bold text-decode-green text-xs uppercase tracking-widest"
+      >
+        {t("partnersTitle")}
       </AnimateInView>
 
-      {/* Marquee row 1 */}
-      <div
-        className="relative overflow-hidden"
-        style={{
-          maskImage: "linear-gradient(to right, #0000, #000 66%, #000 66%, #0000)",
-        }}
-      >
-        <div
-          className="flex gap-4"
+      <div className="flex flex-col gap-6">
+        {/* Marquee row 1 */}
+        <Carousel
+          setApi={setApi1}
+          opts={{ align: "start", loop: true, dragFree: true }}
+          plugins={[
+            AutoScroll({
+              speed: 0.5,
+              stopOnInteraction: false,
+              stopOnMouseEnter: false,
+            }),
+          ]}
+          className="w-full"
           style={{
-            animation: "marquee 30s linear infinite",
-            willChange: "transform",
+            maskImage: "linear-gradient(to right, #0000, #000 10%, #000 90%, #0000)",
+            WebkitMaskImage: "linear-gradient(to right, #0000, #000 10%, #000 90%, #0000)",
           }}
-          aria-hidden="true"
         >
-          {[...partners, ...partners].map((partner, i) => (
-            <PartnerLogo key={`${partner.slug}-${i}`} name={partner.name} logo={partner.logo} />
-          ))}
-        </div>
-      </div>
+          <CarouselContent className="ml-0">
+            {partners.map((partner, i) => (
+              <CarouselItem key={`${partner.slug}-${i}`} className="basis-auto pl-0">
+                <PartnerLogo name={partner.name} logo={partner.logo} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
 
-      {/* Marquee row 2 (reverse) */}
-      <div
-        className="relative mt-4 overflow-hidden"
-        style={{
-          maskImage: "linear-gradient(to right, #0000, #000 66%, #000 66%, #0000)",
-        }}
-      >
-        <div
-          className="flex gap-4"
+        {/* Marquee row 2 (reverse) */}
+        <Carousel
+          setApi={setApi2}
+          opts={{ align: "start", loop: true, dragFree: true }}
+          plugins={[
+            AutoScroll({
+              direction: "backward", // Reverse direction
+              speed: 0.5,
+              stopOnInteraction: false,
+              stopOnMouseEnter: false,
+            }),
+          ]}
+          className="w-full"
           style={{
-            animation: "marquee-reverse 35s linear infinite",
-            willChange: "transform",
+            maskImage: "linear-gradient(to right, #0000, #000 10%, #000 90%, #0000)",
+            WebkitMaskImage: "linear-gradient(to right, #0000, #000 10%, #000 90%, #0000)",
           }}
-          aria-hidden="true"
         >
-          {[...partners.slice().reverse(), ...partners.slice().reverse()].map((partner, i) => (
-            <PartnerLogo key={`rev-${partner.slug}-${i}`} name={partner.name} logo={partner.logo} />
-          ))}
-        </div>
+          <CarouselContent className="ml-0">
+            {partners
+              .slice()
+              .reverse()
+              .map((partner, i) => (
+                <CarouselItem key={`rev-${partner.slug}-${i}`} className="basis-auto pl-0">
+                  <PartnerLogo name={partner.name} logo={partner.logo} />
+                </CarouselItem>
+              ))}
+          </CarouselContent>
+        </Carousel>
       </div>
 
       {/* Screen reader accessible list */}

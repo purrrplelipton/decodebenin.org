@@ -1,19 +1,5 @@
 import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
-import {
-  DiverseTechCommunityGathering,
-  FemaleDevInFocus,
-  HandsOnCodingWorkshop,
-  LateNightCodingSprint,
-  LearningInSessionCloseUp,
-  NetworkingCoffeeChat,
-  ProjectShowcaseMoment,
-  StartupPitchMoment,
-  StudentsWithCertificatesOfAchievement,
-  SuccessfulTeamCelebration,
-  TechWorkshopInSession,
-  YoungDeveloperMentoringSession,
-} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import { Button } from "#/components/ui/button";
 import { env } from "#/env";
@@ -24,11 +10,11 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden bg-decode-purple"
+      className="relative min-h-dvh overflow-hidden bg-decode-purple text-primary-foreground"
       aria-labelledby="hero-heading"
     >
       {/* Grid paper background */}
-      <div className="grid-paper absolute inset-0 opacity-20" aria-hidden="true" />
+      <div className="grid-paper absolute inset-0" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS - Layer 1 (Various sizes and rotations) */}
 
@@ -36,13 +22,13 @@ export function HeroSection() {
       <AnimateInView
         animation="throw-out-right"
         duration={700}
-        className="scrapbook-card pin-effect absolute top-12 left-4 -rotate-12 rounded-sm bg-card p-2 opacity-10 shadow-lg sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        className="scrapbook-card pin-effect absolute top-12 left-4 hidden -rotate-12 rounded-sm bg-card p-2 shadow-lg sm:block sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
         <img
-          src={YoungDeveloperMentoringSession}
+          src="/images/young-developer-mentoring-session.avif"
           alt="Black developer explaining code on laptop to student in bright tech workspace with African-inspired decor"
-          loading="lazy"
+          fetchPriority="high"
           className="h-32 w-24 rounded object-cover"
         />
       </AnimateInView>
@@ -50,13 +36,13 @@ export function HeroSection() {
       <AnimateInView
         animation="throw-out-right"
         duration={700}
-        className="scrapbook-card absolute top-32 left-20 rotate-6 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        className="scrapbook-card absolute top-32 left-20 hidden rotate-6 rounded-sm bg-card p-2 sm:block sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
         <img
-          src={DiverseTechCommunityGathering}
+          src="/images/diverse-tech-community-gathering.avif"
           alt="Group of 4-5 young West African professionals laughing while collaborating around laptops in creative co-working space"
-          loading="lazy"
+          fetchPriority="high"
           className="h-40 w-32 rounded object-cover"
         />
       </AnimateInView>
@@ -64,13 +50,13 @@ export function HeroSection() {
       <AnimateInView
         animation="throw-out-right"
         duration={700}
-        className="scrapbook-card absolute top-48 left-2 -rotate-3 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        className="scrapbook-card absolute top-48 left-2 hidden -rotate-3 rounded-sm bg-card p-2 sm:block sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
         <img
-          src={HandsOnCodingWorkshop}
+          src="/images/hands-on-coding-workshop.avif"
           alt="Close-up of diverse hands typing on RGB-lit keyboard with code visible on monitor"
-          loading="lazy"
+          fetchPriority="high"
           className="h-24 w-32 rounded object-cover"
         />
       </AnimateInView>
@@ -83,9 +69,9 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={StudentsWithCertificatesOfAchievement}
+          src="/images/students-with-certificates-of-achievement.avif"
           alt="Three young Black students smiling while holding achievement certificates in learning space with tech setup"
-          loading="lazy"
+          fetchPriority="high"
           className="h-36 w-28 rounded object-cover"
         />
       </AnimateInView>
@@ -97,9 +83,8 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={TechWorkshopInSession}
+          src="/images/tech-workshop-in-session.avif"
           alt="Busy workshop room with students concentrating at computers while mentor guides nearby"
-          loading="lazy"
           className="h-28 w-28 rounded object-cover"
         />
       </AnimateInView>
@@ -111,9 +96,8 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={StartupPitchMoment}
+          src="/images/startup-pitch-moment.avif"
           alt="Young entrepreneur confidently presenting to investors showing prototype on screen in modern startup office"
-          loading="lazy"
           className="h-32 w-24 rounded object-cover"
         />
       </AnimateInView>
@@ -126,9 +110,8 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={NetworkingCoffeeChat}
+          src="/images/networking-coffee-chat.avif"
           alt="Two young professionals engaged in conversation over coffee at bright café table with laptops"
-          loading="lazy"
           className="h-28 w-28 rounded object-cover"
         />
       </AnimateInView>
@@ -140,9 +123,8 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={LateNightCodingSprint}
+          src="/images/late-night-coding-sprint.avif"
           alt="Developer silhouetted against glowing laptop screen surrounded by coffee cups in modern workspace"
-          loading="lazy"
           className="h-28 w-36 rounded object-cover"
         />
       </AnimateInView>
@@ -150,13 +132,12 @@ export function HeroSection() {
       <AnimateInView
         animation="throw-out-right"
         duration={700}
-        className="scrapbook-card absolute bottom-10 left-40 -rotate-10 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        className="scrapbook-card absolute bottom-10 left-40 hidden -rotate-10 rounded-sm bg-card p-2 sm:block sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
         <img
-          src={FemaleDevInFocus}
+          src="/images/female-developer-in-focus.avif"
           alt="Young African woman with glasses problem-solving at dual-monitor desk with Benin flag visible"
-          loading="lazy"
           className="h-24 w-32 rounded object-cover"
         />
       </AnimateInView>
@@ -169,9 +150,8 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={SuccessfulTeamCelebration}
+          src="/images/successful-team-celebration.avif"
           alt="Diverse young developers celebrating completed project arms-raised around monitor in tech office"
-          loading="lazy"
           className="h-32 w-24 rounded object-cover"
         />
       </AnimateInView>
@@ -183,9 +163,8 @@ export function HeroSection() {
         aria-hidden="true"
       >
         <img
-          src={LearningInSessionCloseUp}
+          src="/images/learning-in-session-close-up.avif"
           alt="Hands taking notes on notepad while laptop displays code on desk with tech books"
-          loading="lazy"
           className="h-40 w-32 rounded object-cover"
         />
       </AnimateInView>
@@ -193,13 +172,12 @@ export function HeroSection() {
       <AnimateInView
         animation="throw-out-left"
         duration={700}
-        className="scrapbook-card absolute right-16 bottom-48 rotate-7 rounded-sm bg-card p-2 opacity-10 sm:opacity-100 lg:opacity-25 xl:opacity-100"
+        className="scrapbook-card absolute right-16 bottom-48 hidden rotate-7 rounded-sm bg-card p-2 sm:block sm:opacity-100 lg:opacity-25 xl:opacity-100"
         aria-hidden="true"
       >
         <img
-          src={ProjectShowcaseMoment}
+          src="/images/project-showcase-moment.avif"
           alt="Developer proudly showing completed project on laptop to another person in personal workspace"
-          loading="lazy"
           className="h-24 w-32 rounded object-cover"
         />
       </AnimateInView>
@@ -290,69 +268,68 @@ export function HeroSection() {
 
       {/* Main content */}
       <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-4 py-24 text-center md:px-6">
-        <AnimateInView animation="fade-down" duration={800}>
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-1.5 font-medium text-primary-foreground/70 text-xs">
-            <span
-              className="inline-block size-2 animate-pulse rounded-full bg-decode-green"
-              aria-hidden="true"
-            />
-            June 6th, 2026 &mdash; Decode Benin 1.0
-          </div>
+        <AnimateInView
+          animation="fade-down"
+          duration={800}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-1.5 font-medium text-xs opacity-70"
+        >
+          <span
+            className="inline-block size-2 animate-pulse rounded-full bg-decode-green"
+            aria-hidden="true"
+          />
+          June 6th, 2026 &mdash; Decode Benin 1.0
         </AnimateInView>
 
-        <AnimateInView animation="fade-up" delay={100} duration={900}>
-          <h1
-            id="hero-heading"
-            className="text-balance font-bold font-serif text-4xl text-primary-foreground leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            {t("heroHeadline")}
-          </h1>
+        <AnimateInView
+          as="h1"
+          animation="fade-up"
+          delay={100}
+          duration={900}
+          id="hero-heading"
+          className="text-balance font-bold font-serif text-4xl leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+        >
+          {t("heroHeadline")}
         </AnimateInView>
 
-        <AnimateInView animation="fade-up" delay={250} duration={800}>
-          <p className="mx-auto mt-6 max-w-2xl text-pretty text-base text-primary-foreground/70 leading-relaxed sm:text-lg md:text-xl">
-            {t("heroSubheadline")}
-          </p>
+        <AnimateInView
+          as="p"
+          animation="fade-up"
+          delay={250}
+          duration={800}
+          className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed opacity-70 sm:text-lg md:text-xl"
+        >
+          {t("heroSubheadline")}
         </AnimateInView>
 
-        <AnimateInView animation="fade-up" delay={400} duration={700}>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <Button
-              size="lg"
-              className="rounded-full bg-decode-yellow px-8 font-bold text-base text-foreground hover:bg-decode-yellow/90"
-              nativeButton={false}
-              render={
-                <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
-                  <Icon icon="hugeicons:users" aria-hidden="true" />
-                  {t("heroCtaPrimary")}
-                </a>
-              }
-            />
-            <Button
-              size="lg"
-              className="rounded-full border-primary-foreground/20 px-8 text-base text-primary-foreground hover:bg-primary-foreground/10"
-              nativeButton={false}
-              render={
-                <a href={env.VITE_NESTUGE_URL} target="_blank" rel="noopener noreferrer">
-                  {t("heroCtaSecondary")}
-                  <Icon icon="hugeicons:arrow-right-02" aria-hidden="true" />
-                </a>
-              }
-            />
-          </div>
+        <AnimateInView
+          animation="fade-up"
+          delay={400}
+          duration={700}
+          className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
+        >
+          <Button
+            size="lg"
+            className="rounded-full bg-decode-yellow px-8 font-bold text-base text-foreground hover:bg-decode-yellow/90"
+            nativeButton={false}
+            render={
+              <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
+                <Icon icon="hugeicons:users" aria-hidden="true" />
+                {t("heroCtaPrimary")}
+              </a>
+            }
+          />
+          <Button
+            size="lg"
+            className="rounded-full border-current/20 px-8 text-base text-inherit hover:bg-current/10"
+            nativeButton={false}
+            render={
+              <a href={env.VITE_NESTUGE_URL} target="_blank" rel="noopener noreferrer">
+                {t("heroCtaSecondary")}
+                <Icon icon="hugeicons:arrow-right-02" aria-hidden="true" />
+              </a>
+            }
+          />
         </AnimateInView>
-
-        {/* Scroll indicator */}
-        {/* <AnimateInView animation="fade" delay={800}>
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2" aria-hidden="true">
-            <div className="flex flex-col items-center gap-2">
-              <span className="font-medium text-primary-foreground/40 text-xs uppercase tracking-widest">
-                Scroll
-              </span>
-              <div className="h-8 w-px bg-linear-to-b from-primary-foreground/40 to-transparent" />
-            </div>
-          </div>
-        </AnimateInView> */}
       </div>
     </section>
   );

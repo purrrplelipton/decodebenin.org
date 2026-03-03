@@ -1,3 +1,4 @@
+import { useNavigate, useSearch } from "@tanstack/react-router";
 import { useMemo } from "react";
 import { useTranslations } from "use-intl";
 import { ContactDialog } from "#/components/contact-dialog";
@@ -9,12 +10,12 @@ import {
   DialogTitle,
 } from "#/components/ui/dialog";
 import { ScrollArea } from "#/components/ui/scroll-area";
-import { Route } from "#/routes";
+import { cn } from "#/lib/utils";
 
 export function ScrapbookDialog() {
   const t = useTranslations();
-  const { page_action } = Route.useSearch();
-  const navigate = Route.useNavigate();
+  const { page_action } = useSearch({ from: "__root__" });
+  const navigate = useNavigate();
   const isOpen = useMemo(() => {
     return (
       page_action === "show_terms_of_service" ||
@@ -57,7 +58,7 @@ export function ScrapbookDialog() {
         <div className="relative p-6 md:p-10">
           {/* Scrapbook Background */}
           <div className="absolute inset-4 -rotate-1 rounded-sm bg-card shadow-xl transition-transform hover:rotate-0" />
-          <div className="grid-paper absolute inset-4 -rotate-1 rounded-sm opacity-30" />
+          <div className="grid-paper absolute inset-4 -rotate-1 rounded-sm" />
 
           {/* Decorative Tape */}
           {!isContactForm && (
@@ -67,44 +68,42 @@ export function ScrapbookDialog() {
             </>
           )}
 
-          {isContactForm ? (
-            /* Contact Form Content */
-            <div className="scrapbook-card relative z-10 flex min-h-[60vh] flex-col rounded-sm bg-card p-6 md:p-8">
-              <DialogHeader className="mb-6">
-                <DialogTitle className="font-bold font-serif text-3xl text-decode-purple md:text-4xl">
-                  {title}
-                </DialogTitle>
-                <DialogDescription className="mt-2 text-muted-foreground/70">
-                  {t("contactSubtitle")}
-                </DialogDescription>
-              </DialogHeader>
-              <div className="flex-1">
+          <ScrollArea className="scrapbook-card relative z-10 flex h-[66vh] flex-col rounded-sm bg-card p-6 md:p-8">
+            <DialogHeader
+              className={cn(
+                "sticky top-0 bg-linear-to-b from-66% from-card to-transparent",
+                isContactForm ? "mb-6" : "mb-4",
+              )}
+            >
+              <DialogTitle className="font-bold font-serif text-3xl text-decode-purple md:text-4xl">
+                {title}
+              </DialogTitle>
+              <DialogDescription
+                className={cn(
+                  isContactForm
+                    ? "mt-2 text-muted-foreground/70"
+                    : "font-medium text-muted-foreground/60 text-xs italic",
+                )}
+              >
+                {isContactForm ? t("contactSubtitle") : lastUpdated}
+              </DialogDescription>
+            </DialogHeader>
+
+            <div className="space-y-8 py-4">
+              {isContactForm ? (
                 <ContactDialog />
-              </div>
-            </div>
-          ) : (
-            /* Terms/Privacy Content */
-            <ScrollArea className="scrapbook-card relative z-10 flex h-[70vh] flex-col rounded-sm bg-card p-6 md:p-8">
-              <DialogHeader className="sticky top-0 mb-4 bg-linear-to-b from-66% from-card to-transparent">
-                <DialogTitle className="font-bold font-serif text-3xl text-decode-purple md:text-4xl">
-                  {title}
-                </DialogTitle>
-                <DialogDescription className="font-medium text-muted-foreground/60 text-xs italic">
-                  {lastUpdated}
-                </DialogDescription>
-              </DialogHeader>
-              <div className="space-y-8 py-4">
-                {sections.map((section) => (
+              ) : (
+                sections.map((section) => (
                   <div key={section.title} className="space-y-2">
                     <h3 className="font-bold font-serif text-decode-purple/80 text-lg">
                       {section.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">{section.content}</p>
                   </div>
-                ))}
-              </div>
-            </ScrollArea>
-          )}
+                ))
+              )}
+            </div>
+          </ScrollArea>
 
           <div className="mt-6 flex justify-end">
             <div className="washi-purple -rotate-2 rounded-sm px-4 py-1 font-mono text-decode-purple/60 text-xs">

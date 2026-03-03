@@ -162,7 +162,7 @@
 /* Scrapbook Utilities */
 @utility scrapbook-card {
   box-shadow: var(--paper-shadow);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: box-shadow 0.3s ease, rotate 0.3s ease, translate 0.3s ease;
 
   &:hover {
     box-shadow: var(--paper-shadow-hover);
@@ -177,7 +177,8 @@
     position: absolute;
     top: -8px;
     left: 50%;
-    transform: translateX(-50%) rotate(-2deg);
+    translate: -50% 0;
+    rotate: -2deg;
     width: 60px;
     height: 20px;
     background: var(--tape-color);
@@ -227,38 +228,17 @@
   }
 }
 
-/* Marquee animation */
-@keyframes marquee {
-  0% {
-    transform: translateX(0) translateZ(0);
-  }
-
-  100% {
-    transform: translateX(-50%) translateZ(0);
-  }
-}
-
-@keyframes marquee-reverse {
-  0% {
-    transform: translateX(-50%) translateZ(0);
-  }
-
-  100% {
-    transform: translateX(0) translateZ(0);
-  }
-}
-
 /* Grid paper background */
 @utility grid-paper {
   background-image:
-    linear-gradient(oklch(0.30 0.15 290 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.30 0.15 290 / 0.04) 1px, transparent 1px);
+    linear-gradient(color-mix(in oklab, currentColor 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, currentColor 4%, transparent) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 /* Dotted paper background */
 @utility dotted-paper {
-  background-image: radial-gradient(oklch(0.30 0.15 290 / 0.10) 1px, transparent 1px);
+  background-image: radial-gradient(color-mix(in oklab, currentColor 10%, transparent) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 

@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { z } from "zod";
 import { AboutSection } from "#/components/sections/about-section";
 import { FaqSection } from "#/components/sections/faq-section";
 import { GallerySection } from "#/components/sections/gallery-section";
@@ -8,13 +7,11 @@ import { MissionVisionSection } from "#/components/sections/mission-vision-secti
 import { OfferingsSection } from "#/components/sections/offerings-section";
 import { PartnersMarquee } from "#/components/sections/partners-marquee";
 import { ProblemSolutionSection } from "#/components/sections/problem-solution";
+import { SpeakersSection } from "#/components/sections/speakers-section";
 import { StatsSection } from "#/components/sections/stats-section";
 
 export const Route = createFileRoute("/")({
   component: RouteComponent,
-  validateSearch: z.object({
-    page_action: z.string().optional(),
-  }),
 });
 
 function RouteComponent() {
@@ -28,6 +25,7 @@ function RouteComponent() {
       <StatsSection />
       <GallerySection />
       <AboutSection />
+      <SpeakersSection />
       <FaqSection />
     </>
   );

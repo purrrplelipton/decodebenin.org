@@ -1,13 +1,7 @@
+import { useState } from "react";
 import { useTranslations } from "use-intl";
-import {
-  GrowingCommunityGroupPhoto,
-  ImpactMomentStudentAchievementDisplay,
-  MentorshipMultiplierEffect,
-  NetworkExpansionConnectionPoints,
-} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import { useCountUp } from "#/hooks/use-count-up";
-import { useInView } from "#/hooks/use-in-view";
 import { cn } from "#/lib/utils";
 
 function StatCard({
@@ -27,7 +21,7 @@ function StatCard({
   rotation: string;
   delay: number;
 }) {
-  const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.3, triggerOnce: false });
+  const [isInView, setIsInView] = useState(false);
   const { display } = useCountUp({ end, suffix, prefix, enabled: isInView, duration: 2500 });
 
   const accentClasses: Record<string, string> = {
@@ -42,33 +36,34 @@ function StatCard({
   };
 
   return (
-    <AnimateInView animation="scale" delay={delay} duration={700}>
+    <AnimateInView
+      animation="scale"
+      delay={delay}
+      duration={700}
+      onInViewChange={setIsInView}
+      className={cn(
+        "scrapbook-card relative rounded-lg border p-6 text-center backdrop-blur-lg transition-transform duration-300 hover:rotate-0 md:p-8",
+        accentClasses[accent],
+        rotation,
+      )}
+    >
       <div
-        ref={ref}
         className={cn(
-          "scrapbook-card relative rounded-lg border p-6 text-center backdrop-blur-lg transition-transform duration-300 hover:rotate-0 md:p-8",
-          accentClasses[accent],
-          rotation,
+          "absolute -top-2 left-1/2 h-5 w-16 -translate-x-1/2 rounded-sm",
+          accent === "green" ? "washi-green" : accent === "yellow" ? "washi-yellow" : "washi-red",
         )}
+        aria-hidden="true"
+      />
+      <p
+        className={cn(
+          "font-bold font-serif text-4xl md:text-5xl lg:text-6xl",
+          numberClasses[accent],
+        )}
+        aria-live="polite"
       >
-        <div
-          className={cn(
-            "absolute -top-2 left-1/2 h-5 w-16 -translate-x-1/2 rounded-sm",
-            accent === "green" ? "washi-green" : accent === "yellow" ? "washi-yellow" : "washi-red",
-          )}
-          aria-hidden="true"
-        />
-        <p
-          className={cn(
-            "font-bold font-serif text-4xl md:text-5xl lg:text-6xl",
-            numberClasses[accent],
-          )}
-          aria-live="polite"
-        >
-          {display}
-        </p>
-        <p className="mt-2 font-medium text-primary-foreground/70 text-sm md:text-base">{label}</p>
-      </div>
+        {display}
+      </p>
+      <p className="mt-2 font-medium text-current/70 text-sm md:text-base">{label}</p>
     </AnimateInView>
   );
 }
@@ -78,11 +73,11 @@ export function StatsSection() {
 
   return (
     <section
-      className="relative overflow-hidden bg-decode-purple py-20 md:py-28"
+      className="relative overflow-hidden bg-decode-purple py-20 text-primary-foreground md:py-28"
       aria-labelledby="stats-heading"
     >
       {/* Grid paper bg */}
-      <div className="grid-paper absolute inset-0 opacity-15" aria-hidden="true" />
+      <div className="grid-paper absolute inset-0" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
       <AnimateInView
@@ -92,7 +87,7 @@ export function StatsSection() {
         aria-hidden="true"
       >
         <img
-          src={GrowingCommunityGroupPhoto}
+          src="/images/growing-community-group-photo.avif"
           alt="Large diverse group of Decode Benin community members smiling together in community space"
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
@@ -106,7 +101,7 @@ export function StatsSection() {
         aria-hidden="true"
       >
         <img
-          src={ImpactMomentStudentAchievementDisplay}
+          src="/images/impact-moment-student-achievement-display.avif"
           alt="Young person reviewing bulletin board displaying multiple achievement certificates and project showcases"
           loading="lazy"
           className="h-32 w-28 rounded object-cover"
@@ -120,7 +115,7 @@ export function StatsSection() {
         aria-hidden="true"
       >
         <img
-          src={NetworkExpansionConnectionPoints}
+          src="/images/network-expansion-connection-points.avif"
           alt="Young people gathered around map of Benin showing community's reach with visual indicators"
           loading="lazy"
           className="h-24 w-32 rounded object-cover"
@@ -134,7 +129,7 @@ export function StatsSection() {
         aria-hidden="true"
       >
         <img
-          src={MentorshipMultiplierEffect}
+          src="/images/mentorship-multiplier-effect.avif"
           alt="Three-generation chain of mentor, mid-level developer, and student engaged with each other"
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
@@ -186,19 +181,22 @@ export function StatsSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-6">
-        <AnimateInView animation="fade-up" className="mb-4 text-center">
-          <span className="inline-block rounded-full border border-primary-foreground/20 bg-primary-foreground/5 px-4 py-1 font-bold text-primary-foreground/60 text-xs uppercase tracking-widest">
-            {t("statsSubtitle")}
-          </span>
+        <AnimateInView
+          as="span"
+          animation="fade-up"
+          className="mx-auto mb-4 block w-fit rounded-full border border-current/20 bg-current/5 px-4 py-1 font-bold text-current/60 text-xs uppercase tracking-widest"
+        >
+          {t("statsSubtitle")}
         </AnimateInView>
 
-        <AnimateInView animation="fade-up" delay={100} className="mb-12 text-center md:mb-16">
-          <h2
-            id="stats-heading"
-            className="text-balance font-bold font-serif text-3xl text-primary-foreground sm:text-4xl"
-          >
-            {t("statsTitle")}
-          </h2>
+        <AnimateInView
+          as="h2"
+          id="stats-heading"
+          animation="fade-up"
+          delay={100}
+          className="mb-12 text-balance text-center font-bold font-serif text-3xl text-current sm:text-4xl md:mb-16"
+        >
+          {t("statsTitle")}
         </AnimateInView>
 
         <div className="grid gap-6 sm:grid-cols-3 md:gap-8">

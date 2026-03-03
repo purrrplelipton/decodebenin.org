@@ -53,7 +53,7 @@
       "name": "About Us",
       "short_name": "About",
       "description": "Learn more about Decode Benin",
-      "url": "/?tab=about",
+      "url": "#about",
       "icons": [
         {
           "src": "/logo192.png",
@@ -65,7 +65,7 @@
       "name": "Our Offerings",
       "short_name": "Offerings",
       "description": "Explore our programs and services",
-      "url": "/?tab=offerings",
+      "url": "#offerings",
       "icons": [
         {
           "src": "/logo192.png",

@@ -223,7 +223,7 @@ function CountdownItem({ value, label }: { value: number; label: string }) {
         {label}
       </div>
       {/* Subtle paper texture/dots */}
-      <div className="dotted-paper pointer-events-none absolute inset-0 opacity-5" />
+      <div className="dotted-paper pointer-events-none absolute inset-0" />
     </div>
   );
 }

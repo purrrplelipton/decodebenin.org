@@ -1,11 +1,5 @@
 import { Icon } from "@iconify-icon/react";
 import { useTranslations } from "use-intl";
-import {
-  SolutionImpactMentorAndStudent,
-  TheDigitalDivideLimitedResources,
-  TheEducationGapClassroomDisparity,
-  TheSolutionInclusiveLearningCommunity,
-} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 
 export function ProblemSolutionSection() {
@@ -18,7 +12,7 @@ export function ProblemSolutionSection() {
       aria-labelledby="problem-solution-heading"
     >
       {/* Dotted paper background */}
-      <div className="dotted-paper absolute inset-0 opacity-50" aria-hidden="true" />
+      <div className="dotted-paper absolute inset-0" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
       <AnimateInView
@@ -28,7 +22,7 @@ export function ProblemSolutionSection() {
         aria-hidden="true"
       >
         <img
-          src={TheEducationGapClassroomDisparity}
+          src="/images/the-education-gap-classroom-disparity.avif"
           alt="Traditional Beninese classroom with basic wooden desks and limited technology resources"
           loading="lazy"
           className="h-32 w-28 rounded object-cover"
@@ -42,7 +36,7 @@ export function ProblemSolutionSection() {
         aria-hidden="true"
       >
         <img
-          src={TheDigitalDivideLimitedResources}
+          src="/images/the-digital-divide-limited-resources.avif"
           alt="Young student's hand reaching toward computer screen in shared cybercafé space"
           loading="lazy"
           className="h-28 w-32 rounded object-cover"
@@ -56,7 +50,7 @@ export function ProblemSolutionSection() {
         aria-hidden="true"
       >
         <img
-          src={TheSolutionInclusiveLearningCommunity}
+          src="/images/the-solution-inclusive-learning-community.avif"
           alt="Diverse group of young people working together in modern well-equipped tech learning space"
           loading="lazy"
           className="h-24 w-32 rounded object-cover"
@@ -70,7 +64,7 @@ export function ProblemSolutionSection() {
         aria-hidden="true"
       >
         <img
-          src={SolutionImpactMentorAndStudent}
+          src="/images/solution-impact-mentor-and-student.avif"
           alt="Mentor and student smiling while looking at laptop showing student's accomplishment"
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
@@ -110,65 +104,72 @@ export function ProblemSolutionSection() {
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-12">
           {/* Problem Card */}
-          <AnimateInView animation="fade-left" duration={700}>
-            <article className="scrapbook-card relative -rotate-1 rounded-lg bg-card p-6 transition-transform duration-300 hover:rotate-0 md:p-8">
-              {/* Tape effect */}
-              <div
-                className="washi-red absolute -top-2 left-8 h-5 w-16 rotate-1 rounded-sm"
-                aria-hidden="true"
-              />
+          <AnimateInView
+            as="article"
+            animation="fade-left"
+            duration={700}
+            className="scrapbook-card relative -rotate-1 rounded-lg bg-card p-6 transition-transform duration-300 hover:rotate-0 md:p-8"
+          >
+            {/* Tape effect */}
+            <div
+              className="washi-red absolute -top-2 left-8 h-5 w-16 rotate-1 rounded-sm"
+              aria-hidden="true"
+            />
 
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex size-10 items-center justify-center rounded-full bg-decode-red/10">
-                  <Icon
-                    icon="hugeicons:alert-01"
-                    className="text-decode-red text-xl"
-                    aria-hidden="true"
-                  />
-                </div>
-                <h3 className="font-bold font-serif text-foreground text-xl md:text-2xl">
-                  {t("problemTitle")}
-                </h3>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-full bg-decode-red/10">
+                <Icon
+                  icon="hugeicons:alert-01"
+                  className="text-decode-red text-xl"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="text-muted-foreground leading-relaxed">{t("problemText")}</p>
+              <h3 className="font-bold font-serif text-foreground text-xl md:text-2xl">
+                {t("problemTitle")}
+              </h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">{t("problemText")}</p>
 
-              {/* Decorative pin */}
-              <div
-                className="absolute -top-1.5 right-6 size-3 rounded-full bg-decode-red shadow-md"
-                aria-hidden="true"
-              />
-            </article>
+            {/* Decorative pin */}
+            <div
+              className="absolute -top-1.5 right-6 size-3 rounded-full bg-decode-red shadow-md"
+              aria-hidden="true"
+            />
           </AnimateInView>
 
           {/* Solution Card */}
-          <AnimateInView animation="fade-right" delay={200} duration={700}>
-            <article className="scrapbook-card relative rotate-1 rounded-lg bg-card p-6 transition-transform duration-300 hover:rotate-0 md:p-8">
-              {/* Tape effect */}
-              <div
-                className="washi-green absolute -top-2 right-8 h-5 w-16 -rotate-1 rounded-sm"
-                aria-hidden="true"
-              />
+          <AnimateInView
+            as="article"
+            animation="fade-right"
+            delay={200}
+            duration={700}
+            className="scrapbook-card relative rotate-1 rounded-lg bg-card p-6 transition-transform duration-300 hover:rotate-0 md:p-8"
+          >
+            {/* Tape effect */}
+            <div
+              className="washi-green absolute -top-2 right-8 h-5 w-16 -rotate-1 rounded-sm"
+              aria-hidden="true"
+            />
 
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex size-10 items-center justify-center rounded-full bg-decode-green/10">
-                  <Icon
-                    icon="hugeicons:bulb-charging"
-                    className="text-decode-green text-xl"
-                    aria-hidden="true"
-                  />
-                </div>
-                <h3 className="font-bold font-serif text-foreground text-xl md:text-2xl">
-                  {t("solutionTitle")}
-                </h3>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-full bg-decode-green/10">
+                <Icon
+                  icon="hugeicons:bulb-charging"
+                  className="text-decode-green text-xl"
+                  aria-hidden="true"
+                />
               </div>
-              <p className="text-muted-foreground leading-relaxed">{t("solutionText")}</p>
+              <h3 className="font-bold font-serif text-foreground text-xl md:text-2xl">
+                {t("solutionTitle")}
+              </h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">{t("solutionText")}</p>
 
-              {/* Decorative pin */}
-              <div
-                className="absolute -top-1.5 left-6 size-3 rounded-full bg-decode-green shadow-md"
-                aria-hidden="true"
-              />
-            </article>
+            {/* Decorative pin */}
+            <div
+              className="absolute -top-1.5 left-6 size-3 rounded-full bg-decode-green shadow-md"
+              aria-hidden="true"
+            />
           </AnimateInView>
         </div>
       </div>

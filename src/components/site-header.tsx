@@ -2,7 +2,6 @@ import { Icon as _Icon } from "@iconify-icon/react";
 import { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslations } from "use-intl";
-import { LogoWhite } from "#/assets/images";
 import { Button } from "#/components/ui/button";
 import {
   Sheet,
@@ -83,7 +82,7 @@ export function SiteHeader() {
           aria-label={t("siteHeaderHome")}
         >
           <img
-            src={LogoWhite}
+            src="/images/decode-benin-logo-white.png"
             alt={t("siteHeaderLogoAlt")}
             width={120}
             height={28}
@@ -179,7 +178,7 @@ export function SiteHeader() {
               <SheetHeader className="border-primary-foreground/10 border-b pb-4">
                 <SheetTitle className="text-primary-foreground">
                   <img
-                    src={LogoWhite}
+                    src="/images/decode-benin-logo-white.png"
                     alt="Decode Benin"
                     width={120}
                     height={28}

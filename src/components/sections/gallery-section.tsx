@@ -1,14 +1,11 @@
 import { Icon } from "@iconify-icon/react";
+import AutoScroll from "embla-carousel-auto-scroll";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
-import {
-  HandsOnProjectWork,
-  KnowledgeSharingPresentation,
-  NetworkingAtCommunityEvents,
-  WorkshopLearningEnvironment,
-} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import {
   Carousel,
+  type CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -17,8 +14,41 @@ import {
 import { galleryImages } from "#/lib/data";
 import { cn } from "#/lib/utils";
 
+const SCROLL_SPEED = 0.6;
+
 export function GallerySection() {
   const t = useTranslations();
+  const [api, setApi] = useState<CarouselApi>();
+  const [isInView, setIsInView] = useState(false);
+
+  // -- Play/pause based on visibility --
+  useEffect(() => {
+    if (!api) return;
+    const autoScroll = api.plugins().autoScroll;
+    if (!autoScroll) return;
+
+    if (isInView) {
+      const timer = setTimeout(() => {
+        if (!autoScroll.isPlaying()) autoScroll.play();
+      }, 250);
+      return () => clearTimeout(timer);
+    }
+
+    if (autoScroll.isPlaying()) autoScroll.stop();
+  }, [api, isInView]);
+
+  const handleMouseEnter = useCallback(() => {
+    const autoScroll = api?.plugins().autoScroll;
+    if (autoScroll?.isPlaying()) autoScroll.stop();
+  }, [api]);
+
+  const handleMouseLeave = useCallback(() => {
+    // Resume handled by isInView effect if still in view
+    if (isInView) {
+      const autoScroll = api?.plugins().autoScroll;
+      if (autoScroll && !autoScroll.isPlaying()) autoScroll.play();
+    }
+  }, [api, isInView]);
 
   return (
     <section
@@ -26,7 +56,7 @@ export function GallerySection() {
       aria-labelledby="gallery-heading"
     >
       {/* Dotted paper bg */}
-      <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
+      <div className="dotted-paper absolute inset-0" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
       <AnimateInView
@@ -36,7 +66,7 @@ export function GallerySection() {
         aria-hidden="true"
       >
         <img
-          src={WorkshopLearningEnvironment}
+          src="/images/workshop-learning-environment.avif"
           alt="Active workshop with attendees taking notes while presenter demonstrates content"
           loading="lazy"
           className="h-32 w-28 rounded object-cover"
@@ -50,7 +80,7 @@ export function GallerySection() {
         aria-hidden="true"
       >
         <img
-          src={HandsOnProjectWork}
+          src="/images/hands-on-project-work.avif"
           alt="Workshop participants coding, building, and designing with projects visible on screens"
           loading="lazy"
           className="h-28 w-32 rounded object-cover"
@@ -64,7 +94,7 @@ export function GallerySection() {
         aria-hidden="true"
       >
         <img
-          src={KnowledgeSharingPresentation}
+          src="/images/knowledge-sharing-presentation.avif"
           alt="Confident presenter demonstrating expertise to engaged audience with tech demo visible"
           loading="lazy"
           className="h-24 w-32 rounded object-cover"
@@ -78,7 +108,7 @@ export function GallerySection() {
         aria-hidden="true"
       >
         <img
-          src={NetworkingAtCommunityEvents}
+          src="/images/networking-at-community-events.avif"
           alt="People naturally networking in small groups at vibrant modern venue with Benin-inspired décor"
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
@@ -116,121 +146,126 @@ export function GallerySection() {
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-6">
-        <AnimateInView animation="fade-up" className="mb-12 text-center md:mb-16">
-          <h2
-            id="gallery-heading"
-            className="text-balance font-bold font-serif text-3xl text-foreground sm:text-4xl md:text-5xl"
-          >
-            {t("galleryTitle")}
-          </h2>
+        <AnimateInView
+          as="h2"
+          id="gallery-heading"
+          animation="fade-up"
+          className="mb-12 text-balance text-center font-bold font-serif text-3xl text-foreground sm:text-4xl md:mb-16 md:text-5xl"
+          onInViewChange={setIsInView}
+        >
+          {t("galleryTitle")}
         </AnimateInView>
 
         {/* Photo gallery carousel */}
-        <AnimateInView animation="fade-up" delay={100}>
-          <div className="mx-auto max-w-4xl">
-            <Carousel
-              opts={{ align: "start", loop: true }}
-              className="w-full"
-              aria-label={t("galleryAriaLabel")}
-            >
-              <CarouselContent className="-ml-4">
-                {galleryImages.map((image, index) => {
-                  const rotations = [
-                    "rotate-1",
-                    "-rotate-2",
-                    "rotate-2",
-                    "-rotate-1",
-                    "rotate-1",
-                    "-rotate-2",
-                  ];
-                  const washis = [
-                    "washi-green",
-                    "washi-yellow",
-                    "washi-red",
-                    "washi-green",
-                    "washi-yellow",
-                    "washi-red",
-                  ];
-                  return (
-                    <CarouselItem
-                      key={image.alt}
-                      className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+        <AnimateInView
+          animation="fade-up"
+          delay={100}
+          className="mx-auto max-w-5xl"
+          triggerOnce={false}
+        >
+          <Carousel
+            setApi={setApi}
+            opts={{ align: "start", loop: true }}
+            plugins={[
+              AutoScroll({
+                speed: SCROLL_SPEED,
+                stopOnInteraction: false,
+                stopOnMouseEnter: false,
+                playOnInit: true,
+              }),
+            ]}
+            className="w-full"
+            aria-label={t("galleryAriaLabel")}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
+            <CarouselContent className="-ml-4 py-8">
+              {galleryImages.map((image, index) => {
+                const rotations = [
+                  "rotate-1",
+                  "-rotate-2",
+                  "rotate-2",
+                  "-rotate-1",
+                  "rotate-1",
+                  "-rotate-2",
+                ];
+                const washis = [
+                  "washi-green",
+                  "washi-yellow",
+                  "washi-red",
+                  "washi-green",
+                  "washi-yellow",
+                  "washi-red",
+                ];
+                return (
+                  <CarouselItem
+                    key={`${image.alt}-${index}`}
+                    className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
+                  >
+                    <div
+                      className={cn(
+                        "scrapbook-card relative rounded-lg bg-card p-3 shadow-sm transition-transform duration-300 hover:rotate-0 hover:shadow-md",
+                        rotations[index % rotations.length],
+                      )}
                     >
+                      {/* Tape */}
                       <div
                         className={cn(
-                          "scrapbook-card relative rounded-lg bg-card p-3 transition-transform duration-300 hover:rotate-0",
-                          rotations[index % rotations.length],
+                          "absolute -top-2 left-1/2 h-5 w-14 -translate-x-1/2 rounded-sm",
+                          washis[index % washis.length],
                         )}
-                      >
-                        {/* Tape */}
-                        <div
-                          className={cn(
-                            "absolute -top-2 left-1/2 h-5 w-14 -translate-x-1/2 rounded-sm",
-                            washis[index % washis.length],
-                          )}
-                          aria-hidden="true"
+                        aria-hidden="true"
+                      />
+                      {/* Photo */}
+                      <div className="aspect-4/3 overflow-hidden rounded-md bg-muted">
+                        <img
+                          src={image.src}
+                          alt={image.alt}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                         />
-                        {/* Photo placeholder */}
-                        <div className="flex aspect-4/3 items-center justify-center rounded-md bg-muted">
-                          <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                            <svg
-                              className="size-8 opacity-40"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={1.5}
-                              aria-hidden="true"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0 0 22.5 18.75V5.25A2.25 2.25 0 0 0 20.25 3H3.75A2.25 2.25 0 0 0 1.5 5.25v13.5A2.25 2.25 0 0 0 3.75 21Z"
-                              />
-                            </svg>
-                            <span className="text-xs">{image.alt}</span>
-                          </div>
-                        </div>
-                        {/* Caption area */}
-                        <p className="mt-2 text-center text-muted-foreground text-xs">
-                          {image.alt}
-                        </p>
                       </div>
-                    </CarouselItem>
-                  );
-                })}
-              </CarouselContent>
-              <CarouselPrevious className="-mr-4 border-border bg-card text-foreground hover:bg-accent sm:flex md:-mr-12" />
-              <CarouselNext className="-ml-4 border-border bg-card text-foreground hover:bg-accent sm:flex md:-ml-12" />
-            </Carousel>
-          </div>
+                      {/* Caption area */}
+                      <p className="mt-2 text-center text-muted-foreground text-xs">{image.alt}</p>
+                    </div>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious className="-mr-4 border-border bg-card text-foreground hover:bg-accent md:-mr-12" />
+            <CarouselNext className="ml-4 border-border bg-card text-foreground hover:bg-accent md:ml-12" />
+          </Carousel>
         </AnimateInView>
 
         {/* Testimonial */}
-        <AnimateInView animation="fade-up" delay={250} className="mt-12 md:mt-16">
-          <blockquote className="scrapbook-card relative mx-auto max-w-2xl -rotate-1 rounded-lg bg-card p-6 text-center transition-transform duration-300 hover:rotate-0 md:p-8">
-            <div
-              className="washi-purple absolute -top-2 left-1/2 h-5 w-20 -translate-x-1/2 rounded-sm"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute -top-1.5 right-8 size-3 rounded-full bg-decode-purple-light shadow-md"
-              aria-hidden="true"
-            />
+        <AnimateInView
+          as="blockquote"
+          animation="fade-up"
+          delay={250}
+          className="scrapbook-card relative mx-auto mt-12 max-w-2xl -rotate-1 rounded-lg bg-card p-6 text-center transition-transform duration-300 hover:rotate-0 md:mt-16 md:p-8"
+        >
+          <div
+            className="washi-purple absolute -top-2 left-1/2 h-5 w-20 -translate-x-1/2 rounded-sm"
+            aria-hidden="true"
+          />
+          <div
+            className="absolute -top-1.5 right-8 size-3 rounded-full bg-decode-purple-light shadow-md"
+            aria-hidden="true"
+          />
 
-            <Icon
-              icon="hugeicons:quote-up"
-              className="mx-auto mb-4 text-4xl text-decode-purple-light/30"
-              aria-hidden="true"
-            />
-            <p className="font-medium font-serif text-foreground text-lg italic leading-relaxed md:text-xl">
-              {t("galleryTestimonial")}
-            </p>
-            <footer className="mt-4">
-              <cite className="font-bold text-muted-foreground text-sm not-italic">
-                &mdash; {t("galleryTestimonialAuthor")}
-              </cite>
-            </footer>
-          </blockquote>
+          <Icon
+            icon="hugeicons:quote-up"
+            className="mx-auto mb-4 text-4xl text-decode-purple-light/30"
+            aria-hidden="true"
+          />
+          <p className="font-medium font-serif text-foreground text-lg italic leading-relaxed md:text-xl">
+            {t("galleryTestimonial")}
+          </p>
+          <footer className="mt-4">
+            <cite className="font-bold text-muted-foreground text-sm not-italic">
+              &mdash; {t("galleryTestimonialAuthor")}
+            </cite>
+          </footer>
         </AnimateInView>
       </div>
     </section>

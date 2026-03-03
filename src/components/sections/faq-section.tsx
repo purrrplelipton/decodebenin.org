@@ -1,10 +1,4 @@
 import { useTranslations } from "use-intl";
-import {
-  CareerGrowthTrajectory,
-  CommunityForEveryone,
-  GettingStartedBeginnersSupport,
-  StayingConnectedAlumniAndGrowth,
-} from "#/assets/images";
 import { AnimateInView } from "#/components/animate-in-view";
 import {
   Accordion,
@@ -30,7 +24,7 @@ export function FaqSection() {
       aria-labelledby="faq-heading"
     >
       {/* Dotted paper bg */}
-      <div className="dotted-paper absolute inset-0 opacity-40" aria-hidden="true" />
+      <div className="dotted-paper absolute inset-0" aria-hidden="true" />
 
       {/* SCATTERED PHOTO CARDS */}
       <AnimateInView
@@ -40,7 +34,7 @@ export function FaqSection() {
         aria-hidden="true"
       >
         <img
-          src={StayingConnectedAlumniAndGrowth}
+          src="/images/staying-connected-alumni-and-growth.avif"
           alt="Program alumni now mentors and leaders giving back and helping new community members"
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
@@ -54,7 +48,7 @@ export function FaqSection() {
         aria-hidden="true"
       >
         <img
-          src={GettingStartedBeginnersSupport}
+          src="/images/getting-started-beginners-support.avif"
           alt="Experienced person encouragingly helping and supporting beginner with new concept"
           loading="lazy"
           className="h-32 w-28 rounded object-cover"
@@ -68,7 +62,7 @@ export function FaqSection() {
         aria-hidden="true"
       >
         <img
-          src={CareerGrowthTrajectory}
+          src="/images/career-growth-trajectory.avif"
           alt="Young person looking satisfied with visible resume, portfolio pieces, and achievement timeline"
           loading="lazy"
           className="h-24 w-32 rounded object-cover"
@@ -82,7 +76,7 @@ export function FaqSection() {
         aria-hidden="true"
       >
         <img
-          src={CommunityForEveryone}
+          src="/images/community-for-everyone.avif"
           alt="People of different ages, backgrounds, and experience levels gathered together at inclusive community event"
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
@@ -120,41 +114,43 @@ export function FaqSection() {
       />
 
       <div className="relative z-10 mx-auto max-w-3xl px-4 md:px-6">
-        <AnimateInView animation="fade-up" className="mb-12 text-center md:mb-16">
-          <h2
-            id="faq-heading"
-            className="text-balance font-bold font-serif text-3xl text-foreground sm:text-4xl md:text-5xl"
-          >
-            {t("faqTitle")}
-          </h2>
+        <AnimateInView
+          as="h2"
+          id="faq-heading"
+          animation="fade-up"
+          className="mb-12 text-balance text-center font-bold font-serif text-3xl text-foreground sm:text-4xl md:mb-16 md:text-5xl"
+        >
+          {t("faqTitle")}
         </AnimateInView>
 
-        <AnimateInView animation="fade-up" delay={100}>
-          <div className="scrapbook-card relative rounded-lg bg-card p-4 md:p-6">
-            {/* Tape at top */}
-            <div
-              className="washi-purple absolute -top-2 left-1/2 h-5 w-20 -translate-x-1/2 rounded-sm"
-              aria-hidden="true"
-            />
+        <AnimateInView
+          animation="fade-up"
+          delay={100}
+          className="scrapbook-card relative rounded-lg bg-card p-4 md:p-6"
+        >
+          {/* Tape at top */}
+          <div
+            className="washi-purple absolute -top-2 left-1/2 h-5 w-20 -translate-x-1/2 rounded-sm"
+            aria-hidden="true"
+          />
 
-            <Accordion className="w-full">
-              {faqItems.map((item, index) => (
-                <AccordionItem key={item.q} value={item.q} className="border-border/50">
-                  <AccordionTrigger className="py-5 text-left font-semibold text-base text-foreground hover:no-underline">
-                    <span className="flex items-center gap-3">
-                      <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-decode-purple/10 font-bold text-decode-purple-light text-xs">
-                        {index + 1}
-                      </span>
-                      {t(`faq${item.q}`)}
+          <Accordion className="w-full">
+            {faqItems.map((item, index) => (
+              <AccordionItem key={item.q} value={item.q} className="border-border/50">
+                <AccordionTrigger className="py-5 text-left font-semibold text-base text-foreground hover:no-underline">
+                  <span className="flex items-center gap-3">
+                    <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-decode-purple/10 font-bold text-decode-purple-light text-xs">
+                      {index + 1}
                     </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="pl-10 text-muted-foreground leading-relaxed">
-                    {t(`faq${item.a}`)}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+                    {t(`faq${item.q}`)}
+                  </span>
+                </AccordionTrigger>
+                <AccordionContent className="pl-10 text-muted-foreground leading-relaxed">
+                  {t(`faq${item.a}`)}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </AnimateInView>
       </div>
     </section>

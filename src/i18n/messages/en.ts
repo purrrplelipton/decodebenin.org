@@ -18,6 +18,8 @@ const en = {
   eventTime: "SAT, 6TH JUNE, 2026",
 
   partnersTitle: "Trusted by Industry Leaders",
+  speakersSubtitle: "Meet the Pioneers",
+  speakersTitle: "Distinguished Speakers & Industry Leaders",
 
   problemTitle: "The Problem",
   problemText:

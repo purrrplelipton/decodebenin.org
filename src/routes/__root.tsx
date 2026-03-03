@@ -8,6 +8,7 @@ import {
 import { useEffect, useMemo } from "react";
 import { Toaster } from "sonner";
 import { IntlProvider } from "use-intl";
+import { z } from "zod";
 import { CountdownWidget } from "#/components/countdown-widget";
 import { ScrapbookDialog } from "#/components/scrapbook-dialog";
 import { SiteFooter } from "#/components/site-footer";
@@ -115,6 +116,9 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   pendingComponent: RootPending,
   errorComponent: RootError,
   notFoundComponent: RootNotFound,
+  validateSearch: z.object({
+    page_action: z.string().optional(),
+  }),
 
   /**
    * Fired when an error happens during navigation/preload (loader/beforeLoad/validateSearch).
