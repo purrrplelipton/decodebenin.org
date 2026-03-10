@@ -30,7 +30,7 @@ export function SpeakerCard({
   return (
     <article
       className={cn(
-        "scrapbook-card pin-effect tape-effect group/card relative grid aspect-3/4 w-64 shrink-0 grid-cols-1 grid-rows-1 rounded-lg transition-all duration-300 *:rounded-lg sm:w-64 md:w-72 *:[grid-area:1/1]",
+        "scrapbook-card pin-effect tape-effect group/card relative grid aspect-3/4 w-64 shrink-0 grid-cols-1 grid-rows-1 rounded-lg bg-linear-to-t from-black to-transparent transition-all duration-300 *:rounded-lg sm:w-64 md:w-72 *:[grid-area:1/1]",
         rotations[index % rotations.length],
         isChecked ? "rotate-0 scale-102" : "hover:z-30 hover:rotate-0 hover:scale-102",
         isChecked ? "z-40" : "z-0",

@@ -349,9 +349,9 @@ const fr: typeof en = {
   speakerMtnBeninBio: "",
 
   /* Speakers - Dr. Viviane Oke */
-  speakerDrVivianeOkeTitle: "Fondatrice, Elles App",
-  speakerDrVivianeOkeTopic: "",
-  speakerDrVivianeOkeBio: "",
+  // speakerDrVivianeOkeTitle: "Fondatrice, Elles App",
+  // speakerDrVivianeOkeTopic: "",
+  // speakerDrVivianeOkeBio: "",
 
   /* Speakers - Gloria-Maria Djossinou */
   speakerGloriaMariaDjossinouTitle: "Programmes & Partenariats, Etrilabs",
@@ -391,10 +391,10 @@ const fr: typeof en = {
     "Jospine Doris ABADASSI met la technologie au service de la santé publique et du leadership féminin en Afrique. Survivante d'une encéphalite auto-immune, elle transforme son parcours en expertise pour améliorer la santé neurologique par la donnée. Fondatrice de l'initiative Move4Epilepsy, elle développe des solutions numériques et pilote la campagne mondiale #FévrierLavande. Co-Lead de Python Bénin et formatrice pour « Science de Données au Féminin », elle allie recherche scientifique internationale (Génome Québec) et engagement communautaire (Speaker DevFest 2025).",
 
   /* Speakers - Lauretta Ojionu */
-  speakerLaurettaOjionuTitle: "Responsable des Partenariats, Epitech",
-  speakerLaurettaOjionuTopic:
-    "Bâtir des Ponts : Le réseautage stratégique dans l'écosystème tech africain.",
-  speakerLaurettaOjionuBio: "",
+  // speakerLaurettaOjionuTitle: "Responsable des Partenariats, Epitech",
+  // speakerLaurettaOjionuTopic:
+  //   "Bâtir des Ponts : Le réseautage stratégique dans l'écosystème tech africain.",
+  // speakerLaurettaOjionuBio: "",
 
   /* Formats */
   speakerFormatStandardMasterclass: "Standard/Masterclass",

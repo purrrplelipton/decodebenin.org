@@ -313,7 +313,7 @@ export function HeroSection() {
             nativeButton={false}
             render={
               <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
-                <Icon icon="hugeicons:users" aria-hidden="true" />
+                <Icon icon="hugeicons:user-group" aria-hidden="true" />
                 {t("heroCtaPrimary")}
               </a>
             }

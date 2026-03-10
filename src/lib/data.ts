@@ -16,7 +16,7 @@ export const partners: Partner[] = [
   { name: "Sobebra", slug: "sobebra", logo: "/images/sobebra-logo.png" },
   { name: "Gozem", slug: "gozem", logo: "/images/gozem-logo.png" },
   { name: "CosmoLAB", slug: "cosmolab", logo: "/images/cosmolab-logo.png" },
-  { name: "Etrilabs", slug: "etrilabs", logo: "/images/etrilabs-logo.png" },
+  { name: "KkiaPay", slug: "kkiapay", logo: "/images/kkiapay-logo.png" },
   { name: "Epitech", slug: "epitech", logo: "/images/epitech-logo.png" },
   {
     name: "Google Developer Group",
@@ -27,7 +27,7 @@ export const partners: Partner[] = [
   { name: "Comtel Technologies", slug: "comtel", logo: "/images/comtel-technologies-logo.png" },
   { name: "Africa Agility", slug: "africa-agility", logo: "/images/africa-agility-logo.png" },
   { name: "TS Academy", slug: "ts-academy", logo: "/images/ts-academy-logo.png" },
-  { name: "Altschool", slug: "altschool", logo: "/images/altschool-logo.png" },
+  // { name: "Altschool", slug: "altschool", logo: "/images/altschool-logo.png" },
 ].map((i) => ({ id: createId(), ...i }));
 
 // Navigation links
@@ -158,7 +158,7 @@ export const speakers: Speaker[] = [
     languageKey: "speakerLangEn",
   },
   {
-    image: "/images/gilles-kounou.avif",
+    image: "/images/speakers/gilles-kounou.avif",
     name: "Gilles Kounou",
     titleKey: "speakerGillesKounouTitle",
     bioKey: "speakerGillesKounouBio",
@@ -237,16 +237,16 @@ export const speakers: Speaker[] = [
     topicKey: "speakerGloryOlaifaTopic",
     languageKey: "speakerLangEn",
   },
-  {
-    image: "/images/dr-viviane-oke.avif",
-    name: "Dr. Viviane Oke",
-    titleKey: "speakerDrVivianeOkeTitle",
-    bioKey: "speakerDrVivianeOkeBio",
-    linkedin: "",
-    sessionFormatKey: "speakerFormatStandard",
-    topicKey: "speakerDrVivianeOkeTopic",
-    languageKey: "speakerLangFr",
-  },
+  // {
+  //   image: "/images/dr-viviane-oke.avif",
+  //   name: "Dr. Viviane Oke",
+  //   titleKey: "speakerDrVivianeOkeTitle",
+  //   bioKey: "speakerDrVivianeOkeBio",
+  //   linkedin: "",
+  //   sessionFormatKey: "speakerFormatStandard",
+  //   topicKey: "speakerDrVivianeOkeTopic",
+  //   languageKey: "speakerLangFr",
+  // },
   {
     image: "/images/akintunde-opawole.avif",
     name: "Akintunde Opawole",
@@ -298,7 +298,7 @@ export const speakers: Speaker[] = [
     languageKey: "speakerLangEn",
   },
   {
-    image: "/images/mtn-benin.avif",
+    image: "/images/mtn-benin-logo.png",
     name: "MTN Benin",
     titleKey: "speakerMtnBeninTitle",
     bioKey: "speakerMtnBeninBio",
@@ -317,16 +317,16 @@ export const speakers: Speaker[] = [
     topicKey: "speakerChukwuemekaChukwurahTopic",
     languageKey: "speakerLangEn",
   },
-  {
-    image: "/images/lauretta-ojionu.avif",
-    name: "Lauretta Ojionu",
-    titleKey: "speakerLaurettaOjionuTitle",
-    bioKey: "speakerLaurettaOjionuBio",
-    linkedin: "",
-    sessionFormatKey: "speakerFormatStandard",
-    topicKey: "speakerLaurettaOjionuTopic",
-    languageKey: "speakerLangEnFr",
-  },
+  // {
+  //   image: "/images/lauretta-ojionu.avif",
+  //   name: "Lauretta Ojionu",
+  //   titleKey: "speakerLaurettaOjionuTitle",
+  //   bioKey: "speakerLaurettaOjionuBio",
+  //   linkedin: "",
+  //   sessionFormatKey: "speakerFormatStandard",
+  //   topicKey: "speakerLaurettaOjionuTopic",
+  //   languageKey: "speakerLangEnFr",
+  // },
   {
     image: "/images/speakers/oluwadamilola-daniel.avif",
     name: "Oluwadamilola Daniel",
