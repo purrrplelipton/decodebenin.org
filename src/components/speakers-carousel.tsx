@@ -122,11 +122,6 @@ export function SpeakersCarousel({ speakers }: { speakers: Speaker[] }) {
             playOnInit: true,
           }),
         ]}
-        className="relative w-full"
-        style={{
-          maskImage: "linear-gradient(to right, #0000, #000 10%, #000 90%, #0000)",
-          WebkitMaskImage: "linear-gradient(to right, #0000, #000 10%, #000 90%, #0000)",
-        }}
         aria-label={t("speakersAriaLabel")}
         onMouseEnter={() => getAutoScroll()?.stop()}
       >
@@ -142,7 +137,7 @@ export function SpeakersCarousel({ speakers }: { speakers: Speaker[] }) {
           data-carousel-nav
         />
 
-        <CarouselContent className="py-4 [maskImage:linear-gradient(90deg,#0000,#000_4%,#000_96%,#0000)]">
+        <CarouselContent className="py-4">
           {speakers.map((s, i) => (
             <CarouselItem key={`${s.id}-${i}`} className="basis-auto rounded-lg">
               <SpeakerCard
@@ -162,7 +157,7 @@ export function SpeakersCarousel({ speakers }: { speakers: Speaker[] }) {
         <ul>
           {speakers.map((s) => (
             <li key={s.id}>
-              {s.name} - {s.title} - {s.topic}
+              {s.name} - {s.titleKey ? t(s.titleKey) : ""} - {s.topicKey ? t(s.topicKey) : ""}
             </li>
           ))}
         </ul>

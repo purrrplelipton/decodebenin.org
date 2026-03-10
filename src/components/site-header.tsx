@@ -98,7 +98,7 @@ export function SiteHeader() {
               href={link.href}
               className="rounded-lg px-3 py-2 font-medium text-primary-foreground/80 text-sm transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/50"
             >
-              {t(`nav${link.key}`)}
+              {t(link.key)}
             </a>
           ))}
         </nav>
@@ -197,7 +197,7 @@ export function SiteHeader() {
                         className="rounded-lg px-4 py-3 font-medium text-base text-primary-foreground/80 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground"
                         onClick={() => setMobileOpen(false)}
                       >
-                        {t(`nav${link.key}`)}
+                        {t(link.key)}
                       </a>
                     }
                   />
@@ -208,11 +208,7 @@ export function SiteHeader() {
                   className="w-full rounded-full bg-decode-yellow font-bold text-foreground hover:bg-decode-yellow/90"
                   nativeButton={false}
                   render={
-                    <a
-                      href="http://join.slack.com/t/thedecodebeni-l1t3433/shared_invite/zt-3oqv3m5jk-3lmxJEAu4SfPodwh66xMKA"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href={env.VITE_SLACK_INVITE_URL} target="_blank" rel="noopener noreferrer">
                       {t("navJoinCommunity")}
                     </a>
                   }

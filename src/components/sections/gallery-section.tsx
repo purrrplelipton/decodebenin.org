@@ -199,7 +199,7 @@ export function GallerySection() {
                 ];
                 return (
                   <CarouselItem
-                    key={`${image.alt}-${index}`}
+                    key={image.id}
                     className="basis-full pl-4 sm:basis-1/2 lg:basis-1/3"
                   >
                     <div
@@ -220,13 +220,15 @@ export function GallerySection() {
                       <div className="aspect-4/3 overflow-hidden rounded-md bg-muted">
                         <img
                           src={image.src}
-                          alt={image.alt}
+                          alt={t(image.altKey)}
                           loading="lazy"
                           className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                         />
                       </div>
                       {/* Caption area */}
-                      <p className="mt-2 text-center text-muted-foreground text-xs">{image.alt}</p>
+                      <p className="mt-2 text-center text-muted-foreground text-xs">
+                        {t(image.altKey)}
+                      </p>
                     </div>
                   </CarouselItem>
                 );

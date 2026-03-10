@@ -7,6 +7,7 @@ import { MissionVisionSection } from "#/components/sections/mission-vision-secti
 import { OfferingsSection } from "#/components/sections/offerings-section";
 import { PartnersMarquee } from "#/components/sections/partners-marquee";
 import { ProblemSolutionSection } from "#/components/sections/problem-solution";
+import { ScheduleSection } from "#/components/sections/schedule-section";
 import { SpeakersSection } from "#/components/sections/speakers-section";
 import { StatsSection } from "#/components/sections/stats-section";
 
@@ -26,6 +27,7 @@ function RouteComponent() {
       <GallerySection />
       <AboutSection />
       <SpeakersSection />
+      <ScheduleSection />
       <FaqSection />
     </>
   );

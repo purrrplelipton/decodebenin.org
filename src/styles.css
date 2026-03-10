@@ -64,41 +64,6 @@
   --chart-5: oklch(0.45 0.15 290);
 }
 
-.dark {
-  --background: oklch(0.14 0.03 290);
-  --foreground: oklch(0.95 0.01 290);
-  --card: oklch(0.18 0.03 290);
-  --card-foreground: oklch(0.95 0.01 290);
-  --popover: oklch(0.18 0.03 290);
-  --popover-foreground: oklch(0.95 0.01 290);
-  --primary: oklch(0.70 0.15 290);
-  --primary-foreground: oklch(0.14 0.03 290);
-  --secondary: oklch(0.25 0.04 290);
-  --secondary-foreground: oklch(0.95 0.01 290);
-  --muted: oklch(0.25 0.04 290);
-  --muted-foreground: oklch(0.65 0.04 290);
-  --accent: oklch(0.25 0.04 290);
-  --accent-foreground: oklch(0.95 0.01 290);
-  --destructive: oklch(0.40 0.18 25);
-  --destructive-foreground: oklch(0.60 0.22 25);
-  --border: oklch(0.28 0.04 290);
-  --input: oklch(0.28 0.04 290);
-  --ring: oklch(0.55 0.15 290);
-  --chart-1: oklch(0.55 0.15 290);
-  --chart-2: oklch(0.60 0.18 155);
-  --chart-3: oklch(0.88 0.18 90);
-  --chart-4: oklch(0.55 0.22 25);
-  --chart-5: oklch(0.70 0.15 290);
-  --sidebar: oklch(0.18 0.03 290);
-  --sidebar-foreground: oklch(0.95 0.01 290);
-  --sidebar-primary: oklch(0.55 0.15 290);
-  --sidebar-primary-foreground: oklch(0.95 0.01 290);
-  --sidebar-accent: oklch(0.25 0.04 290);
-  --sidebar-accent-foreground: oklch(0.95 0.01 290);
-  --sidebar-border: oklch(0.28 0.04 290);
-  --sidebar-ring: oklch(0.55 0.15 290);
-}
-
 @theme inline {
   --font-sans: 'Space Grotesk', 'Space Grotesk Fallback', system-ui, sans-serif;
   --font-mono: 'Space Mono', 'Space Mono Fallback', monospace;
@@ -152,6 +117,10 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+
+    &:is(iconify-icon) {
+      @apply inline-block size-[1em];
+    }
   }
 
   body {
@@ -188,14 +157,14 @@
 }
 
 @utility torn-edge-bottom {
-  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,0 L1200,0 L1200,10 Q1180,20 1160,10 Q1140,0 1120,10 Q1100,20 1080,10 Q1060,0 1040,10 Q1020,20 1000,10 Q980,0 960,10 Q940,20 920,10 Q900,0 880,10 Q860,20 840,10 Q820,0 800,10 Q780,20 760,10 Q740,0 720,10 Q700,20 680,10 Q660,0 640,10 Q620,20 600,10 Q580,0 560,10 Q540,20 520,10 Q500,0 480,10 Q460,20 440,10 Q420,0 400,10 Q380,20 360,10 Q340,0 320,10 Q300,20 280,10 Q260,0 240,10 Q220,20 200,10 Q180,0 160,10 Q140,20 120,10 Q100,0 80,10 Q60,20 40,10 Q20,0 0,10 Z' fill='white'/%3E%3C/svg%3E");
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,0 L1200,0 L1200,10 Q1180,20 1160,10 Q1140,0 1120,10 Q1100,20 1080,10 Q1060,0 1040,10 Q1020,20 1000,10 Q980,0 960,10 Q940,20 920,10 Q900,0 880,10 Q860,20 840,10 Q820,0 800,10 Q780,20 760,10 Q740,0 720,10 Q700,20 680,10 Q660,0 640,10 Q620,20 600,10 Q580,0 560,10 Q540,20 520,10 Q500,0 480,10 Q460,20 440,10 Q420,0 400,10 Q380,20 360,10 Q340,0 320,10 Q300,20 280,10 Q260,0 240,10 Q220,20 200,10 Q180,0 160,10 Q140,20 120,10 Q100,0 80,10 Q60,20 40,10 Q20,0 0,10 Z' fill='white'/%3E%3C/svg%3E");
-  -webkit-mask-size: 100% auto;
-  mask-size: 100% auto;
+  -webkit-mask-image: linear-gradient(#fff, #fff), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,0 L1200,0 L1200,10 Q1180,20 1160,10 Q1140,0 1120,10 Q1100,20 1080,10 Q1060,0 1040,10 Q1020,20 1000,10 Q980,0 960,10 Q940,20 920,10 Q900,0 880,10 Q860,20 840,10 Q820,0 800,10 Q780,20 760,10 Q740,0 720,10 Q700,20 680,10 Q660,0 640,10 Q620,20 600,10 Q580,0 560,10 Q540,20 520,10 Q500,0 480,10 Q460,20 440,10 Q420,0 400,10 Q380,20 360,10 Q340,0 320,10 Q300,20 280,10 Q260,0 240,10 Q220,20 200,10 Q180,0 160,10 Q140,20 120,10 Q100,0 80,10 Q60,20 40,10 Q20,0 0,10 Z' fill='white'/%3E%3C/svg%3E");
+  mask-image: linear-gradient(#fff, #fff), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 20'%3E%3Cpath d='M0,0 L1200,0 L1200,10 Q1180,20 1160,10 Q1140,0 1120,10 Q1100,20 1080,10 Q1060,0 1040,10 Q1020,20 1000,10 Q980,0 960,10 Q940,20 920,10 Q900,0 880,10 Q860,20 840,10 Q820,0 800,10 Q780,20 760,10 Q740,0 720,10 Q700,20 680,10 Q660,0 640,10 Q620,20 600,10 Q580,0 560,10 Q540,20 520,10 Q500,0 480,10 Q460,20 440,10 Q420,0 400,10 Q380,20 360,10 Q340,0 320,10 Q300,20 280,10 Q260,0 240,10 Q220,20 200,10 Q180,0 160,10 Q140,20 120,10 Q100,0 80,10 Q60,20 40,10 Q20,0 0,10 Z' fill='white'/%3E%3C/svg%3E");
+  -webkit-mask-size: 100% calc(100% - 19px), 100% 20px;
+  mask-size: 100% calc(100% - 19px), 100% 20px;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-  -webkit-mask-position: bottom;
-  mask-position: bottom;
+  -webkit-mask-position: top center, bottom center;
+  mask-position: top center, bottom center;
   padding-bottom: 20px;
 }
 

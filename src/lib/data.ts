@@ -2,7 +2,14 @@ import { createId } from "@paralleldrive/cuid2";
 import { env } from "#/env";
 
 // Static data for partners/sponsors marquee
-export const partners = [
+export interface Partner {
+  id: string;
+  name: string;
+  slug: string;
+  logo: string;
+}
+
+export const partners: Partner[] = [
   { name: "MTN Benin", slug: "mtn-benin", logo: "/images/mtn-benin-logo.png" },
   { name: "Moniepoint", slug: "moniepoint", logo: "/images/moniepoint-logo.png" },
   { name: "Product Dive", slug: "product-dive", logo: "/images/product-dive-logo.png" },
@@ -24,16 +31,31 @@ export const partners = [
 ].map((i) => ({ id: createId(), ...i }));
 
 // Navigation links
-export const navLinks = [
-  { key: "Home", href: "#hero" },
-  { key: "About", href: "#about" },
-  { key: "Events", href: "#events" },
-  { key: "Resources", href: "#offerings" },
-  { key: "Faq", href: "#faq" },
+export interface NavLink {
+  id: string;
+  key: string;
+  href: string;
+}
+
+export const navLinks: NavLink[] = [
+  { key: "navHome", href: "#hero" },
+  { key: "navAbout", href: "#about" },
+  { key: "navEvents", href: "#events" },
+  { key: "navSchedule", href: "#schedule" },
+  { key: "navResources", href: "#offerings" },
+  { key: "navFaq", href: "#faq" },
 ].map((i) => ({ id: createId(), ...i }));
 
 // Team member placeholders (easily extendable)
-export const teamMembers = [
+export interface TeamMember {
+  id: string;
+  name: string;
+  roleKey: string;
+  image: string;
+  linkedIn: string;
+}
+
+export const teamMembers: TeamMember[] = [
   {
     name: "Emmanuella Ahidjo",
     roleKey: "teamRoleSocialMediaManager",
@@ -67,17 +89,30 @@ export const teamMembers = [
 ].map((i) => ({ id: createId(), ...i }));
 
 // Gallery placeholders
-export const galleryImages = [
-  { alt: "Community meetup photo 1", src: "/images/community-meetup-1.avif" },
-  { alt: "Community meetup photo 2", src: "/images/community-meetup-2.avif" },
-  { alt: "June 6th event photo 1", src: "/images/june-6th-event-1.avif" },
-  { alt: "June 6th event photo 2", src: "/images/june-6th-event-2.avif" },
-  { alt: "Workshop session photo", src: "/images/workshop-session.avif" },
-  { alt: "Networking event photo", src: "/images/networking-event.avif" },
+export interface GalleryImage {
+  id: string;
+  altKey: string;
+  src: string;
+}
+
+export const galleryImages: GalleryImage[] = [
+  { altKey: "galleryPhoto1", src: "/images/community-meetup-1.avif" },
+  { altKey: "galleryPhoto2", src: "/images/community-meetup-2.avif" },
+  { altKey: "galleryPhoto3", src: "/images/june-6th-event-1.avif" },
+  { altKey: "galleryPhoto4", src: "/images/june-6th-event-2.avif" },
+  { altKey: "galleryPhoto5", src: "/images/workshop-session.avif" },
+  { altKey: "galleryPhoto6", src: "/images/networking-event.avif" },
 ].map((i) => ({ id: createId(), ...i }));
 
 // Social links
-export const socialLinks = [
+export interface SocialLink {
+  id: string;
+  name: string;
+  href: string;
+  icon: string;
+}
+
+export const socialLinks: SocialLink[] = [
   { name: "Twitter", href: env.VITE_TWITTER_URL, icon: "twitter" },
   {
     name: "LinkedIn",
@@ -88,101 +123,414 @@ export const socialLinks = [
 ].map((i) => ({ id: createId(), ...i }));
 
 // Values
-export const values = ["Value1", "Value2", "Value3", "Value4"].map((value) => ({
+export interface Value {
+  id: string;
+  value: string;
+}
+
+export const values: Value[] = ["Value1", "Value2", "Value3", "Value4"].map((value) => ({
   id: createId(),
   value,
 }));
 
 // Speakers
-export const speakers = [
+export interface Speaker {
+  id: string;
+  image: string;
+  name: string;
+  titleKey: string;
+  bioKey: string;
+  linkedin: string;
+  sessionFormatKey: string;
+  topicKey: string;
+  languageKey: string;
+}
+
+export const speakers: Speaker[] = [
   {
-    image: "/images/oluchukwu-chiadika.avif",
+    image: "/images/speakers/oluchukwu-chiadika.avif",
     name: "Oluchukwu Chiadika",
-    title: "Marketing & Growth Lead",
-    bio: "",
+    titleKey: "speakerOluchukwuChiadikaTitle",
+    bioKey: "speakerOluchukwuChiadikaBio",
     linkedin: "",
-    sessionFormat: "Speak",
-    topic: "Scaling Your Wealth as Fast as Your Career",
+    sessionFormatKey: "speakerFormatStandardMasterclass",
+    topicKey: "speakerOluchukwuChiadikaTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/oluwadamilola-daniel.avif",
-    name: "Oluwadamilola Daniel",
-    title: "Programs/Partnership Lead(Africa Agility)",
-    bio: "",
+    image: "/images/gilles-kounou.avif",
+    name: "Gilles Kounou",
+    titleKey: "speakerGillesKounouTitle",
+    bioKey: "speakerGillesKounouBio",
     linkedin: "",
-    sessionFormat: "Panel",
-    topic: "The EdTech Blueprint: Choosing Your Path and Mastering the Ecosystem",
+    sessionFormatKey: "speakerFormatKeynote",
+    topicKey: "speakerGillesKounouTopic",
+    languageKey: "speakerLangFr",
   },
   {
-    image: "/images/adedoyinsolami-adeyeye.avif",
+    image: "/images/speakers/adedoyinsolami-adeyeye.avif",
     name: "Adedoyinsola Adeyeye",
-    title: "Product Manager(Moniepoint) | Founder(Decode Benin)",
-    bio: "",
+    titleKey: "speakerAdedoyinsolaAdeyeyeTitle",
+    bioKey: "speakerAdedoyinsolaAdeyeyeBio",
     linkedin: "adedoyinsola-adeyeye-csm%C2%AE-mba-in-view-b88b74233",
-    sessionFormat: "Keynote",
-    topic: "Beyond the Degree: Engineering your future in the tech ecosystem",
+    sessionFormatKey: "speakerFormatWelcomeAddress",
+    topicKey: "speakerAdedoyinsolaAdeyeyeTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/daniel-esuola.avif",
+    image: "/images/speakers/divine-kenagnon.avif",
+    name: "Divine Kenagnon",
+    titleKey: "speakerDivineKenagnonTitle",
+    bioKey: "speakerDivineKenagnonBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerDivineKenagnonTopic",
+    languageKey: "speakerLangFr",
+  },
+  {
+    image: "/images/speakers/daniel-esuola.avif",
     name: "Daniel Esuola",
-    title: "Founder(Provolo)",
-    bio: "",
+    titleKey: "speakerDanielEsuolaTitle",
+    bioKey: "speakerDanielEsuolaBio",
     linkedin: "",
-    sessionFormat: "Panel",
-    topic: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerDanielEsuolaTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/imam-bashir.avif",
+    image: "/images/speakers/epoundor-freedauss-tanda.avif",
+    name: "Epoundor Freedauss Tanda",
+    titleKey: "speakerEpoundorFreedaussTandaTitle",
+    bioKey: "speakerEpoundorFreedaussTandaBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerEpoundorFreedaussTandaTopic",
+    languageKey: "speakerLangFr",
+  },
+  {
+    image: "/images/speakers/imam-bashir.avif",
     name: "Imam Bashir",
-    title: "Cybersecurity Engineer | Programs/Community Lead",
-    bio: "",
+    titleKey: "speakerImamBashirTitle",
+    bioKey: "speakerImamBashirBio",
     linkedin: "",
-    sessionFormat: "Panel",
-    topic: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerImamBashirTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/glory-olaifa.avif",
+    image: "/images/speakers/praise-god-akujuobi.avif",
+    name: "Praise-God Akujuobi",
+    titleKey: "speakerPraiseGodAkujuobiTitle",
+    bioKey: "speakerPraiseGodAkujuobiBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerPraiseGodAkujuobiTopic",
+    languageKey: "speakerLangFr",
+  },
+  {
+    image: "/images/speakers/glory-olaifa.avif",
     name: "Glory Olaifa",
-    title: "Android Engineer(Bglow)",
-    bio: "",
+    titleKey: "speakerGloryOlaifaTitle",
+    bioKey: "speakerGloryOlaifaBio",
     linkedin: "glory-olaifa",
-    sessionFormat: "Panel",
-    topic: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerGloryOlaifaTopic",
+    languageKey: "speakerLangEn",
+  },
+  {
+    image: "/images/dr-viviane-oke.avif",
+    name: "Dr. Viviane Oke",
+    titleKey: "speakerDrVivianeOkeTitle",
+    bioKey: "speakerDrVivianeOkeBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatStandard",
+    topicKey: "speakerDrVivianeOkeTopic",
+    languageKey: "speakerLangFr",
   },
   {
     image: "/images/akintunde-opawole.avif",
     name: "Akintunde Opawole",
-    title: "Program & Partnership(Product Dive)",
-    bio: "",
+    titleKey: "speakerAkintundeOpawoleTitle",
+    bioKey: "speakerAkintundeOpawoleBio",
     linkedin: "",
-    sessionFormat: "Keynote",
-    topic: "",
+    sessionFormatKey: "speakerFormatKeynote",
+    topicKey: "speakerAkintundeOpawoleTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/dami-opaniyan.avif",
+    image: "/images/gloria-maria-djossinou.avif",
+    name: "Gloria-Maria Djossinou",
+    titleKey: "speakerGloriaMariaDjossinouTitle",
+    bioKey: "speakerGloriaMariaDjossinouBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerGloriaMariaDjossinouTopic",
+    languageKey: "speakerLangFr",
+  },
+  {
+    image: "/images/speakers/dami-opaniyan.avif",
     name: "Dami Opaniyan",
-    title: "Partnership(TS Academy)",
-    bio: "",
+    titleKey: "speakerDamiOpaniyanTitle",
+    bioKey: "speakerDamiOpaniyanBio",
     linkedin: "",
-    sessionFormat: "Panel",
-    topic: "The EdTech Blueprint: Choosing Your Path and Mastering the Ecosystem",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerDamiOpaniyanTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/samuel-afolabi.avif",
+    image: "/images/speakers/mahouna-thierry-martial-tchangole.avif",
+    name: "Mahouna Thierry Martial Tchangole",
+    titleKey: "speakerMahounaThierryMartialTchangoleTitle",
+    bioKey: "speakerMahounaThierryMartialTchangoleBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatStandard",
+    topicKey: "speakerMahounaThierryMartialTchangoleTopic",
+    languageKey: "speakerLangFr",
+  },
+  {
+    image: "/images/speakers/samuel-afolabi.avif",
     name: "Samuel Afolabi",
-    title: "Cybersecurity Engineer",
-    bio: "",
+    titleKey: "speakerSamuelAfolabiTitle",
+    bioKey: "speakerSamuelAfolabiBio",
     linkedin: "",
-    sessionFormat: "Standard",
-    topic: "",
+    sessionFormatKey: "speakerFormatStandard",
+    topicKey: "speakerSamuelAfolabiTopic",
+    languageKey: "speakerLangEn",
   },
   {
-    image: "/images/chukwuemeka-chukwurah.avif",
-    name: "Chukwuemeka Chukwurah",
-    bio: "",
+    image: "/images/mtn-benin.avif",
+    name: "MTN Benin",
+    titleKey: "speakerMtnBeninTitle",
+    bioKey: "speakerMtnBeninBio",
     linkedin: "",
-    title: "Senior Software Engineer(Rocksteady Technology)",
-    sessionFormat: "Standard",
-    topic: "The path from code to scalable systems: Journey of building for efficiency",
+    sessionFormatKey: "speakerFormatStandardMasterclass",
+    topicKey: "speakerMtnBeninTopic",
+    languageKey: "speakerLangEnFr",
+  },
+  {
+    image: "/images/speakers/chukwuemeka-chukwurah.avif",
+    name: "Chukwuemeka Chukwurah",
+    titleKey: "speakerChukwuemekaChukwurahTitle",
+    bioKey: "speakerChukwuemekaChukwurahBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatStandard",
+    topicKey: "speakerChukwuemekaChukwurahTopic",
+    languageKey: "speakerLangEn",
+  },
+  {
+    image: "/images/lauretta-ojionu.avif",
+    name: "Lauretta Ojionu",
+    titleKey: "speakerLaurettaOjionuTitle",
+    bioKey: "speakerLaurettaOjionuBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatStandard",
+    topicKey: "speakerLaurettaOjionuTopic",
+    languageKey: "speakerLangEnFr",
+  },
+  {
+    image: "/images/speakers/oluwadamilola-daniel.avif",
+    name: "Oluwadamilola Daniel",
+    titleKey: "speakerOluwadamilolaDanielTitle",
+    bioKey: "speakerOluwadamilolaDanielBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatPanel",
+    topicKey: "speakerOluwadamilolaDanielTopic",
+    languageKey: "speakerLangEn",
+  },
+  {
+    image: "/images/speakers/samuel-abada.avif",
+    name: "Samuel Abada",
+    titleKey: "speakerSamuelAbadaTitle",
+    bioKey: "speakerSamuelAbadaBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatLightningTalk",
+    topicKey: "speakerSamuelAbadaTopic",
+    languageKey: "speakerLangEn",
+  },
+  {
+    image: "/images/speakers/doris-abadassi.avif",
+    name: "Doris Abadassi",
+    titleKey: "speakerDorisAbadassiTitle",
+    bioKey: "speakerDorisAbadassiBio",
+    linkedin: "",
+    sessionFormatKey: "speakerFormatLightningTalk",
+    topicKey: "speakerDorisAbadassiTopic",
+    languageKey: "speakerLangFr",
   },
 ].map((i) => ({ id: createId(), ...i }));
+
+// Event Schedule
+export interface ScheduleItem {
+  id: string;
+  time: string;
+  activityKey: string;
+  duration?: string;
+  locationKey?: string;
+  languageKey?: string;
+  speakerName?: string;
+  topicKey?: string;
+  speakerAndTopicKey?: string;
+}
+
+export interface ScheduleSession {
+  id: string;
+  sessionNameKey: string;
+  items: ScheduleItem[];
+}
+
+export const schedule: ScheduleSession[] = [
+  {
+    id: createId(),
+    sessionNameKey: "scheduleMorningSession",
+    items: [
+      {
+        id: createId(),
+        time: "8:00 AM - 9:00 AM",
+        activityKey: "scheduleActivityRegistration",
+      },
+      {
+        id: createId(),
+        time: "9:00 AM - 9:15 AM",
+        activityKey: "scheduleActivityWelcome",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangEnFr",
+        speakerName: "Doyin Adeyeye",
+        topicKey: "speakerAdedoyinsolaAdeyeyeTopic",
+        duration: "15 mins",
+      },
+      {
+        id: createId(),
+        time: "9:15 AM - 9:45 AM",
+        activityKey: "scheduleActivityKeynote",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangFr",
+        speakerName: "MTN Benin Team",
+        topicKey: "speakerMtnBeninTopic",
+        duration: "30 mins",
+      },
+      {
+        id: createId(),
+        time: "9:45 AM - 10:15 AM",
+        activityKey: "scheduleActivityKeynote",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangEn",
+        speakerName: "Akintunde Opawole (Product Dive)",
+        topicKey: "speakerAkintundeOpawoleTopic",
+        duration: "30 mins",
+      },
+      {
+        id: createId(),
+        time: "10:15 AM - 10:40 AM",
+        activityKey: "scheduleActivityStandardTalk",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangEn",
+        speakerName: "Oluchukwu Chiadika",
+        topicKey: "speakerOluchukwuChiadikaTopic",
+        duration: "25 mins",
+      },
+      {
+        id: createId(),
+        time: "10:40 AM - 11:05 AM",
+        activityKey: "scheduleActivityStandardTalk",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangEn",
+        speakerName: "Chukwuemeka Chukwurah",
+        topicKey: "speakerChukwuemekaChukwurahTopic",
+        duration: "25 mins",
+      },
+      {
+        id: createId(),
+        time: "11:05 AM - 11:20 AM",
+        activityKey: "scheduleActivityGames1",
+        duration: "15 mins",
+      },
+    ],
+  },
+  {
+    id: createId(),
+    sessionNameKey: "scheduleMiddaySession",
+    items: [
+      {
+        id: createId(),
+        time: "11:20 AM - 12:00 PM",
+        activityKey: "scheduleActivityPanelSessions",
+        locationKey: "scheduleLocationBreakout",
+        languageKey: "scheduleLangFrEn",
+        speakerAndTopicKey: "scheduleSpeakerMiddayPanel",
+        duration: "40 mins",
+      },
+      {
+        id: createId(),
+        time: "12:00 PM - 12:15 PM",
+        activityKey: "scheduleActivityLightningTalks",
+        locationKey: "scheduleLocationBreakout",
+        languageKey: "scheduleLangFrEn",
+        speakerAndTopicKey: "scheduleSpeakerLightningTalks",
+        duration: "15 mins",
+      },
+      {
+        id: createId(),
+        time: "12:15 PM - 12:40 PM",
+        activityKey: "scheduleActivityKeynote",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangFr",
+        speakerName: "Gilles Kounou (CEO, KkiaPay)",
+        topicKey: "speakerGillesKounouTopic",
+        duration: "25 mins",
+      },
+      {
+        id: createId(),
+        time: "12:40 PM - 1:00 PM",
+        activityKey: "scheduleActivitySponsorSession",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangEn",
+        speakerName: "Moniepoint Team",
+        duration: "20 mins",
+      },
+      {
+        id: createId(),
+        time: "1:00 PM - 1:30 PM",
+        activityKey: "scheduleActivityGames2",
+        duration: "30 mins",
+      },
+    ],
+  },
+  {
+    id: createId(),
+    sessionNameKey: "scheduleAfternoonSession",
+    items: [
+      {
+        id: createId(),
+        time: "1:30 PM - 1:55 PM",
+        activityKey: "scheduleActivityStandardTalks",
+        locationKey: "scheduleLocationBreakout",
+        languageKey: "scheduleLangFrEn",
+        speakerAndTopicKey: "scheduleSpeakerAfternoonTalks",
+        duration: "25 mins",
+      },
+      {
+        id: createId(),
+        time: "1:55 PM - 2:10 PM",
+        activityKey: "scheduleActivitySponsorSession",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangFr",
+        speakerName: "Comtel Technologies Team",
+        duration: "15 mins",
+      },
+      {
+        id: createId(),
+        time: "2:10 PM - 2:50 PM",
+        activityKey: "scheduleActivityPanelSessions",
+        locationKey: "scheduleLocationMainStage",
+        languageKey: "scheduleLangEn",
+        speakerAndTopicKey: "scheduleSpeakerAfternoonPanel",
+        duration: "40 mins",
+      },
+      {
+        id: createId(),
+        time: "2:50 PM",
+        activityKey: "scheduleActivityGames3",
+      },
+    ],
+  },
+];

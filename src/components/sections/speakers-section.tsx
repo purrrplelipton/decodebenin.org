@@ -33,7 +33,7 @@ export function SpeakersSection() {
       >
         <img
           src="/images/diverse-tech-community-gathering.avif"
-          alt=""
+          aria-hidden
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
         />
@@ -47,7 +47,7 @@ export function SpeakersSection() {
       >
         <img
           src="/images/knowledge-sharing-presentation.avif"
-          alt=""
+          aria-hidden
           loading="lazy"
           className="h-32 w-28 rounded object-cover"
         />
@@ -61,7 +61,7 @@ export function SpeakersSection() {
       >
         <img
           src="/images/networking-at-community-events.avif"
-          alt=""
+          aria-hidden
           loading="lazy"
           className="h-24 w-32 rounded object-cover"
         />
@@ -75,7 +75,7 @@ export function SpeakersSection() {
       >
         <img
           src="/images/startup-pitch-moment.avif"
-          alt=""
+          aria-hidden
           loading="lazy"
           className="h-28 w-24 rounded object-cover"
         />

@@ -75,7 +75,7 @@ export function SiteFooter() {
           {/* Quick Links */}
           <nav aria-label="Footer navigation">
             <h3 className="mb-3 font-bold text-primary-foreground/50 text-xs uppercase tracking-widest">
-              Quick Links
+              {t("footerQuickLinks")}
             </h3>
             <ul className="flex flex-col gap-2">
               <li>
@@ -129,7 +129,7 @@ export function SiteFooter() {
           {/* Community */}
           <div>
             <h3 className="mb-3 font-bold text-primary-foreground/50 text-xs uppercase tracking-widest">
-              Community
+              {t("footerCommunity")}
             </h3>
             <Button
               size="sm"

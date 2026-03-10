@@ -277,7 +277,7 @@ export function HeroSection() {
             className="inline-block size-2 animate-pulse rounded-full bg-decode-green"
             aria-hidden="true"
           />
-          June 6th, 2026 &mdash; Decode Benin 1.0
+          {t("heroEventDate")}
         </AnimateInView>
 
         <AnimateInView
