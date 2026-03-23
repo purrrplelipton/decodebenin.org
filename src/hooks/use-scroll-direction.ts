@@ -1,41 +1,57 @@
-import { useEffect, useRef, useState } from "react";
-import { useScrollContainerRef } from "#/context/scroll-container";
+import { type RefObject, useEffect, useRef, useState } from "react";
 
-export function useScrollDirection() {
-  const containerRef = useScrollContainerRef();
+type UseScrollDirectionOptions = {
+  /**
+   * Ref to the scrollable container element.
+   * If not provided, falls back to `window` scroll events.
+   */
+  containerRef?: RefObject<HTMLElement | null>;
+  /** Minimum scroll delta (in px) before a direction change is registered. @default 10 */
+  threshold?: number;
+  /** Pixel value below which the user is considered "at the top". @default 10 */
+  topThreshold?: number;
+};
+
+export function useScrollDirection({
+  containerRef,
+  threshold = 10,
+  topThreshold = 10,
+}: UseScrollDirectionOptions = {}) {
   const [scrollDirection, setScrollDirection] = useState<"up" | "down">("up");
   const [isAtTop, setIsAtTop] = useState(true);
-
-  // Keep lastScrollY in a ref so it doesn't cause effect re-runs
   const lastScrollY = useRef(0);
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    const container = containerRef?.current;
 
-    lastScrollY.current = container.scrollTop;
+    // Resolve the actual scrollable target
+    const target = container || window;
 
-    const updateScrollDirection = () => {
-      const scrollY = container.scrollTop;
+    const getScrollY = () => (container ? container.scrollTop : window.scrollY);
+
+    lastScrollY.current = getScrollY();
+
+    const onScroll = () => {
+      const scrollY = getScrollY();
       const diff = scrollY - lastScrollY.current;
 
-      if (Math.abs(diff) > 10) {
+      if (Math.abs(diff) > threshold) {
         const direction = diff > 0 ? "down" : "up";
         setScrollDirection((prev) => (prev !== direction ? direction : prev));
         lastScrollY.current = scrollY > 0 ? scrollY : 0;
       }
-      setIsAtTop(scrollY < 10);
+
+      setIsAtTop(scrollY < topThreshold);
     };
 
-    container.addEventListener("scroll", updateScrollDirection, {
-      passive: true,
-    });
+    target.addEventListener("scroll", onScroll, { passive: true });
     return () => {
-      container.removeEventListener("scroll", updateScrollDirection);
+      target.removeEventListener("scroll", onScroll);
     };
-  }, [containerRef]);
+  }, [containerRef, threshold, topThreshold]);
 
   return {
+    scrollDirection,
     isVisible: scrollDirection === "up",
     isAtTop,
   };

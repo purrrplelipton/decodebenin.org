@@ -1,9 +1,9 @@
+import babel from "@rolldown/plugin-babel";
 import tailwindcss from "@tailwindcss/vite";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
-import viteReact from "@vitejs/plugin-react";
+import viteReact, { reactCompilerPreset } from "@vitejs/plugin-react";
 import { defineConfig, loadEnv } from "vite";
 import svgr from "vite-plugin-svgr";
-import tsconfigPaths from "vite-tsconfig-paths";
 
 const config = defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
@@ -15,10 +15,9 @@ const config = defineConfig(({ mode }) => {
     },
     preview: {
       port: Number.parseInt(env.PORT || "5174", 10),
-      allowedHosts: ["zionmart.netlify.app"],
+      allowedHosts: ["decodebenin.netlify.app"],
     },
     plugins: [
-      tsconfigPaths({ projects: ["./tsconfig.json"] }),
       tailwindcss(),
       tanstackStart({
         srcDirectory: "src",
@@ -36,18 +35,22 @@ const config = defineConfig(({ mode }) => {
           },
         },
       }),
-      viteReact({
-        babel: {
-          plugins: ["babel-plugin-react-compiler"],
-        },
+      viteReact(),
+      babel({
+        presets: [reactCompilerPreset()],
       }),
       svgr(),
     ],
     ssr: {
       noExternal: ["@iconify-icon/react", "react-country-flag"],
     },
-    esbuild: {
-      drop: env.NODE_ENV === "production" ? ["console", "debugger"] : [],
+    ...(env.NODE_ENV === "production" && {
+      esbuild: {
+        drop: ["console", "debugger"],
+      },
+    }),
+    resolve: {
+      tsconfigPaths: true,
     },
   };
 });

@@ -5,7 +5,7 @@ import {
   Outlet,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Toaster } from "sonner";
 import { IntlProvider } from "use-intl";
 import { z } from "zod";
@@ -15,7 +15,6 @@ import { SiteFooter } from "#/components/site-footer";
 import { SiteHeader } from "#/components/site-header";
 import { ScrollArea } from "#/components/ui/scroll-area";
 import { TooltipProvider } from "#/components/ui/tooltip";
-import { ScrollContainerProvider, useScrollContainerRef } from "#/context/scroll-container";
 import { getCurrentLocale } from "#/i18n/core/client";
 import type { Locale } from "#/i18n/core/shared";
 import { messages } from "#/i18n/messages";
@@ -171,7 +170,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         },
 
         { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://decodebenin.com" },
+        { property: "og:url", content: "https://decodebenin.org" },
         { property: "og:locale", content: locale === "fr" ? "fr_FR" : "en_US" },
         { property: "og:locale:alternate", content: locale === "fr" ? "en_US" : "fr_FR" },
         {
@@ -240,7 +239,7 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
         },
         { rel: "manifest", href: "/manifest.json" },
 
-        { rel: "canonical", href: "https://decodebenin.com" },
+        { rel: "canonical", href: "https://decodebenin.org" },
       ],
     };
   },
@@ -258,24 +257,15 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   component: RootLayout,
 });
 
-function RootScrollArea({ children }: { children: React.ReactNode }) {
-  const viewportRef = useScrollContainerRef();
-  return (
-    <ScrollArea className="h-dvh" viewportRef={viewportRef}>
-      {children}
-    </ScrollArea>
-  );
-}
-
 function RootShell({ children }: { children: React.ReactNode }) {
   const locale = getCurrentLocale() as Locale;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className="size-full overflow-hidden">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="size-full">
         <IntlProvider
           locale={locale}
           messages={messages[locale] ?? messages.en}
@@ -295,38 +285,41 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootLayout() {
   useGlobalBrowserErrorHooks();
+  const viewportRef = useRef<HTMLElement>(null);
 
   return (
     <TooltipProvider>
-      <ScrollContainerProvider>
-        <RootScrollArea>
-          <a
-            href="#main-content"
-            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-decode-yellow focus:px-4 focus:py-2 focus:font-bold focus:text-foreground focus:outline-none"
-          >
-            Skip to main content
-          </a>
-          <SiteHeader />
-          <main id="main-content" className="min-h-dvh">
-            <Outlet />
-          </main>
-          <SiteFooter />
-          <CountdownWidget />
-          <ScrapbookDialog />
-          <Toaster
-            position="top-center"
-            richColors
-            closeButton
-            theme="light"
-            toastOptions={{
-              style: {
-                borderRadius: "var(--radius)",
-                fontFamily: "inherit",
-              },
-            }}
-          />
-        </RootScrollArea>
-      </ScrollContainerProvider>
+      <ScrollArea
+        className="size-full"
+        scrollbars={["vertical", "horizontal"]}
+        viewportRef={viewportRef}
+      >
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:bg-decode-yellow focus:px-4 focus:py-2 focus:font-bold focus:text-foreground focus:outline-none"
+        >
+          Skip to main content
+        </a>
+        <SiteHeader viewportRef={viewportRef} />
+        <main id="main-content" className="min-h-dvh">
+          <Outlet />
+        </main>
+        <SiteFooter />
+        <CountdownWidget />
+        <ScrapbookDialog />
+        <Toaster
+          position="top-center"
+          richColors
+          closeButton
+          theme="light"
+          toastOptions={{
+            style: {
+              borderRadius: "var(--radius)",
+              fontFamily: "inherit",
+            },
+          }}
+        />
+      </ScrollArea>
     </TooltipProvider>
   );
 }

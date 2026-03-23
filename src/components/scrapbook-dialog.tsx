@@ -54,8 +54,8 @@ export function ScrapbookDialog() {
         navigate({ to: "/", search: (s) => ({ ...s, page_action: undefined }), replace: true })
       }
     >
-      <DialogContent className="overflow-hidden border-none bg-transparent p-0 shadow-none ring-0 sm:max-w-2xl">
-        <div className="relative p-6 md:p-10">
+      <DialogContent className="flex max-h-5/6 overflow-hidden border-none bg-transparent p-0 shadow-none ring-0 sm:max-h-11/12 sm:max-w-2xl">
+        <div className="relative flex flex-1 flex-col p-6 md:p-10">
           {/* Scrapbook Background */}
           <div className="absolute inset-4 -rotate-1 rounded-sm bg-card shadow-xl transition-transform hover:rotate-0" />
           <div className="grid-paper absolute inset-4 -rotate-1 rounded-sm" />
@@ -68,7 +68,7 @@ export function ScrapbookDialog() {
             </>
           )}
 
-          <ScrollArea className="scrapbook-card relative z-10 flex h-[66vh] flex-col rounded-sm bg-card p-6 md:p-8">
+          <ScrollArea className="scrapbook-card relative z-10 flex h-[66vh] flex-1 flex-col rounded-sm bg-card p-6 md:p-8">
             <DialogHeader
               className={cn(
                 "sticky top-0 bg-linear-to-b from-66% from-card to-transparent",

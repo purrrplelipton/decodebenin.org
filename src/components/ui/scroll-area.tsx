@@ -1,35 +1,54 @@
 import { ScrollArea as ScrollAreaPrimitive } from "@base-ui/react/scroll-area";
+import { createId } from "@paralleldrive/cuid2";
 import { useDebouncedCallback } from "@tanstack/react-pacer";
-import type { RefObject } from "react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { type Ref, useCallback, useEffect, useRef, useState } from "react";
 import { cn, detectAreaTheme } from "#/lib/utils";
 
+type ScrollBarOrientation = NonNullable<ScrollAreaPrimitive.Scrollbar.Props["orientation"]>;
+
 type ScrollAreaProps = ScrollAreaPrimitive.Root.Props & {
-  /** Optional ref forwarded to the Viewport element (used for scroll listeners). */
-  viewportRef?: RefObject<HTMLDivElement | null>;
-  /** Show scrollbar by default (always visible). */
-  showScrollbarByDefault?: boolean;
-  /** Delay in ms before hiding scrollbar after scrolling stops. Defaults to 1000ms */
-  hideScrollbarDelay?: number;
+  /** Orientations of scrollbars to render. Defaults to vertical-only. */
+  scrollbars?: ScrollBarOrientation[];
+  /** Optional ref forwarded to the internal viewport element. */
+  viewportRef?: Ref<HTMLElement>;
 };
 
 function ScrollArea({
   className,
   children,
-  viewportRef,
-  showScrollbarByDefault = false,
-  hideScrollbarDelay = 1000,
+  scrollbars,
+  viewportRef: viewportPropRef,
   ...props
 }: ScrollAreaProps) {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const [showScrollbar, setShowScrollbar] = useState(showScrollbarByDefault);
+  const viewportRef = useRef<HTMLElement>(null);
+  const setViewportRef = useCallback(
+    (node: HTMLElement | null) => {
+      viewportRef.current = node;
+
+      if (!viewportPropRef) return;
+
+      if (typeof viewportPropRef === "function") {
+        viewportPropRef(node);
+        return;
+      }
+
+      viewportPropRef.current = node;
+    },
+    [viewportPropRef],
+  );
   const [backgroundTheme, setBackgroundTheme] = useState<"light" | "dark">("dark");
-  const isHoveringRef = useRef(false);
-  const isScrollingRef = useRef(false);
+  const scrollbarOrientations: ScrollBarOrientation[] = scrollbars?.length
+    ? scrollbars
+    : ["vertical"];
+  const showCorner =
+    scrollbarOrientations.includes("vertical") && scrollbarOrientations.includes("horizontal");
 
   /** Detect the theme behind the scrollbar thumb and update state. */
   const detectTheme = useCallback(() => {
-    const root = rootRef.current;
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    const root = viewport.closest('[data-slot="scroll-area"]') as HTMLElement | null;
     if (!root) return;
 
     const scrollbar = root.querySelector<HTMLElement>('[data-slot="scroll-area-scrollbar"]');
@@ -52,82 +71,47 @@ function ScrollArea({
     setBackgroundTheme((prev) => (prev !== detected ? detected : prev));
   }, []);
 
-  /** Debounced: hide the scrollbar after inactivity. */
-  const scheduleHide = useDebouncedCallback(
-    () => {
-      isScrollingRef.current = false;
-      if (!isHoveringRef.current) {
-        setShowScrollbar(false);
-      }
-    },
-    { wait: hideScrollbarDelay },
-  );
-
   /** Debounced: re-detect theme after scrolling settles. */
-  const scheduleThemeDetect = useDebouncedCallback(detectTheme, { wait: 150 });
+  const scheduleThemeDetect = useDebouncedCallback(detectTheme, { wait: 100 });
 
   useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const viewport = root.querySelector('[data-slot="scroll-area-viewport"]');
+    const viewport = viewportRef.current;
     if (!viewport) return;
 
-    const handleMouseEnter = () => {
-      isHoveringRef.current = true;
-      setShowScrollbar(true);
-    };
-
-    const handleMouseLeave = () => {
-      isHoveringRef.current = false;
-      if (!isScrollingRef.current) {
-        scheduleHide();
-      }
-    };
-
     const handleScroll = () => {
-      isScrollingRef.current = true;
-      setShowScrollbar(true);
-      scheduleHide();
       scheduleThemeDetect();
     };
 
-    root.addEventListener("mouseenter", handleMouseEnter);
-    root.addEventListener("mouseleave", handleMouseLeave);
     viewport.addEventListener("scroll", handleScroll);
+    return () => viewport.removeEventListener("scroll", handleScroll);
+  }, [scheduleThemeDetect]);
 
-    return () => {
-      root.removeEventListener("mouseenter", handleMouseEnter);
-      root.removeEventListener("mouseleave", handleMouseLeave);
-      viewport.removeEventListener("scroll", handleScroll);
-    };
-  }, [scheduleHide, scheduleThemeDetect]);
-
-  // Detect theme every time the scrollbar becomes visible
+  // Detect theme initially and whenever scrollbar composition changes
   useEffect(() => {
-    if (showScrollbar) {
-      // Wait one frame for the thumb to mount / paint
-      requestAnimationFrame(detectTheme);
-    }
-  }, [showScrollbar, detectTheme]);
+    const id = requestAnimationFrame(detectTheme);
+    return () => cancelAnimationFrame(id);
+  }, [detectTheme]);
 
   return (
     <ScrollAreaPrimitive.Root
-      ref={rootRef}
       data-slot="scroll-area"
       className={cn("relative", className)}
       data-background-theme={backgroundTheme}
       {...props}
     >
       <ScrollAreaPrimitive.Viewport
+        ref={setViewportRef}
         data-slot="scroll-area-viewport"
-        ref={viewportRef}
         className="size-full rounded-[inherit] outline-none transition-all focus-visible:outline focus-visible:ring-3 focus-visible:ring-ring/50"
       >
         {children}
       </ScrollAreaPrimitive.Viewport>
-      <ScrollBar hidden={!showScrollbar} backgroundTheme={backgroundTheme} />
-      <ScrollAreaPrimitive.Corner />
+      {Array.from(new Set(scrollbarOrientations))
+        .map((orientation) => ({ orientation, id: createId() }))
+        .map(({ orientation, id }) => (
+          <ScrollBar key={id} orientation={orientation} backgroundTheme={backgroundTheme} />
+        ))}
+      {showCorner && <ScrollAreaPrimitive.Corner />}
     </ScrollAreaPrimitive.Root>
   );
 }
@@ -136,11 +120,9 @@ function ScrollBar({
   className,
   orientation = "vertical",
   backgroundTheme = "dark",
-  hidden,
   ...props
 }: ScrollAreaPrimitive.Scrollbar.Props & {
   backgroundTheme?: "light" | "dark";
-  hidden?: boolean;
 }) {
   return (
     <ScrollAreaPrimitive.Scrollbar
@@ -149,8 +131,7 @@ function ScrollBar({
       data-background-theme={backgroundTheme}
       orientation={orientation}
       className={cn(
-        "flex touch-none select-none p-px transition-all duration-300 data-[orientation=horizontal]:h-2 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2 data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:border-t data-[orientation=horizontal]:border-t-transparent data-[orientation=vertical]:border-l data-[orientation=vertical]:border-l-transparent",
-        { "opacity-0": hidden },
+        "pointer-events-none flex touch-none select-none p-px opacity-0 transition-opacity duration-300 data-hovering:pointer-events-auto data-scrolling:pointer-events-auto data-[orientation=horizontal]:h-2 data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2 data-[orientation=horizontal]:flex-col data-[orientation=horizontal]:border-t data-[orientation=horizontal]:border-t-transparent data-[orientation=vertical]:border-l data-[orientation=vertical]:border-l-transparent data-hovering:opacity-100 data-scrolling:opacity-100 data-scrolling:duration-0",
         className,
       )}
       {...props}
@@ -168,4 +149,5 @@ function ScrollBar({
   );
 }
 
+export type { ScrollAreaProps, ScrollBarOrientation };
 export { ScrollArea, ScrollBar };

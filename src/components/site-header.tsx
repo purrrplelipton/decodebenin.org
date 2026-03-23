@@ -1,5 +1,5 @@
 import { Icon as _Icon } from "@iconify-icon/react";
-import { useState } from "react";
+import { type RefObject, useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { useTranslations } from "use-intl";
 import { Button } from "#/components/ui/button";
@@ -27,8 +27,13 @@ function ensureComponent<T>(component: T): T {
 
 const Icon = ensureComponent(_Icon);
 
-export function SiteHeader() {
-  const { isVisible, isAtTop } = useScrollDirection();
+interface SiteHeaderProps {
+  /** Reference to the scrollable viewport element for scroll direction detection */
+  viewportRef?: RefObject<HTMLElement | null>;
+}
+
+export function SiteHeader({ viewportRef }: SiteHeaderProps = {}) {
+  const { isVisible, isAtTop } = useScrollDirection({ containerRef: viewportRef });
   const t = useTranslations();
   const currentLocale = getCurrentLocale();
   const [mobileOpen, setMobileOpen] = useState(false);
