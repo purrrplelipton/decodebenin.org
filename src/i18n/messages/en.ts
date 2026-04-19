@@ -12,12 +12,12 @@ const en = {
     "Join the next generation of builders, innovators and leaders at Benin's premier tech gathering. Empowering the community through knowledge, networking and opportunity.",
   heroCtaPrimary: "Join the Community",
   heroCtaSecondary: "Get Your Ticket",
-  heroEventDate: "June 6th, 2026 — Decode Benin 1.0",
+  heroEventDate: "May 23rd, 2026 — Decode Benin 1.0",
 
   eventVenueLabel: "Location",
   eventVenue: "Palais des Congrès, Benin republic",
   eventTimeLabel: "Time",
-  eventTime: "SAT, 6TH JUNE, 2026",
+  eventTime: "SAT, 23RD MAY, 2026",
 
   partnersTitle: "Trusted by Industry Leaders",
   speakersSubtitle: "Meet the Pioneers",
@@ -109,7 +109,7 @@ const en = {
   aboutFounderBio:
     "A highly driven Software Product Manager at Moniepoint with a deep-seated passion for community building and product growth. Having studied Software Engineering in Benin Republic, Doyin founded Decode Benin to create the exact bridge she wished she had as a student—connecting bright academic minds directly to the fast-paced, real-world tech industry.",
   aboutTeamTitle: "Meet The Team",
-  aboutEventsTitle: "The Road to June 6th",
+  aboutEventsTitle: "The Road to May 23rd",
   aboutEventsText:
     "Our events are meticulously designed for maximum impact and transformative learning. From intimate virtual AMAs with industry veterans to our massive flagship annual summit, we bring the global tech industry directly to you.",
 
@@ -298,7 +298,7 @@ const en = {
   speakerSamuelAfolabiTitle: "Principal Cybersecurity Consultant",
   speakerSamuelAfolabiTopic: "Introduction to Cybersecurity as a career path",
   speakerSamuelAfolabiBio:
-    "Samuel Afolabi, popularly known as ‘Lordsam’, is a cybersecurity multipotentialite, and his career backs it up. Across eight years, he has moved fluidly between network engineering, offensive security, compliance, cloud architecture, and security leadership. Working with organizations in fintech, insurance, pension, government, healthcare, e-commerce, and edtech. He specializes in building security programs that bridge the gap between product development velocity and organizational resilience.\n\nThat versatility is matched by global reach. His work has touched Nigeria, South Africa, the United States, the United Kingdom, and Canada, each environment sharpening his ability to adapt security strategy to local context. Holding certifications from AWS, Microsoft, ISACA, EC-Council, GitHub, CompTIA.\n\nAn Ex-Fellow of the Pan-African Youth Ambassadors for Internet Governance (PAYAIG). Professional Member of the Cybersecurity Experts Association of Nigeria (CSEAN), and a certified Ambassador of the Management & Strategic Institute (MSI), Pennsylvania, United States. Samuel is committed to elevating the next generation of security professionals across the continent.",
+    "Samuel Afolabi, popularly known as 'Lordsam', is a cybersecurity multipotentialite, and his career backs it up. Across eight years, he has moved fluidly between network engineering, offensive security, compliance, cloud architecture, and security leadership. Working with organizations in fintech, insurance, pension, government, healthcare, e-commerce, and edtech. He specializes in building security programs that bridge the gap between product development velocity and organizational resilience.\n\nThat versatility is matched by global reach. His work has touched Nigeria, South Africa, the United States, the United Kingdom, and Canada, each environment sharpening his ability to adapt security strategy to local context. Holding certifications from AWS, Microsoft, ISACA, EC-Council, GitHub, CompTIA.\n\nAn Ex-Fellow of the Pan-African Youth Ambassadors for Internet Governance (PAYAIG). Professional Member of the Cybersecurity Experts Association of Nigeria (CSEAN), and a certified Ambassador of the Management & Strategic Institute (MSI), Pennsylvania, United States. Samuel is committed to elevating the next generation of security professionals across the continent.",
 
   /* Speakers - Chukwuemeka Chukwurah */
   speakerChukwuemekaChukwurahTitle: "Senior Software Engineer, Rocksteady Technology",
@@ -314,11 +314,6 @@ const en = {
   speakerDivineKenagnonBio:
     "Holding a Professional License in Software Engineering, Fullstack Developer and Junior Data Analyst, Divine KENAGNON serves Tech with versatile expertise nourished by a strong passion for coding, development-oriented AI, and public speaking. As a Co-organizer within Women Techmakers Abomey-Calavi and Google Developer Group Abomey-Calavi, she actively contributes to the facilitation and influence of dynamic Tech communities. As a trainer, she participates in disseminating strategic skills to youth and professionals.\n\nCommitted to promoting female leadership in the digital ecosystem, she supports the emergence of ambitious profiles in technology and innovation through her #BuildAndShine program. She regularly speaks at panels, masterclasses, and workshops to share her journey and technical skills with a broad audience.\n\nSpearheading the DrépaForce project, she is developing a digital initiative dedicated to combating sickle cell disease, illustrating her commitment to Tech solutions with strong social impact.\n\nDivine KENAGNON asserts herself as a proactive voice at the intersection of software development, inclusion, digital education, and female empowerment. She embodies a rising figure among the new generation of tech talents.",
 
-  /* Speakers - Gilles Kounou */
-  speakerGillesKounouTitle: "Founder/CEO, KkiaPay",
-  speakerGillesKounouTopic: "The Founder's Journey: Building Scalable Solutions in Cotonou",
-  speakerGillesKounouBio: "",
-
   /* Speakers - Epoundor Freedauss Tanda */
   speakerEpoundorFreedaussTandaTitle: "Lead Frontend at Kkiapay",
   speakerEpoundorFreedaussTandaTopic:
@@ -333,23 +328,6 @@ const en = {
   speakerPraiseGodAkujuobiBio:
     "Akujuobi Praise-God Jephthah is a seasoned Backend Engineer with extensive experience building scalable and secure systems across the African tech ecosystem. His expertise spans payment infrastructure including mobile money integrations, bank APIs, and transaction processing as well as logistics platforms, automation bots, and a wide range of distributed backend applications.\n\nRaised in the Republic of Benin, Jephthah has spent his entire academic and professional journey within the local and regional technology space. This has given him first-hand insight into the realities of building technology solutions for emerging markets and operating within evolving digital ecosystems.\n\nIn addition to his industry experience, Jephthah has worked as a Computer Science lecturer, where he taught foundational concepts in computing and technology, helping students develop strong problem-solving skills and practical understanding of software systems. This teaching background has strengthened his ability to communicate complex technical ideas clearly and mentor aspiring engineers.\n\nJephthah has collaborated with multiple software companies and currently works as a Backend Engineer at PiggyVest, contributing to the development of financial products used by a growing user base across Africa.",
 
-  /* Speakers - MTN Benin */
-  speakerMtnBeninTitle: "Sponsor / Speaker",
-  speakerMtnBeninTopic:
-    "The Future of Connectivity: Industry opportunities for the next generation.",
-  speakerMtnBeninBio: "",
-
-  /* Speakers - Dr. Viviane Oke */
-  // speakerDrVivianeOkeTitle: "Founder, Elles App",
-  // speakerDrVivianeOkeTopic: "",
-  // speakerDrVivianeOkeBio: "",
-
-  /* Speakers - Gloria-Maria Djossinou */
-  speakerGloriaMariaDjossinouTitle: "Program & Partnership, Etrilabs",
-  speakerGloriaMariaDjossinouTopic:
-    "The EdTech Blueprint: Choosing Your Path and Mastering the Ecosystem",
-  speakerGloriaMariaDjossinouBio: "",
-
   /* Speakers - Martial Thiery */
   speakerMahounaThierryMartialTchangoleTitle: "CEO, Cosmolab hub",
   speakerMahounaThierryMartialTchangoleTopic:
@@ -363,15 +341,43 @@ const en = {
   speakerSamuelAbadaBio:
     "Samuel is a Google Developer Expert for Flutter and Dart, product engineer at Nexlab Studio and a senior mobile engineer at Busha. Samuel has over 8 years of experience in the software industry having worked in the banking sector, crypto, finance, mobility, to mention a few.\n\nHe is a co-organizer of the Flutter Lagos and Flutter Akure communities, as well as the Google Developers Group Akure. Passionate about open-source technologies and building developer tooling, Samuel enjoys sharing knowledge through technical articles and speaking at events and conferences. Outside of coding, Samuel is an avid gamer, lover of anime.",
 
+  /* New Speakers */
+  speakerAbissolaOyekunleTitle: "Tech Leader",
+  speakerAbissolaOyekunleTopic: "Tech Leadership & Innovation",
+
+  speakerOkuwemnasheTitle: "Senior Software Engineer",
+  speakerOkuwemnasheTopic: "The Path from Code to Reliable Systems: Building for Efficiency",
+
+  speakerSamediAdeojoTitle: "Cybersecurity Expert",
+  speakerSamediAdeojoTopic: "Decoding Cybersecurity: Career Tracks for the Next Generation",
+
+  speakerOlumfunkeTitle: "Tech Professional",
+  speakerOlumfunkeTopic: "Why I Chose to Build: 3 Million People Named of 100 Days",
+  speakerOlumfunkeBio:
+    "Olumfunke is a dedicated tech professional with a passion for building innovative solutions that impact communities. Her work focuses on leveraging technology to create meaningful opportunities for growth and development.",
+
+  speakerAbissolaOyekunleBio:
+    "Abisola Oyekunle-Itsebo Du'u is a tech leader with extensive expertise in driving organizational transformation and innovation. She combines strategic vision with hands-on technical leadership to build thriving tech ecosystems.",
+
+  speakerOkuwemnasheBio:
+    "Okuwemnashe Cokobuonwu is a senior software engineer specializing in building reliable, scalable systems. With a focus on architectural excellence and system design, he helps teams transition from basic code to robust, production-grade systems.",
+
+  speakerSamediAdejoBio:
+    "Samedi Adeojo is a cybersecurity expert dedicated to demystifying security for the next generation of tech professionals. Through practical education and mentorship, he helps aspiring developers understand that cybersecurity is both accessible and essential for every tech career.",
+
   /* Schedule Groups */
-  scheduleSpeakerLightningTalks:
-    "French: Doris Abadassi - Data Science: The Skills, the Career, the Impact\nEnglish: Samuel Abada - The Global Developer Roadmap: From Local Classrooms to GDE Status",
+  scheduleSpeakerMorningPanel: "Doyin Kangope, Ifemayun Ife, Elaine-Gad Akinputi",
+  scheduleSpeakerMiddayLightning:
+    "Doris Abadassi - Data Science: The Skills, the Career, the Impact",
+  scheduleSpeakerMiddayPanel: "Daniel Eketim, Ariam Biakie, Glann Siafu",
   scheduleSpeakerAfternoonTalks:
-    "English: Samuel Afolabi\nFrench: Martial Thierry - Local Innovation and Sustainable Growth",
+    "Francha Daniel Tieger - Two Innovation Lands at a Community Heartline",
+  scheduleSpeakerAfternoonLightning:
+    "Samuel Alade - The Global Developer Roadmap: From Local Classrooms to GDE Status",
+  scheduleSpeakerAfternoonPartner: "Alphonse + Francha-Blonde Hasan",
+  scheduleSpeakerAfternoonSponsor: "CosmoTech/Tech Team",
   scheduleSpeakerAfternoonPanel:
-    "Damilola Daniel, Dami Opaniyan, Gloria-Maria - The EdTech Blueprint: Choosing Your Path and Mastering the Ecosystem",
-  scheduleSpeakerMiddayPanel:
-    "French Panel: Divine Kenagnon, Freedauss Tanda, Praise-God Akujuobi\nEnglish Panel: Daniel Esuola, Imam Bashir, Glory Olaifa",
+    "Chididia Dalut, Dean Oparanta - The Edit! Blueprint: Clarifying Your Path and Mastering the Ecosystem",
 
   /* Speakers - Doris Abadassi */
   speakerDorisAbadassiTitle: "Programmer Analyst and Data Scientist",
@@ -379,12 +385,6 @@ const en = {
     "Navigating the Beninese tech ecosystem as a web developer: the power of community.",
   speakerDorisAbadassiBio:
     "Jospine Doris ABADASSI puts technology at the service of public health and female leadership in Africa. A survivor of autoimmune encephalitis, she transforms her journey into expertise to improve neurological health through data. Founder of the Move4Epilepsy initiative, she develops digital solutions and pilots the #FévrierLavande global campaign. Co-Lead of Python Benin and trainer for 'Data Science for Women', she combines international scientific research (Genome Quebec) and community engagement (DevFest 2025 speaker). Jospine embodies resilient leadership, proving that technological innovation is a powerful lever for health equity and the empowerment of African women.",
-
-  /* Speakers - Lauretta Ojionu */
-  // speakerLaurettaOjionuTitle: "Partnerships Manager, Epitech",
-  // speakerLaurettaOjionuTopic:
-  //   "Building Bridges: Strategic networking in the African tech ecosystem.",
-  // speakerLaurettaOjionuBio: "",
 
   /* Formats */
   speakerFormatStandardMasterclass: "Standard/Masterclass",

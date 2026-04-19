@@ -14,12 +14,12 @@ const fr: typeof en = {
     "Rejoignez la prochaine génération de bâtisseurs, d'innovateurs et de leaders lors du premier rassemblement tech du Bénin. Autonomiser la communauté par la connaissance, le réseautage et les opportunités.",
   heroCtaPrimary: "Rejoindre la Communauté",
   heroCtaSecondary: "Prendre mon Billet",
-  heroEventDate: "6 Juin 2026 — Decode Benin 1.0",
+  heroEventDate: "23 Mai 2026 — Decode Benin 1.0",
 
   eventVenueLabel: "Lieu",
   eventVenue: "Palais des Congrès, République du Bénin",
   eventTimeLabel: "Date & Heure",
-  eventTime: "SAMEDI 06 JUIN 2026",
+  eventTime: "SAMEDI 23 MAI 2026",
 
   partnersTitle: "La Confiance des Leaders de l'Industrie",
   speakersSubtitle: "Découvrez les Pionniers",
@@ -111,7 +111,7 @@ const fr: typeof en = {
   aboutFounderBio:
     "Software Product Manager très motivée chez Moniepoint, dotée d'une passion profonde pour le développement de communautés et la croissance de produits. Ayant étudié l'Ingénierie Logicielle en République du Bénin, Doyin a fondé Decode Benin pour créer le pont exact qu'elle aurait souhaité avoir étudiante : connecter directement les esprits académiques brillants avec l'industrie technologique, rapide et concrète.",
   aboutTeamTitle: "Rencontrez l'Équipe",
-  aboutEventsTitle: "En Route vers le 6 Juin",
+  aboutEventsTitle: "En Route vers le 23 Mai",
   aboutEventsText:
     "Nos événements sont méticuleusement conçus pour avoir un impact maximal et offrir un apprentissage transformateur. Des sessions de questions-réponses virtuelles intimes avec des vétérans de l'industrie à notre immense sommet annuel phare, nous apportons l'industrie technologique mondiale directement à vous.",
 
@@ -293,8 +293,9 @@ const fr: typeof en = {
 
   /* Speakers - Akintunde Opawole */
   speakerAkintundeOpawoleTitle: "Programmes & Partenariats, Product Dive",
-  speakerAkintundeOpawoleTopic: "",
-  speakerAkintundeOpawoleBio: "",
+  speakerAkintundeOpawoleTopic: "Gestion de Produit dans l'Écosystème Africain",
+  speakerAkintundeOpawoleBio:
+    "Akintunde est un professionnel expérimenté en programmes et partenariats chez Product Dive, où il se concentre sur la construction d'alliances stratégiques et la promotion de la croissance au sein de la communauté de gestion de produits en Afrique.",
 
   /* Speakers - Dami Opaniyan */
   speakerDamiOpaniyanTitle: "Responsable Marque & Communications, TS Academy",
@@ -322,12 +323,6 @@ const fr: typeof en = {
   speakerDivineKenagnonBio:
     "Titulaire d'une Licence Professionnelle en Génie Logiciel, Développeur Fullstack et Data Analyste Junior, Divine KENAGNON met au service de la Tech une expertise polyvalente nourrie par une passion affirmée pour le code, l'IA orientée développement et l'art oratoire. Co-organizer au sein du Women Techmakers Abomey-Calavi et du Google Developer Group Abomey-Calavi, elle contribue activement à l'animation et au rayonnement de communautés Tech dynamiques. Formatrice , elle participe à la diffusion de compétences stratégiques auprès des jeunes et des professionnels.\n\nEngagée pour la valorisation du leadership féminin dans l'écosystème numérique, elle accompagne l'émergence de profils ambitieux dans la technologie et l'innovation à travers son programme #BuildAndShine. Elle intervient régulièrement lors de panels, masterclass et workshops pour le partage de son parcours et ses compétences techniques avec un large public.\n\nPorteuse du projet DrépaForce, elle développe une initiative numérique dédiée à la lutte contre la drépanocytose, illustrant son engagement pour des solutions Tech à fort impact social.\n\nDivine KENAGNON s'affirme comme une voix proactive à l'intersection du développement logiciel, de l'inclusion, de l'éducation numérique et de l'empowerment féminin. Elle incarne une figure montante de la nouvelle génération de talents technologiques.",
 
-  /* Speakers - Gilles Kounou */
-  speakerGillesKounouTitle: "Fondateur/CEO, KkiaPay",
-  speakerGillesKounouTopic: "Le Parcours du Fondateur : Bâtir des Solutions Scalables à Cotonou",
-  speakerGillesKounouBio:
-    "Gilles KOUNOU est le Fondateur et CEO de KkiaPay, une plateforme de paiement de premier plan en Afrique de l'Ouest. Entrepreneur passionné et visionnaire, il s'engage à transformer le paysage numérique africain à travers des solutions technologiques innovantes et scalables.",
-
   /* Speakers - Epoundor Freedauss Tanda */
   speakerEpoundorFreedaussTandaTitle: "Lead Frontend chez Kkiapay",
   speakerEpoundorFreedaussTandaTopic:
@@ -341,23 +336,6 @@ const fr: typeof en = {
     "Le Modèle Béninois : Excellence en Ingénierie et Leadership par l'Innovation Locale",
   speakerPraiseGodAkujuobiBio:
     "Akujuobi Praise-God Jephthah est un Ingénieur Backend expérimenté doté d'une vaste expertise dans la création de systèmes évolutifs et sécurisés à travers l'écosystème tech africain. Son expertise englobe les infrastructures de paiement incluant l'intégration des paiements mobiles, les API bancaires, le traitement des transactions, mais aussi des plateformes logistiques, des robots d'automatisation, et un vaste éventail d'applications backend distribuées.\n\nÉlevé en République du Bénin, Jephthah a passé l'intégrité de son parcours scolaire et professionnel au sein du secteur technologique local et de la sous région. Cela lui a procuré un aperçu direct des réalités de ce que bâtir des solutions technologiques pour des marchés émergents implique et de comment opérer dans des écosystèmes numériques en pleine mutation.\n\nEn plus de son expérience professionnelle, Jephthah a enseigné en Informatique, dispensant des concepts basiques en informatique et en technologies, ce qui aide les étudiants à forger de fortes compétences dans la résolution de problèmes ainsi qu'une compréhension pratique de la plupart des systèmes logiciels. Cette fonction d'enseignant a renforcé sa capacité à communiquer des idées techniques abstraites de manière claire, et de prodiguer des conseils d'expert pour d'aspirants ingénieurs.\n\nJephthah a collaboré avec un bon nombre de d'entreprises de logiciels et officie présentement en tant qu'Ingénieur Backend chez PiggyVest, avec qui il participe au développement de produits financiers adressés à une base d'utilisateurs qui s'accroît un peu plus sur l'ensemble de l'Afrique.",
-
-  /* Speakers - MTN Benin */
-  speakerMtnBeninTitle: "Sponsor / Intervenant",
-  speakerMtnBeninTopic:
-    "L'Avenir de la Connectivité : Opportunités industrielles pour la prochaine génération.",
-  speakerMtnBeninBio: "",
-
-  /* Speakers - Dr. Viviane Oke */
-  // speakerDrVivianeOkeTitle: "Fondatrice, Elles App",
-  // speakerDrVivianeOkeTopic: "",
-  // speakerDrVivianeOkeBio: "",
-
-  /* Speakers - Gloria-Maria Djossinou */
-  speakerGloriaMariaDjossinouTitle: "Programmes & Partenariats, Etrilabs",
-  speakerGloriaMariaDjossinouTopic:
-    "Le Blueprint EdTech : Choisir son Parcours et Maîtriser l'Écosystème",
-  speakerGloriaMariaDjossinouBio: "",
 
   /* Speakers - Martial Thiery */
   speakerMahounaThierryMartialTchangoleTitle: "PDG, Cosmolab hub",
@@ -373,15 +351,45 @@ const fr: typeof en = {
   speakerSamuelAbadaBio:
     "Samuel est un Google Developer Expert pour Flutter et Dart, ingénieur produit chez Nexlab Studio et ingénieur mobile senior chez Busha. Samuel a plus de 8 ans d'expérience dans l'industrie du logiciel, ayant travaillé dans le secteur bancaire, la crypto, la finance, la mobilité, pour n'en citer que quelques-uns.\n\nIl est co-organisateur des communautés Flutter Lagos et Flutter Akure, ainsi que du Google Developers Group Akure. Passionné par les technologies open-source et la création d'outils pour développeurs, Samuel aime partager ses connaissances à travers des articles techniques et des interventions lors d'événements et de conférences.",
 
+  /* New Speakers */
+  speakerAbissolaOyekunleTitle: "Leader Technologie",
+  speakerAbissolaOyekunleTopic: "Leadership Tech et Innovation",
+
+  speakerOkuwemnasheTitle: "Ingénieur Logiciel Senior",
+  speakerOkuwemnasheTopic: "Du Code aux Systèmes Fiables : Construire pour l'Efficacité",
+
+  speakerSamediAdeojoTitle: "Expert en Cybersécurité",
+  speakerSamediAdeojoTopic:
+    "Décoder la Cybersécurité : Parcours Professionnels pour la Prochaine Génération",
+
+  speakerOlumfunkeTitle: "Professionnelle Tech",
+  speakerOlumfunkeTopic:
+    "Pourquoi J'ai Choisi de Construire : 3 Millions de Personnes Nommées sur 100 Jours",
+  speakerOlumfunkeBio:
+    "Olumfunke est une professionnelle de la tech dévouée avec une passion pour construire des solutions innovantes qui impactent les communautés. Son travail se concentre sur l'utilisation de la technologie pour créer des opportunités significatives de croissance et de développement.",
+
+  speakerAbissolaOyekunleBio:
+    "Abisola Oyekunle-Itsebo Du'u est une leader technologique avec une expertise approfondie dans la conduite de la transformation organisationnelle et l'innovation. Elle allie la vision stratégique à un leadership technique pratique pour construire des écosystèmes technologiques florissants.",
+
+  speakerOkuwemnasheBio:
+    "Okuwemnashe Cokobuonwu est un ingénieur logiciel senior spécialisé dans la création de systèmes fiables et évolutifs. Avec un accent sur l'excellence architecturale et la conception de systèmes, il aide les équipes à passer du code basique aux systèmes robustes de grade production.",
+
+  speakerSamediAdejoBio:
+    "Samedi Adeojo est un expert en cybersécurité dédié à démystifier la sécurité pour la prochaine génération de professionnels de la tech. À travers l'éducation pratique et le mentorat, il aide les développeurs en herbe à comprendre que la cybersécurité est à la fois accessible et essentielle pour chaque carrière en tech.",
+
   /* Schedule Groups */
-  scheduleSpeakerLightningTalks:
-    "Français : Doris Abadassi - Data Science : Les Compétences, la Carrière, l'Impact\nAnglais : Samuel Abada - La feuille de route du développeur mondial : des salles de classe locales au statut GDE",
+  scheduleSpeakerMorningPanel: "Doyin Kangope, Ifemayun Ife, Elaine-Gad Akinputi",
+  scheduleSpeakerMiddayLightning:
+    "Doris Abadassi - Data Science : Les Compétences, la Carrière, l'Impact",
+  scheduleSpeakerMiddayPanel: "Daniel Eketim, Ariam Biakie, Glann Siafu",
   scheduleSpeakerAfternoonTalks:
-    "Anglais : Samuel Afolabi\nFrançais : Martial Thierry - L'Innovation Locale et la Croissance Durable",
+    "Francha Daniel Tieger - Deux Terres d'Innovation à une Communauté Heartline",
+  scheduleSpeakerAfternoonLightning:
+    "Samuel Alade - La Feuille de Route du Développeur Mondial : Des Salles de Classe Locales au Statut GDE",
+  scheduleSpeakerAfternoonPartner: "Alphonse + Francha-Blonde Hasan",
+  scheduleSpeakerAfternoonSponsor: "Équipe CosmoTech/Tech",
   scheduleSpeakerAfternoonPanel:
-    "Damilola Daniel, Dami Opaniyan, Gloria-Maria - Le plan EdTech : Choisir son parcours et maîtriser l'écosystème",
-  scheduleSpeakerMiddayPanel:
-    "Panel Français : Divine Kenagnon, Freedauss Tanda, Praise-God Akujuobi\nPanel Anglais : Daniel Esuola, Imam Bashir, Glory Olaifa",
+    "Chididia Dalut, Dean Oparanta - Le Projet Edit! : Clarifier Votre Parcours et Maîtriser l'Écosystème",
 
   /* Extra Speakers from Schedule */
   speakerDorisAbadassiTitle: "Analyste Programmeur et Data Scientist",
@@ -389,12 +397,6 @@ const fr: typeof en = {
     "Naviguer dans l'écosystème tech béninois en tant que développeur web : le pouvoir de la communauté.",
   speakerDorisAbadassiBio:
     "Jospine Doris ABADASSI met la technologie au service de la santé publique et du leadership féminin en Afrique. Survivante d'une encéphalite auto-immune, elle transforme son parcours en expertise pour améliorer la santé neurologique par la donnée. Fondatrice de l'initiative Move4Epilepsy, elle développe des solutions numériques et pilote la campagne mondiale #FévrierLavande. Co-Lead de Python Bénin et formatrice pour « Science de Données au Féminin », elle allie recherche scientifique internationale (Génome Québec) et engagement communautaire (Speaker DevFest 2025).",
-
-  /* Speakers - Lauretta Ojionu */
-  // speakerLaurettaOjionuTitle: "Responsable des Partenariats, Epitech",
-  // speakerLaurettaOjionuTopic:
-  //   "Bâtir des Ponts : Le réseautage stratégique dans l'écosystème tech africain.",
-  // speakerLaurettaOjionuBio: "",
 
   /* Formats */
   speakerFormatStandardMasterclass: "Standard/Masterclass",

@@ -44,7 +44,7 @@ export function CountdownWidget() {
     }
 
     const calculateTimeLeft = () => {
-      const targetDate = new Date("2026-06-06T09:00:00").getTime();
+      const targetDate = new Date("2026-05-23T09:00:00").getTime();
       const now = Date.now();
       const difference = targetDate - now;
 
