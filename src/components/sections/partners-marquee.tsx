@@ -110,8 +110,8 @@ export function PartnersMarquee() {
           }}
         >
           <CarouselContent className="ml-0">
-            {partners.map((partner, i) => (
-              <CarouselItem key={`${partner.slug}-${i}`} className="basis-auto pl-0">
+            {partners.map((partner) => (
+              <CarouselItem key={partner.slug} className="basis-auto pl-0">
                 <PartnerLogo name={partner.name} logo={partner.logo} />
               </CarouselItem>
             ))}
@@ -140,8 +140,8 @@ export function PartnersMarquee() {
             {partners
               .slice()
               .reverse()
-              .map((partner, i) => (
-                <CarouselItem key={`rev-${partner.slug}-${i}`} className="basis-auto pl-0">
+              .map((partner) => (
+                <CarouselItem key={`rev-${partner.slug}`} className="basis-auto pl-0">
                   <PartnerLogo name={partner.name} logo={partner.logo} />
                 </CarouselItem>
               ))}

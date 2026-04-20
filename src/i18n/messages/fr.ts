@@ -378,18 +378,11 @@ const fr: typeof en = {
     "Samedi Adeojo est un expert en cybersécurité dédié à démystifier la sécurité pour la prochaine génération de professionnels de la tech. À travers l'éducation pratique et le mentorat, il aide les développeurs en herbe à comprendre que la cybersécurité est à la fois accessible et essentielle pour chaque carrière en tech.",
 
   /* Schedule Groups */
-  scheduleSpeakerMorningPanel: "Doyin Kangope, Ifemayun Ife, Elaine-Gad Akinputi",
-  scheduleSpeakerMiddayLightning:
-    "Doris Abadassi - Data Science : Les Compétences, la Carrière, l'Impact",
-  scheduleSpeakerMiddayPanel: "Daniel Eketim, Ariam Biakie, Glann Siafu",
-  scheduleSpeakerAfternoonTalks:
-    "Francha Daniel Tieger - Deux Terres d'Innovation à une Communauté Heartline",
-  scheduleSpeakerAfternoonLightning:
-    "Samuel Alade - La Feuille de Route du Développeur Mondial : Des Salles de Classe Locales au Statut GDE",
-  scheduleSpeakerAfternoonPartner: "Alphonse + Francha-Blonde Hasan",
-  scheduleSpeakerAfternoonSponsor: "Équipe CosmoTech/Tech",
+  scheduleSpeakerMorningPanel: "Divine Kenagnon, Freedauss Tanda, Praise-God Akujuobi",
+  scheduleSpeakerMiddayPanel: "Daniel Esuola, Imam Bashir, Glory Olaifa",
+  scheduleSpeakerAfternoonPartner: "Alphonse - Founder, Bitcoin Benin",
   scheduleSpeakerAfternoonPanel:
-    "Chididia Dalut, Dean Oparanta - Le Projet Edit! : Clarifier Votre Parcours et Maîtriser l'Écosystème",
+    "Damilola Daniel, Dami Opaniyan - Le Blueprint EdTech : Choisir son Parcours et Maîtriser l'Écosystème",
 
   /* Extra Speakers from Schedule */
   speakerDorisAbadassiTitle: "Analyste Programmeur et Data Scientist",

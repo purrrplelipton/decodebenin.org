@@ -87,4 +87,4 @@ function AvatarGroupCount({ className, ...props }: ComponentProps<"div">) {
   );
 }
 
-export { Avatar, AvatarImage, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarBadge };
+export { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage };

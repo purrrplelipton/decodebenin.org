@@ -258,8 +258,8 @@ export function ScheduleSection() {
                         <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
                           {t(item.speakerAndTopicKey)
                             .split("\\n")
-                            .map((line: string, i: number) => (
-                              <span key={`${item.id}-line-${i}`}>
+                            .map((line, i) => (
+                              <span key={`${item.id}-line-${String(i)}`}>
                                 {i !== 0 && <br />}
                                 {line}
                               </span>

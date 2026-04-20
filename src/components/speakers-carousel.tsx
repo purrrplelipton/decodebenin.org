@@ -139,7 +139,7 @@ export function SpeakersCarousel({ speakers }: { speakers: Speaker[] }) {
 
         <CarouselContent className="py-4">
           {speakers.map((s, i) => (
-            <CarouselItem key={`${s.id}-${i}`} className="basis-auto rounded-lg">
+            <CarouselItem key={s.id} className="basis-auto rounded-lg">
               <SpeakerCard
                 {...s}
                 index={i}
