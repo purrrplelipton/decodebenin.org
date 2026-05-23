@@ -1,6 +1,8 @@
 import { Icon } from "@iconify-icon/react";
+import type { Options as ConfettiOptions } from "canvas-confetti";
 import { useEffect, useState } from "react";
 import { useTranslations } from "use-intl";
+import { EVENT_END_MS, EVENT_LAUNCH_MS, EVENT_START_MS } from "#/lib/event-lifecycle";
 import { cn } from "#/lib/utils";
 
 interface TimeLeft {
@@ -13,7 +15,86 @@ interface TimeLeft {
 const STORAGE_KEYS = {
   VISITED: "decode_countdown_visited",
   EXPANDED: "decode_countdown_expanded",
+  CONFETTI_POPPED: "decode_countdown_confetti_popped",
 };
+
+const COUNTDOWN_COMPLETE: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+const CONFETTI_COLORS = ["#3d176e", "#6a37a0", "#16a05f", "#f1ce3f", "#c83d32", "#ffffff"];
+
+async function popCountdownConfetti() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const { default: confetti } = await import("canvas-confetti");
+  const defaults = {
+    colors: CONFETTI_COLORS,
+    disableForReducedMotion: true,
+    zIndex: 60,
+  } satisfies ConfettiOptions;
+
+  const cannonOrigin = { x: 0.95, y: 0.78 };
+  const duration = 3600;
+  const animationEnd = Date.now() + duration;
+
+  confetti({
+    ...defaults,
+    angle: 150,
+    origin: cannonOrigin,
+    particleCount: 120,
+    scalar: 0.95,
+    spread: 58,
+    startVelocity: 62,
+    ticks: 190,
+  });
+
+  window.setTimeout(() => {
+    confetti({
+      ...defaults,
+      angle: 120,
+      origin: { x: 0.88, y: 0.84 },
+      particleCount: 70,
+      scalar: 0.8,
+      spread: 75,
+      startVelocity: 42,
+      ticks: 170,
+    });
+  }, 260);
+
+  window.setTimeout(() => {
+    confetti({
+      ...defaults,
+      angle: 60,
+      origin: { x: 0.12, y: 0.82 },
+      particleCount: 55,
+      scalar: 0.75,
+      spread: 65,
+      startVelocity: 34,
+      ticks: 160,
+    });
+  }, 720);
+
+  const drift = () => {
+    const timeLeft = animationEnd - Date.now();
+
+    confetti({
+      ...defaults,
+      gravity: 0.72,
+      origin: { x: Math.random(), y: Math.random() * 0.25 },
+      particleCount: Math.max(2, Math.round(12 * (timeLeft / duration))),
+      scalar: 0.65 + Math.random() * 0.35,
+      spread: 90,
+      startVelocity: 24,
+      ticks: 210,
+    });
+
+    if (timeLeft > 0) {
+      window.requestAnimationFrame(drift);
+    }
+  };
+
+  window.requestAnimationFrame(drift);
+}
 
 export function CountdownWidget() {
   const t = useTranslations();
@@ -23,6 +104,7 @@ export function CountdownWidget() {
     minutes: 0,
     seconds: 0,
   });
+  const [now, setNow] = useState(() => Date.now());
   const [mounted, setMounted] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -43,10 +125,22 @@ export function CountdownWidget() {
       setIsExpanded(expandedPref === "true");
     }
 
+    let hasTriggeredConfetti = localStorage.getItem(STORAGE_KEYS.CONFETTI_POPPED) === "true";
+
+    const celebrateIfReady = () => {
+      if (hasTriggeredConfetti) return;
+      if (Date.now() > EVENT_END_MS) return;
+
+      hasTriggeredConfetti = true;
+      localStorage.setItem(STORAGE_KEYS.CONFETTI_POPPED, "true");
+      void popCountdownConfetti();
+    };
+
     const calculateTimeLeft = () => {
-      const targetDate = new Date("2026-05-23T09:00:00").getTime();
-      const now = Date.now();
-      const difference = targetDate - now;
+      const currentTime = Date.now();
+      const difference = EVENT_LAUNCH_MS - currentTime;
+
+      setNow(currentTime);
 
       if (difference > 0) {
         setTimeLeft({
@@ -56,7 +150,8 @@ export function CountdownWidget() {
           seconds: Math.floor((difference / 1000) % 60),
         });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+        setTimeLeft(COUNTDOWN_COMPLETE);
+        celebrateIfReady();
       }
     };
 
@@ -73,6 +168,7 @@ export function CountdownWidget() {
   };
 
   if (!mounted) return null;
+  if (now >= EVENT_START_MS) return null;
 
   return (
     <div

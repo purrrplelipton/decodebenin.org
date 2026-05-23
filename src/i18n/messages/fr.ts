@@ -48,6 +48,13 @@ const fr: typeof en = {
   scheduleLangFr: "Français",
   scheduleLangEn: "Anglais",
   scheduleLangFrEn: "Français / Anglais",
+  eventStatusLive: "En direct",
+  eventStatusUpNext: "À venir",
+  eventStatusDone: "Terminé",
+  eventStatusEndedTitle: "Merci d'avoir rejoint Decode Benin 1.0",
+  eventStatusEndedBody:
+    "La journée de lancement est terminée, mais la communauté continue d'avancer. Rejoignez le réseau Decode Benin pour les récapitulatifs, les ressources et les prochaines opportunités.",
+  eventStatusEndedCta: "Rejoindre la Communauté",
 
   problemTitle: "Le Problème",
   problemText:
@@ -93,8 +100,8 @@ const fr: typeof en = {
   galleryAriaLabel: "Galerie de photos de la communauté",
   galleryPhoto1: "Photo de rencontre communautaire 1",
   galleryPhoto2: "Photo de rencontre communautaire 2",
-  galleryPhoto3: "Photo de l'événement du 6 juin 1",
-  galleryPhoto4: "Photo de l'événement du 6 juin 2",
+  galleryPhoto3: "Photo de l'événement du 23 mai 1",
+  galleryPhoto4: "Photo de l'événement du 23 mai 2",
   galleryPhoto5: "Photo de session d'atelier",
   galleryPhoto6: "Photo de l'événement de réseautage",
   galleryTestimonial:

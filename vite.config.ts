@@ -15,7 +15,7 @@ const config = defineConfig(({ mode }) => {
     },
     preview: {
       port: Number.parseInt(env.PORT || "5174", 10),
-      allowedHosts: ["decodebenin.netlify.app"],
+      allowedHosts: ["decodebenin.netlify.app", "decodebenin.org"],
     },
     plugins: [
       tailwindcss(),
@@ -41,14 +41,7 @@ const config = defineConfig(({ mode }) => {
       }),
       svgr(),
     ],
-    ssr: {
-      noExternal: ["@iconify-icon/react", "react-country-flag"],
-    },
-    ...(env.NODE_ENV === "production" && {
-      esbuild: {
-        drop: ["console", "debugger"],
-      },
-    }),
+    // ...(env["NODE_ENV"] === "production" && { esbuild: { drop: ["console", "debugger"] } }),
     resolve: {
       tsconfigPaths: true,
     },

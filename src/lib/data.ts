@@ -95,8 +95,8 @@ export interface GalleryImage {
 export const galleryImages: GalleryImage[] = [
   { altKey: "galleryPhoto1", src: "/images/community-meetup-1.avif" },
   { altKey: "galleryPhoto2", src: "/images/community-meetup-2.avif" },
-  { altKey: "galleryPhoto3", src: "/images/june-6th-event-1.avif" },
-  { altKey: "galleryPhoto4", src: "/images/june-6th-event-2.avif" },
+  { altKey: "galleryPhoto3", src: "/images/may-23rd-event-1.avif" },
+  { altKey: "galleryPhoto4", src: "/images/may-23rd-event-2.avif" },
   { altKey: "galleryPhoto5", src: "/images/workshop-session.avif" },
   { altKey: "galleryPhoto6", src: "/images/networking-event.avif" },
 ].map((i) => ({ id: createId(), ...i }));
@@ -320,6 +320,8 @@ export const speakers: Speaker[] = [
 export interface ScheduleItem {
   id: string;
   time: string;
+  startsAt: string;
+  endsAt: string;
   activityKey: string;
   duration?: string;
   locationKey?: string;
@@ -343,11 +345,15 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "8:00 AM - 9:00 AM",
+        startsAt: "2026-05-23T08:00:00+01:00",
+        endsAt: "2026-05-23T09:00:00+01:00",
         activityKey: "scheduleActivityRegistration",
       },
       {
         id: createId(),
         time: "9:00 AM - 9:15 AM",
+        startsAt: "2026-05-23T09:00:00+01:00",
+        endsAt: "2026-05-23T09:15:00+01:00",
         activityKey: "scheduleActivityWelcome",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEnFr",
@@ -358,6 +364,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "9:15 AM - 9:45 AM",
+        startsAt: "2026-05-23T09:15:00+01:00",
+        endsAt: "2026-05-23T09:45:00+01:00",
         activityKey: "scheduleActivityKeynote",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -368,6 +376,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "9:45 AM - 10:10 AM",
+        startsAt: "2026-05-23T09:45:00+01:00",
+        endsAt: "2026-05-23T10:10:00+01:00",
         activityKey: "scheduleActivityStandardTalk",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -378,6 +388,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "10:10 AM - 10:35 AM",
+        startsAt: "2026-05-23T10:10:00+01:00",
+        endsAt: "2026-05-23T10:35:00+01:00",
         activityKey: "scheduleActivityStandardTalk",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -388,6 +400,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "10:35 AM - 11:15 AM",
+        startsAt: "2026-05-23T10:35:00+01:00",
+        endsAt: "2026-05-23T11:15:00+01:00",
         activityKey: "scheduleActivityPanelSessions",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangFr",
@@ -397,6 +411,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "11:15 AM - 11:30 AM",
+        startsAt: "2026-05-23T11:15:00+01:00",
+        endsAt: "2026-05-23T11:30:00+01:00",
         activityKey: "scheduleActivityGames1",
         duration: "15 mins",
       },
@@ -409,6 +425,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "11:30 AM - 11:50 AM",
+        startsAt: "2026-05-23T11:30:00+01:00",
+        endsAt: "2026-05-23T11:50:00+01:00",
         activityKey: "scheduleActivitySponsorSession",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -418,6 +436,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "11:50 AM - 12:05 PM",
+        startsAt: "2026-05-23T11:50:00+01:00",
+        endsAt: "2026-05-23T12:05:00+01:00",
         activityKey: "scheduleActivityLightningTalks",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangFr",
@@ -428,6 +448,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "12:05 PM - 12:25 PM",
+        startsAt: "2026-05-23T12:05:00+01:00",
+        endsAt: "2026-05-23T12:25:00+01:00",
         activityKey: "scheduleActivityStandardTalk",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -438,6 +460,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "12:25 PM - 12:55 PM",
+        startsAt: "2026-05-23T12:25:00+01:00",
+        endsAt: "2026-05-23T12:55:00+01:00",
         activityKey: "scheduleActivityPanelSessions",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -447,6 +471,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "12:55 PM - 1:15 PM",
+        startsAt: "2026-05-23T12:55:00+01:00",
+        endsAt: "2026-05-23T13:15:00+01:00",
         activityKey: "scheduleActivityStandardTalk",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -457,6 +483,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "1:15 PM - 1:25 PM",
+        startsAt: "2026-05-23T13:15:00+01:00",
+        endsAt: "2026-05-23T13:25:00+01:00",
         activityKey: "scheduleActivityGames2",
         duration: "10 mins",
       },
@@ -469,6 +497,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "1:25 PM - 1:45 PM",
+        startsAt: "2026-05-23T13:25:00+01:00",
+        endsAt: "2026-05-23T13:45:00+01:00",
         activityKey: "scheduleActivityStandardTalks",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangFr",
@@ -479,6 +509,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "1:45 PM - 2:00 PM",
+        startsAt: "2026-05-23T13:45:00+01:00",
+        endsAt: "2026-05-23T14:00:00+01:00",
         activityKey: "scheduleActivityLightningTalks",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",
@@ -489,6 +521,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "2:00 PM - 2:10 PM",
+        startsAt: "2026-05-23T14:00:00+01:00",
+        endsAt: "2026-05-23T14:10:00+01:00",
         activityKey: "scheduleActivitySponsorSession",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangFr",
@@ -498,6 +532,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "2:10 PM - 2:25 PM",
+        startsAt: "2026-05-23T14:10:00+01:00",
+        endsAt: "2026-05-23T14:25:00+01:00",
         activityKey: "scheduleActivitySponsorSession",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangFr",
@@ -507,6 +543,8 @@ export const schedule: ScheduleSession[] = [
       {
         id: createId(),
         time: "2:25 PM - 2:50 PM",
+        startsAt: "2026-05-23T14:25:00+01:00",
+        endsAt: "2026-05-23T14:50:00+01:00",
         activityKey: "scheduleActivityPanelSessions",
         locationKey: "scheduleLocationMainStage",
         languageKey: "scheduleLangEn",

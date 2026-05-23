@@ -1,0 +1,50 @@
+name: Deploy to Netlify
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: debian:trixie
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+      - name: Install system dependencies
+        run: apt-get update && apt-get install -y libatomic1
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: '.nvmrc'
+          check-latest: true
+      - name: Enable pnpm with Corepack
+        run: corepack enable
+      - name: Cache pnpm store
+        uses: actions/cache@v5
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: pnpm-
+      - name: Install dependencies
+        run: CI=true pnpm install --frozen-lockfile
+      - name: Check linting
+        run: pnpm lint
+      - name: Check formatting
+        run: pnpm format:check
+      - name: Run typecheck
+        run: pnpm typecheck
+      - name: Build application
+        run: pnpm build
+      - name: Deploy to Netlify
+        env:
+          BASE_URL: ${ { secrets.BASE_URL } }
+          PORT: ${ { secrets.PORT } }
+          NODE_ENV: ${ { secrets.NODE_ENV } }
+          VITE_SLACK_INVITE_URL: ${ { secrets.VITE_SLACK_INVITE_URL } }
+          VITE_NESTUGE_URL: ${ { secrets.VITE_NESTUGE_URL } }
+          VITE_TWITTER_URL: ${ { secrets.VITE_TWITTER_URL } }
+          VITE_LINKEDIN_URL: ${ { secrets.VITE_LINKEDIN_URL } }
+          VITE_INSTAGRAM_URL: ${ { secrets.VITE_INSTAGRAM_URL } }
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: pnpm dlx netlify deploy --prod --no-build

@@ -46,6 +46,13 @@ const en = {
   scheduleLangFr: "French",
   scheduleLangEn: "English",
   scheduleLangFrEn: "French / English",
+  eventStatusLive: "Live now",
+  eventStatusUpNext: "Up next",
+  eventStatusDone: "Done",
+  eventStatusEndedTitle: "Thanks for joining Decode Benin 1.0",
+  eventStatusEndedBody:
+    "The launch day has wrapped, but the community is still moving. Join the Decode Benin network for recaps, resources, and the next opportunities.",
+  eventStatusEndedCta: "Join the Community",
 
   problemTitle: "The Problem",
   problemText:
@@ -91,8 +98,8 @@ const en = {
   galleryAriaLabel: "Event photo gallery",
   galleryPhoto1: "Community meetup photo 1",
   galleryPhoto2: "Community meetup photo 2",
-  galleryPhoto3: "June 6th event photo 1",
-  galleryPhoto4: "June 6th event photo 2",
+  galleryPhoto3: "May 23rd event photo 1",
+  galleryPhoto4: "May 23rd event photo 2",
   galleryPhoto5: "Workshop session photo",
   galleryPhoto6: "Networking event photo",
   galleryTestimonial:
